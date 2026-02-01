@@ -14,19 +14,28 @@
         section { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 2.5rem; }
         h2 { color: var(--navy); border-left: 6px solid var(--gold); padding-left: 15px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
         h3 { color: var(--navy); margin-top: 1.5rem; }
-        .mission-text { font-size: 1.15rem; color: #444; border-left: 3px solid #eee; padding-left: 20px; margin-bottom: 1.5rem; }
+        
+        /* Grid & Cards */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 1rem; }
         .card { background: #f9f9f9; padding: 15px; border-radius: 5px; border-top: 3px solid var(--navy); display: flex; flex-direction: column; justify-content: space-between; }
         .role { font-size: 0.85rem; color: #666; font-weight: bold; text-transform: uppercase; display: block; }
         .name { font-size: 1.1rem; color: var(--navy); }
+
+        /* Featured Photo Styling */
+        .featured-photo-container { text-align: center; margin-top: 1rem; }
+        .featured-photo { width: 100%; max-height: 500px; object-fit: cover; border-radius: 8px; border: 3px solid var(--gold); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .photo-caption { margin-top: 10px; font-style: italic; color: #555; }
+
         .history-card { background: #e3f2fd; border-left: 5px solid #1565c0; padding: 20px; border-radius: 5px; }
         .btn { display: inline-block; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; margin: 10px 5px; text-align: center; }
         .branch-btn { background: var(--gold); color: var(--navy); font-size: 1.2rem; border: 2px solid var(--navy); }
-        .fb-btn { background: #1877F2; color: white; }
         .fra-btn { background: var(--navy); color: white; border: 1px solid var(--gold); }
         .map-link { font-size: 0.9rem; color: #004477; text-decoration: underline; display: block; margin-top: 10px; font-weight: bold; }
         .btn:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        footer { text-align: center; padding: 3rem; font-size: 0.9rem; color: #777; background: #eee; }
+        
+        /* Contact Footer Styling */
+        .contact-footer { background: #eee; padding: 3rem; text-align: center; font-size: 0.95rem; border-top: 1px solid #ccc; }
+        .contact-email { color: var(--navy); font-weight: bold; text-decoration: none; font-size: 1.1rem; }
     </style>
 </head>
 <body>
@@ -48,7 +57,7 @@
         <div class="card" style="border-left: 5px solid var(--gold); background: #fffde7;">
             <h3 style="margin-top: 0; color: var(--navy);">★ Welcome to our New Digital Home</h3>
             <p><em>Posted: February 1, 2026</em></p>
-            <p>We've officially launched the MSC Duley website to better serve our members and the local veteran community. Check back here for updates on upcoming events and FRA Branch 172 news!</p>
+            <p>We've officially launched the MSC Duley website to better serve our members and the local veteran community. Check back here for updates on upcoming events!</p>
         </div>
     </section>
 
@@ -59,19 +68,27 @@
                 <div>
                     <span class="role">Advocacy & Heritage</span>
                     <h3 style="margin-top: 5px;">Join FRA Branch 172</h3>
-                    <p style="font-size: 0.95rem;"><strong>Open to all current and former US Navy, Marine Corps, and Coast Guard personnel.</strong> Help us protect the benefits you earned through a century of tradition.</p>
+                    <p style="font-size: 0.95rem;">Open to all current and former US Navy, Marine Corps, and Coast Guard personnel. Help us protect the benefits you earned.</p>
                 </div>
                 <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" class="btn fra-btn" target="_blank">Join FRA Online</a>
             </div>
-            
             <div class="card">
                 <div>
                     <span class="role">Social & Community</span>
                     <h3 style="margin-top: 5px;">Join the Club</h3>
-                    <p style="font-size: 0.95rem;">The MSC Duley offers camaraderie and events for the Yorktown military community. Learn about our verification process and application requirements.</p>
+                    <p style="font-size: 0.95rem;">The MSC Duley offers camaraderie and fellowship for the Yorktown military community. See our verification process.</p>
                 </div>
                 <a href="join.html" class="btn branch-btn">How to Join</a>
             </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Featured Photo</h2>
+        <div class="featured-photo-container">
+            <img src="featured.jpg" alt="Featured Club Event" class="featured-photo">
+            <p class="photo-caption">Fellowship and camaraderie at the MSC Duley.</p>
+            <a href="gallery.html" class="map-link">View Community Photo Gallery →</a>
         </div>
     </section>
 
@@ -87,42 +104,21 @@
         <h2>Visit Us</h2>
         <div class="grid">
             <div class="card">
-                <div>
-                    <span class="role">Location</span>
-                    <span class="name">400 Old York Hampton Hwy<br>Yorktown, VA 23692</span>
-                </div>
+                <div><span class="role">Location</span><span class="name">400 Old York Hampton Hwy<br>Yorktown, VA 23692</span></div>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=400+Old+York+Hampton+Hwy+Yorktown+VA+23692" class="map-link" target="_blank">Get Directions</a>
             </div>
             <div class="card">
-                <div>
-                    <span class="role">Schedule</span>
-                    <span class="name">Monthly Events<br>& Food Specials</span>
-                </div>
+                <div><span class="role">Schedule</span><span class="name">Events & Specials</span></div>
                 <a href="calendar.html" class="map-link">View Calendar →</a>
             </div>
             <div class="card">
-                <div>
-                    <span class="role">Phone</span>
-                    <span class="name">(757) 898-8070</span>
-                </div>
+                <div><span class="role">Gallery</span><span class="name">Member Photos</span></div>
+                <a href="gallery.html" class="map-link">Open Gallery →</a>
+            </div>
+            <div class="card">
+                <div><span class="role">Phone</span><span class="name">(757) 898-8070</span></div>
             </div>
         </div>
-    </section>
-
-    <section>
-        <h2>Mission Statement</h2>
-        <div class="mission-text">
-            <p>As the home of <strong>FRA Branch 172</strong>, the Military Services Club Duley is a welcoming hub for veterans, active-duty service members, and their families from all branches of the U.S. military.</p>
-            <p>Our mission is to foster camaraderie and support by providing a member-driven club where fellowship, advocacy, and community engagement thrive. We are dedicated to responsibly operating our facilities to advance the welfare of our members and uphold a tradition of honor and mutual respect.</p>
-        </div>
-
-        <h3>Our Guiding Principles</h3>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 15px;"><strong>Foster a Community:</strong> We provide a dedicated space for members and their families to connect, share experiences, and build lasting friendships.</li>
-            <li style="margin-bottom: 15px;"><strong>Support Our Members:</strong> We stand as a resource for veterans, their families, and their dependents, offering a platform for advocacy and supporting organizations that advance the welfare of the military community.</li>
-            <li style="margin-bottom: 15px;"><strong>Uphold Our Traditions:</strong> We honor the legacy of military service through a commitment to respect, integrity, and the enduring values of our nation's armed forces.</li>
-            <li style="margin-bottom: 15px;"><strong>Ensure Responsible Stewardship:</strong> We will responsibly manage our facilities and finances, including our licensed bar and gaming operations, to ensure the long-term success and stability of the club for all members.</li>
-        </ul>
     </section>
 
     <section>
@@ -148,36 +144,30 @@
         </div>
     </section>
 
-    <section style="text-align: center;">
-        <h2>Connect & Affiliations</h2>
-        <p>Explore our community and the organizations we represent.</p>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-            <a href="https://www.facebook.com/MSC.Duley/" class="btn fb-btn" target="_blank">Visit Our Facebook</a>
-            <a href="https://www.fra.org/fra/web/" class="btn fra-btn" target="_blank">National FRA</a>
-            <a href="https://fra-ecregion.org/" class="btn fra-btn" target="_blank">FRA East Coast Region</a>
-        </div>
-    </section>
-
 </div>
 
-<footer>
-    © 2026 Military Services Club Duley | 501(c)(19) Veterans Organization | Yorktown, VA
+<footer class="contact-footer">
+    <p>Questions? Contact the Board or Manager:</p>
+    <a href="mailto:info@mscduley.org" class="contact-email">info@mscduley.org</a>
+    <p style="margin-top: 2rem; color: #777; font-size: 0.8rem;">
+        © 2026 Military Services Club Duley | 501(c)(19) Veterans Organization | Yorktown, VA
+    </p>
 </footer>
 
 <script>
     const monthlyHistory = {
-        1: { title: "January in Military History", events: ["Vietnam (1968): The Tet Offensive begins, a major turning point in the war.", "Korea (1951): UN forces begin Operation Thunderbolt to retake territory south of Seoul.", "GWOT (2002): The first detainees arrive at Guantanamo Bay."] },
-        2: { title: "February in Military History", events: ["Vietnam (1968): The Battle of Hue rages as U.S. Marines fight to retake the Citadel.", "Korea (1951): The Battle of Chipyong-ni concludes.", "GWOT (1991/2003): February saw major troop buildups for Desert Storm and OIF."] },
-        3: { title: "March in Military History", events: ["GWOT (2003): Operation Iraqi Freedom begins.", "Vietnam (1965): The first U.S. combat troops land at Da Nang.", "Korea (1951): Operation Ripper is launched to liberate Seoul."] },
+        1: { title: "January in Military History", events: ["Vietnam (1968): The Tet Offensive begins.", "Korea (1951): UN forces begin Operation Thunderbolt.", "GWOT (2002): The first detainees arrive at Guantanamo Bay."] },
+        2: { title: "February in Military History", events: ["Vietnam (1968): The Battle of Hue rages.", "Korea (1951): The Battle of Chipyong-ni concludes.", "GWOT (1991/2003): February saw major troop buildups for Desert Storm and OIF."] },
+        3: { title: "March in Military History", events: ["GWOT (2003): Operation Iraqi Freedom begins.", "Vietnam (1965): The first U.S. combat troops land at Da Nang.", "Korea (1951): Operation Ripper is launched."] },
         4: { title: "April in Military History", events: ["Korea (1951): The Battle of the Imjin River.", "Vietnam (1975): The Fall of Saigon marks the end of the conflict.", "GWOT (2004): The First Battle of Fallujah begins."] },
-        5: { title: "May in Military History", events: ["GWOT (2011): Mission successfully completed to neutralize Osama bin Laden.", "Vietnam (1969): The Battle of Hamburger Hill concludes.", "Korea (1951): The 'May Massacre' occurs."] },
-        6: { title: "June in Military History", events: ["Korea (1950): The Korean War begins.", "Vietnam (1965): U.S. ground forces authorized for combat.", "GWOT (2006): Abu Musab al-Zarqawi killed in airstrike."] },
-        7: { title: "July in Military History", events: ["Korea (1953): The Korean Armistice Agreement is signed.", "Vietnam (1954): The Geneva Accords divide Vietnam at the 17th parallel.", "GWOT (2009): Operation Khanjar begins."] },
+        5: { title: "May in Military History", events: ["GWOT (2011): Bin Laden mission completed.", "Vietnam (1969): The Battle of Hamburger Hill concludes.", "Korea (1951): The 'May Massacre' occurs."] },
+        6: { title: "June in Military History", events: ["Korea (1950): The Korean War begins.", "Vietnam (1965): U.S. ground forces authorized for combat.", "GWOT (2006): Abu Musab al-Zarqawi killed."] },
+        7: { title: "July in Military History", events: ["Korea (1953): The Korean Armistice Agreement is signed.", "Vietnam (1954): The Geneva Accords divide Vietnam.", "GWOT (2009): Operation Khanjar begins."] },
         8: { title: "August in Military History", events: ["Vietnam (1964): Gulf of Tonkin Incident.", "GWOT (1990): Operation Desert Shield begins.", "Korea (1950): The Battle of the Pusan Perimeter begins."] },
         9: { title: "September in Military History", events: ["Korea (1950): MacArthur’s forces land at Inchon.", "GWOT (2001): September 11 attacks lead to launch of GWOT.", "Vietnam (1967): Siege of Con Thien begins."] },
         10: { title: "October in Military History", events: ["GWOT (2001): Operation Enduring Freedom begins.", "Vietnam (1965): The Battle of Ia Drang begins.", "Korea (1950): UN forces capture Pyongyang."] },
         11: { title: "November in Military History", events: ["Korea (1950): Battle of Chosin Reservoir begins.", "Vietnam (1967): The Battle of Dak To takes place.", "GWOT (2004): Second Battle of Fallujah begins."] },
-        12: { title: "December in Military History", events: ["Vietnam (1972): Operation Linebacker II launched.", "GWOT (2003): Saddam Hussein captured in Operation Red Dawn.", "Korea (1950): The Hungnam Evacuation rescues 100,000+."] }
+        12: { title: "December in Military History", events: ["Vietnam (1972): Operation Linebacker II launched.", "GWOT (2003): Saddam Hussein captured.", "Korea (1950): The Hungnam Evacuation rescues 100,000+."] }
     };
     function updateMonthlyHistory() {
         const currentMonth = new Date().getMonth() + 1;
