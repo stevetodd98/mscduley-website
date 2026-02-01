@@ -1,3 +1,8 @@
+To make the "We are Open" status bar flashier, we can use a CSS Animation. Since you're a Cyber SME, you'll appreciate this approach: it uses zero external libraries and zero tracking—just a few lines of code to make the bar "glow" or "pulse" to grab attention.
+
+Here is the updated index.html. I have added a "pulsing" gold-to-bright-yellow animation and bolded the text to make it impossible to miss.
+
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +10,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MSC Duley | FRA Branch 172</title>
     <style>
-        :root { --navy: #002147; --gold: #C5B358; --white: #ffffff; --light-gray: #f4f4f4; }
+        :root { --navy: #002147; --gold: #C5B358; --white: #ffffff; --light-gray: #f4f4f4; --bright-gold: #ffd700; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: #333; background-color: var(--light-gray); }
         
-        /* Live Status Bar */
-        .status-bar { background: var(--gold); color: var(--navy); text-align: center; padding: 10px; font-weight: bold; border-bottom: 2px solid var(--navy); font-size: 1.1rem; }
+        /* FLASHY LIVE STATUS BAR */
+        .status-bar { 
+            background: var(--gold); 
+            color: var(--navy); 
+            text-align: center; 
+            padding: 15px; 
+            font-weight: 900; 
+            border-bottom: 3px solid var(--navy); 
+            font-size: 1.3rem; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse-gold 2s infinite; /* This triggers the flash */
+        }
+
+        /* The Animation Logic */
+        @keyframes pulse-gold {
+            0% { background-color: var(--gold); box-shadow: inset 0 0 0px rgba(0,0,0,0); }
+            50% { background-color: var(--bright-gold); box-shadow: inset 0 0 20px rgba(255,255,255,0.5); }
+            100% { background-color: var(--gold); box-shadow: inset 0 0 0px rgba(0,0,0,0); }
+        }
         
         header { background: var(--navy); color: var(--white); padding: 3rem 1rem; text-align: center; border-bottom: 5px solid var(--gold); }
         .logo-container { display: flex; justify-content: center; gap: 30px; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
@@ -18,7 +41,6 @@
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 20px; }
         section { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 2.5rem; }
         h2 { color: var(--navy); border-left: 6px solid var(--gold); padding-left: 15px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
-        h3 { color: var(--navy); margin-top: 1.5rem; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 1rem; }
         .card { background: #f9f9f9; padding: 15px; border-radius: 5px; border-top: 3px solid var(--navy); display: flex; flex-direction: column; justify-content: space-between; }
@@ -160,15 +182,13 @@
 </footer>
 
 <script>
-    // --- STAFF SCHEDULE CONFIGURATION ---
-    // Update the names here whenever the monthly calendar changes!
     const weeklyStaff = {
         0: "Valerie", // Sunday
         1: "Barbra",  // Monday
         2: "Barbra",  // Tuesday
         3: "Tiffani", // Wednesday
         4: "Tiffani", // Thursday
-        5: "Jen/Kandi", // Friday (Placeholders)
+        5: "Jen/Kandi", // Friday
         6: "Jan"      // Saturday
     };
 
@@ -192,11 +212,11 @@
         const day = now.getDay(); 
         const month = now.getMonth() + 1;
         
-        // 1. Update Status Bar using the weeklyStaff map
+        // Update Status Bar
         const currentStaff = weeklyStaff[day];
         document.getElementById('live-status').innerText = `📢 We are OPEN! Come on in and see ${currentStaff} (2pm - 10pm)`;
 
-        // 2. Update Monthly History
+        // Update Monthly History
         const data = monthlyHistory[month];
         document.getElementById('history-month').innerText = data.title;
         const listContainer = document.getElementById('history-list');
@@ -214,4 +234,3 @@
 
 </body>
 </html>
-
