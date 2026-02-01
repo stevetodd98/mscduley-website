@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery | MSC Duley</title>
+    <style>
+        :root { --navy: #002147; --gold: #C5B358; --white: #ffffff; --light-gray: #f4f4f4; }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; background: var(--light-gray); text-align: center; }
+        header { background: var(--navy); color: white; padding: 2.5rem; border-bottom: 5px solid var(--gold); }
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 20px; }
+        section { background: white; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        .gallery-card { background: #fffde7; border: 2px dashed var(--gold); padding: 25px; border-radius: 8px; margin-bottom: 2rem; }
+        .btn { display: inline-block; padding: 14px 30px; background: var(--navy); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; margin: 10px; border: 1px solid var(--gold); }
+        .btn:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+        
+        .instructions { text-align: left; background: #f9f9f9; padding: 20px; border-radius: 5px; margin-top: 20px; font-size: 0.95rem; }
+        .back-link { display: block; margin-top: 30px; color: var(--navy); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>MSC Duley Photo Gallery</h1>
+    <p>Honoring the Legacy & Fellowship of FRA Branch 172</p>
+</header>
+
+<div class="container">
+    <section>
+        <div class="gallery-card">
+            <h2>Community Photo Album</h2>
+            <p>We invite our members to view and contribute photos from club events, holiday parties, and Friday fellowship hours.</p>
+            
+            <a href="https://photos.app.goo.gl/JxEERcKuS3MkJJ1g7" class="btn" target="_blank">📸 View & Upload Photos</a>
+        </div>
+
+        <div class="instructions">
+            <h3>How to contribute:</h3>
+            <ol>
+                <li>Click the button above to open the shared Google Photos album.</li>
+                <li>Sign in to your Google account if prompted.</li>
+                <li>Click the <strong>"Add to album"</strong> icon (it looks like a photo with a plus sign) to upload your own pictures.</li>
+                <li>New photos will be reviewed periodically for the "Featured Photo" on our home page!</li>
+            </ol>
+        </div>
+
+        <p style="margin-top: 2rem; color: #666; font-size: 0.85rem;">
+            <em>Note: Please ensure all uploaded content is respectful of our members and military traditions.</em>
+        </p>
+    </section>
+
+    <a href="index.html" class="back-link">← Back to Home Page</a>
+</div>
+
+<footer>
+    <p style="padding: 2rem; color: #888; font-size: 0.8rem;">© 2026 Military Services Club Duley | Yorktown, VA</p>
+</footer>
+
+</body>
+</html>
