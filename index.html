@@ -1,3 +1,9 @@
+No problem at all! It is much safer to copy and paste the entire file to make sure no tags (like <div> or <section>) get left open.
+
+I have integrated the Monthly Military History script, added Tiffani Bowmen as Club Manager, included the Calendar link, and ensured the location is set to Yorktown, VA.
+
+The Complete index.html
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +28,14 @@
         h3 { color: var(--navy); margin-top: 1.5rem; }
         .mission-text { font-size: 1.15rem; color: #444; border-left: 3px solid #eee; padding-left: 20px; margin-bottom: 1.5rem; }
         
-        /* Grid Styles */
+        /* Grid & Cards */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 1rem; }
         .card { background: #f9f9f9; padding: 15px; border-radius: 5px; border-top: 3px solid var(--navy); display: flex; flex-direction: column; justify-content: space-between; }
         .role { font-size: 0.85rem; color: #666; font-weight: bold; text-transform: uppercase; display: block; }
         .name { font-size: 1.1rem; color: var(--navy); }
+
+        /* History Card Styling */
+        .history-card { background: #e3f2fd; border-left: 5px solid #1565c0; padding: 20px; border-radius: 5px; }
 
         /* Buttons & Links */
         .btn { display: inline-block; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; margin: 10px 5px; text-align: center; }
@@ -59,6 +68,15 @@
             <h3 style="margin-top: 0; color: var(--navy);">★ Welcome to our New Digital Home</h3>
             <p><em>Posted: February 1, 2026</em></p>
             <p>We've officially launched the MSC Duley website to better serve our members and the local veteran community. Check back here for updates on upcoming events and FRA Branch 172 news!</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>This Month in Military History</h2>
+        <div id="history-content" class="history-card">
+            <h3 id="history-month" style="margin-top: 0; color: #1565c0;">Loading History...</h3>
+            <ul id="history-list" style="padding-left: 20px;">
+                </ul>
         </div>
     </section>
 
@@ -144,6 +162,125 @@
 <footer>
     © 2026 Military Services Club Duley | 501(c)(19) Veterans Organization | Yorktown, VA
 </footer>
+
+<script>
+    const monthlyHistory = {
+        1: {
+            title: "January in Military History",
+            events: [
+                "Vietnam (1968): The Tet Offensive begins, a major turning point in the war.",
+                "Korea (1951): UN forces begin Operation Thunderbolt to retake territory south of Seoul.",
+                "GWOT (2002): The first detainees arrive at Guantanamo Bay as part of Operation Enduring Freedom."
+            ]
+        },
+        2: {
+            title: "February in Military History",
+            events: [
+                "Vietnam (1968): The Battle of Hue rages as U.S. Marines and ARVN forces fight to retake the Citadel.",
+                "Korea (1951): The Battle of Chipyong-ni concludes, often called the 'Gettysburg of the Korean War'.",
+                "GWOT (1991/2003): February saw major troop buildups for both Desert Storm and OIF."
+            ]
+        },
+        3: {
+            title: "March in Military History",
+            events: [
+                "GWOT (2003): Operation Iraqi Freedom begins with a major air and ground campaign.",
+                "Vietnam (1965): The first U.S. combat troops (3rd Marine Regiment) land at Da Nang.",
+                "Korea (1951): Operation Ripper is launched to liberate Seoul for the second time."
+            ]
+        },
+        4: {
+            title: "April in Military History",
+            events: [
+                "Korea (1951): The Battle of the Imjin River takes place, where UN forces blocked the Chinese spring offensive.",
+                "Vietnam (1975): The Fall of Saigon and Operation Frequent Wind mark the end of the conflict.",
+                "GWOT (2004): The First Battle of Fallujah begins (Operation Vigilant Resolve)."
+            ]
+        },
+        5: {
+            title: "May in Military History",
+            events: [
+                "GWOT (2011): U.S. Navy SEALs successfully complete the mission to neutralize Osama bin Laden.",
+                "Vietnam (1969): The Battle of Hamburger Hill (Ap Bia Mountain) concludes.",
+                "Korea (1951): The 'May Massacre' occurs as UN forces decisively defeat a major Chinese offensive."
+            ]
+        },
+        6: {
+            title: "June in Military History",
+            events: [
+                "Korea (1950): The Korean War begins as North Korean forces cross the 38th parallel.",
+                "Vietnam (1965): General Westmoreland receives authority to commit U.S. ground forces to combat.",
+                "GWOT (2006): Al-Qaeda in Iraq leader Abu Musab al-Zarqawi is killed in a U.S. airstrike."
+            ]
+        },
+        7: {
+            title: "July in Military History",
+            events: [
+                "Korea (1953): The Korean Armistice Agreement is signed, establishing the DMZ.",
+                "Vietnam (1954): The Geneva Accords are signed, temporarily dividing Vietnam at the 17th parallel.",
+                "GWOT (2009): Operation Khanjar begins, the largest Marine offensive in Afghanistan since the start of the war."
+            ]
+        },
+        8: {
+            title: "August in Military History",
+            events: [
+                "Vietnam (1964): The Gulf of Tonkin Incident leads to increased U.S. military involvement.",
+                "GWOT (1990): Operation Desert Shield begins following the invasion of Kuwait.",
+                "Korea (1950): The Battle of the Pusan Perimeter begins, a desperate defense of the last UN-held territory."
+            ]
+        },
+        9: {
+            title: "September in Military History",
+            events: [
+                "Korea (1950): General MacArthur’s forces land at Inchon (Operation Chromite), changing the course of the war.",
+                "GWOT (2001): The September 11 attacks occur, leading to the launch of the Global War on Terror.",
+                "Vietnam (1967): The Siege of Con Thien begins near the DMZ."
+            ]
+        },
+        10: {
+            title: "October in Military History",
+            events: [
+                "GWOT (2001): Operation Enduring Freedom begins in Afghanistan.",
+                "Vietnam (1965): The Battle of Ia Drang begins, the first major engagement between U.S. and NVA regulars.",
+                "Korea (1950): UN forces capture Pyongyang, the capital of North Korea."
+            ]
+        },
+        11: {
+            title: "November in Military History",
+            events: [
+                "Korea (1950): The Battle of Chosin Reservoir begins in sub-zero temperatures.",
+                "Vietnam (1967): The Battle of Dak To takes place in the central highlands.",
+                "GWOT (2004): The Second Battle of Fallujah (Operation Phantom Fury) begins."
+            ]
+        },
+        12: {
+            title: "December in Military History",
+            events: [
+                "Vietnam (1972): Operation Linebacker II (the Christmas Bombings) is launched.",
+                "GWOT (2003): Saddam Hussein is captured by U.S. forces in Operation Red Dawn.",
+                "Korea (1950): The Hungnam Evacuation (the 'Miracle of Christmas') rescues over 100,000 troops and civilians."
+            ]
+        }
+    };
+
+    function updateMonthlyHistory() {
+        const currentMonth = new Date().getMonth() + 1;
+        const data = monthlyHistory[currentMonth];
+        
+        document.getElementById('history-month').innerText = data.title;
+        const listContainer = document.getElementById('history-list');
+        listContainer.innerHTML = ""; // Clear loader
+        
+        data.events.forEach(event => {
+            let li = document.createElement('li');
+            li.style.marginBottom = "10px";
+            li.innerText = event;
+            listContainer.appendChild(li);
+        });
+    }
+
+    window.onload = updateMonthlyHistory;
+</script>
 
 </body>
 </html>
