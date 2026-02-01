@@ -66,11 +66,33 @@
     </section>
 
     <section>
+        <h2>Membership</h2>
+        <div class="grid">
+            <div class="card" style="border-top: 3px solid var(--gold);">
+                <div>
+                    <span class="role">Advocacy & Heritage</span>
+                    <h3 style="margin-top: 5px;">Join FRA Branch 172</h3>
+                    <p style="font-size: 0.95rem;">Open to all Navy, Marine Corps, and Coast Guard personnel (Active, Reserve, and Retired). Help us protect the benefits you earned.</p>
+                </div>
+                <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" class="btn fra-btn" target="_blank">Apply Online (National)</a>
+            </div>
+            
+            <div class="card">
+                <div>
+                    <span class="role">Social & Community</span>
+                    <h3 style="margin-top: 5px;">Join the Club</h3>
+                    <p style="font-size: 0.95rem;">Join the MSC Duley for camaraderie, events, and fellowship. Contact our manager or stop by the club to pick up an application.</p>
+                </div>
+                <a href="mailto:info@mscduley.org" class="btn branch-btn">Request Application</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
         <h2>This Month in Military History</h2>
         <div id="history-content" class="history-card">
             <h3 id="history-month" style="margin-top: 0; color: #1565c0;">Loading History...</h3>
-            <ul id="history-list" style="padding-left: 20px;">
-                </ul>
+            <ul id="history-list" style="padding-left: 20px;"></ul>
         </div>
     </section>
 
@@ -145,7 +167,7 @@
         <h2>Connect & Affiliations</h2>
         <p>Explore our community and the organizations we represent.</p>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-            <a href="https://www.facebook.com/profile.php?id=100085637943027" class="btn fb-btn" target="_blank">Visit Our Facebook</a>
+            <a href="https://www.facebook.com/MSC.Duley/" class="btn fb-btn" target="_blank">Visit Our Facebook</a>
             <a href="https://www.fra.org/fra/web/" class="btn fra-btn" target="_blank">National FRA</a>
             <a href="https://fra-ecregion.org/" class="btn fra-btn" target="_blank">FRA East Coast Region</a>
         </div>
@@ -159,112 +181,26 @@
 
 <script>
     const monthlyHistory = {
-        1: {
-            title: "January in Military History",
-            events: [
-                "Vietnam (1968): The Tet Offensive begins, a major turning point in the war.",
-                "Korea (1951): UN forces begin Operation Thunderbolt to retake territory south of Seoul.",
-                "GWOT (2002): The first detainees arrive at Guantanamo Bay as part of Operation Enduring Freedom."
-            ]
-        },
-        2: {
-            title: "February in Military History",
-            events: [
-                "Vietnam (1968): The Battle of Hue rages as U.S. Marines and ARVN forces fight to retake the Citadel.",
-                "Korea (1951): The Battle of Chipyong-ni concludes, often called the 'Gettysburg of the Korean War'.",
-                "GWOT (1991/2003): February saw major troop buildups for both Desert Storm and OIF."
-            ]
-        },
-        3: {
-            title: "March in Military History",
-            events: [
-                "GWOT (2003): Operation Iraqi Freedom begins with a major air and ground campaign.",
-                "Vietnam (1965): The first U.S. combat troops (3rd Marine Regiment) land at Da Nang.",
-                "Korea (1951): Operation Ripper is launched to liberate Seoul for the second time."
-            ]
-        },
-        4: {
-            title: "April in Military History",
-            events: [
-                "Korea (1951): The Battle of the Imjin River takes place, where UN forces blocked the Chinese spring offensive.",
-                "Vietnam (1975): The Fall of Saigon and Operation Frequent Wind mark the end of the conflict.",
-                "GWOT (2004): The First Battle of Fallujah begins (Operation Vigilant Resolve)."
-            ]
-        },
-        5: {
-            title: "May in Military History",
-            events: [
-                "GWOT (2011): U.S. Navy SEALs successfully complete the mission to neutralize Osama bin Laden.",
-                "Vietnam (1969): The Battle of Hamburger Hill (Ap Bia Mountain) concludes.",
-                "Korea (1951): The 'May Massacre' occurs as UN forces decisively defeat a major Chinese offensive."
-            ]
-        },
-        6: {
-            title: "June in Military History",
-            events: [
-                "Korea (1950): The Korean War begins as North Korean forces cross the 38th parallel.",
-                "Vietnam (1965): General Westmoreland receives authority to commit U.S. ground forces to combat.",
-                "GWOT (2006): Al-Qaeda in Iraq leader Abu Musab al-Zarqawi is killed in a U.S. airstrike."
-            ]
-        },
-        7: {
-            title: "July in Military History",
-            events: [
-                "Korea (1953): The Korean Armistice Agreement is signed, establishing the DMZ.",
-                "Vietnam (1954): The Geneva Accords are signed, temporarily dividing Vietnam at the 17th parallel.",
-                "GWOT (2009): Operation Khanjar begins, the largest Marine offensive in Afghanistan since the start of the war."
-            ]
-        },
-        8: {
-            title: "August in Military History",
-            events: [
-                "Vietnam (1964): The Gulf of Tonkin Incident leads to increased U.S. military involvement.",
-                "GWOT (1990): Operation Desert Shield begins following the invasion of Kuwait.",
-                "Korea (1950): The Battle of the Pusan Perimeter begins, a desperate defense of the last UN-held territory."
-            ]
-        },
-        9: {
-            title: "September in Military History",
-            events: [
-                "Korea (1950): General MacArthur’s forces land at Inchon (Operation Chromite), changing the course of the war.",
-                "GWOT (2001): The September 11 attacks occur, leading to the launch of the Global War on Terror.",
-                "Vietnam (1967): The Siege of Con Thien begins near the DMZ."
-            ]
-        },
-        10: {
-            title: "October in Military History",
-            events: [
-                "GWOT (2001): Operation Enduring Freedom begins in Afghanistan.",
-                "Vietnam (1965): The Battle of Ia Drang begins, the first major engagement between U.S. and NVA regulars.",
-                "Korea (1950): UN forces capture Pyongyang, the capital of North Korea."
-            ]
-        },
-        11: {
-            title: "November in Military History",
-            events: [
-                "Korea (1950): The Battle of Chosin Reservoir begins in sub-zero temperatures.",
-                "Vietnam (1967): The Battle of Dak To takes place in the central highlands.",
-                "GWOT (2004): The Second Battle of Fallujah (Operation Phantom Fury) begins."
-            ]
-        },
-        12: {
-            title: "December in Military History",
-            events: [
-                "Vietnam (1972): Operation Linebacker II (the Christmas Bombings) is launched.",
-                "GWOT (2003): Saddam Hussein is captured by U.S. forces in Operation Red Dawn.",
-                "Korea (1950): The Hungnam Evacuation (the 'Miracle of Christmas') rescues over 100,000 troops and civilians."
-            ]
-        }
+        1: { title: "January in Military History", events: ["Vietnam (1968): The Tet Offensive begins, a major turning point in the war.", "Korea (1951): UN forces begin Operation Thunderbolt to retake territory south of Seoul.", "GWOT (2002): The first detainees arrive at Guantanamo Bay."] },
+        2: { title: "February in Military History", events: ["Vietnam (1968): The Battle of Hue rages as U.S. Marines fight to retake the Citadel.", "Korea (1951): The Battle of Chipyong-ni concludes.", "GWOT (1991/2003): February saw major troop buildups for Desert Storm and OIF."] },
+        3: { title: "March in Military History", events: ["GWOT (2003): Operation Iraqi Freedom begins.", "Vietnam (1965): The first U.S. combat troops land at Da Nang.", "Korea (1951): Operation Ripper is launched to liberate Seoul."] },
+        4: { title: "April in Military History", events: ["Korea (1951): The Battle of the Imjin River.", "Vietnam (1975): The Fall of Saigon marks the end of the conflict.", "GWOT (2004): The First Battle of Fallujah begins."] },
+        5: { title: "May in Military History", events: ["GWOT (2011): Mission successfully completed to neutralize Osama bin Laden.", "Vietnam (1969): The Battle of Hamburger Hill concludes.", "Korea (1951): The 'May Massacre' occurs."] },
+        6: { title: "June in Military History", events: ["Korea (1950): The Korean War begins.", "Vietnam (1965): U.S. ground forces authorized for combat.", "GWOT (2006): Abu Musab al-Zarqawi killed in airstrike."] },
+        7: { title: "July in Military History", events: ["Korea (1953): The Korean Armistice Agreement is signed.", "Vietnam (1954): The Geneva Accords divide Vietnam at the 17th parallel.", "GWOT (2009): Operation Khanjar begins."] },
+        8: { title: "August in Military History", events: ["Vietnam (1964): Gulf of Tonkin Incident.", "GWOT (1990): Operation Desert Shield begins.", "Korea (1950): The Battle of the Pusan Perimeter begins."] },
+        9: { title: "September in Military History", events: ["Korea (1950): MacArthur’s forces land at Inchon.", "GWOT (2001): September 11 attacks lead to launch of GWOT.", "Vietnam (1967): Siege of Con Thien begins."] },
+        10: { title: "October in Military History", events: ["GWOT (2001): Operation Enduring Freedom begins.", "Vietnam (1965): The Battle of Ia Drang begins.", "Korea (1950): UN forces capture Pyongyang."] },
+        11: { title: "November in Military History", events: ["Korea (1950): Battle of Chosin Reservoir begins.", "Vietnam (1967): The Battle of Dak To takes place.", "GWOT (2004): Second Battle of Fallujah begins."] },
+        12: { title: "December in Military History", events: ["Vietnam (1972): Operation Linebacker II launched.", "GWOT (2003): Saddam Hussein captured in Operation Red Dawn.", "Korea (1950): The Hungnam Evacuation rescues 100,000+."] }
     };
 
     function updateMonthlyHistory() {
         const currentMonth = new Date().getMonth() + 1;
         const data = monthlyHistory[currentMonth];
-        
         document.getElementById('history-month').innerText = data.title;
         const listContainer = document.getElementById('history-list');
-        listContainer.innerHTML = ""; // Clear loader
-        
+        listContainer.innerHTML = "";
         data.events.forEach(event => {
             let li = document.createElement('li');
             li.style.marginBottom = "10px";
@@ -272,11 +208,8 @@
             listContainer.appendChild(li);
         });
     }
-
     window.onload = updateMonthlyHistory;
 </script>
 
 </body>
 </html>
-
-
