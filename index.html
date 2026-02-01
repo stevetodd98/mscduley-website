@@ -40,12 +40,15 @@
         section { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 2.5rem; }
         h2 { color: var(--navy); border-left: 6px solid var(--gold); padding-left: 15px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
         
+        /* EVENT HIGHLIGHT */
         .event-highlight { background: linear-gradient(135deg, var(--navy) 0%, #004080 100%); color: white; padding: 2.5rem; border-radius: 8px; border: 3px solid var(--gold); text-align: center; margin-bottom: 2.5rem; }
         .event-highlight h3 { color: var(--gold); font-size: 1.8rem; margin-top: 0; text-transform: uppercase; }
         #countdown { font-size: 2rem; font-weight: 900; color: var(--gold); margin-top: 15px; }
 
+        /* SPOTLIGHT STYLING */
         .spotlight-flex { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; background: #fffde7; padding: 20px; border-radius: 8px; border: 2px solid var(--gold); }
-        .spotlight-photo { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 4px solid var(--navy); }
+        .spotlight-photo { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 4px solid var(--navy); box-shadow: 0 4px 8px rgba(0,0,0,0.2); flex-shrink: 0; }
+        
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 1rem; }
         .card { background: #f9f9f9; padding: 15px; border-radius: 5px; border-top: 3px solid var(--navy); display: flex; flex-direction: column; justify-content: space-between; }
         .btn { display: inline-block; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; margin: 10px 5px; text-align: center; }
@@ -89,11 +92,13 @@
     <section>
         <h2>Member Spotlight</h2>
         <div class="spotlight-flex">
-            <img src="spotlight.jpg" alt="Member Spotlight" class="spotlight-photo">
+            <img src="spotlight.jpg" alt="Imants Mickey Baltgalvis" class="spotlight-photo">
             <div class="spotlight-text">
-                <h3 style="margin-top: 0;">Featured Member: [Name]</h3>
-                <p><strong>Affiliation:</strong> [Branch/Class]</p>
-                <p>"Highlighting the veterans and family members who make MSC Duley a home away from home."</p>
+                <h3 style="margin-top: 0;">Featured This Month: Imants 'Mickey' Baltgalvis</h3>
+                <p><strong>Service/Affiliation:</strong> United States Navy Submarines. Retired Senior Chief.</p>
+                <p>We are proud to highlight Mickey this month for his dedicated service to our country and his continued fellowship here at MSC Duley. Whether at the bar or a club event, Mickey embodies the spirit of our community.</p>
+                <p>Mickey has a sweet tooth for <strong>white chocolate candies</strong>—if you see him around, be sure to bring him one for Valentine's Day!</p>
+                <p><em>Thank you for your service, Senior Chief!</em></p>
             </div>
         </div>
     </section>
@@ -115,7 +120,7 @@
     <section>
         <h2>Featured Photo</h2>
         <div style="text-align: center;">
-            <img src="featured.jpg" alt="Featured" style="width: 100%; border-radius: 8px; border: 3px solid var(--gold);">
+            <img src="featured.jpg" alt="Featured Club Activity" style="width: 100%; border-radius: 8px; border: 3px solid var(--gold);">
             <a href="gallery.html" class="map-link">View Community Photo Gallery →</a>
         </div>
     </section>
