@@ -24,7 +24,7 @@
         
         /* Grid Styles */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 1rem; }
-        .card { background: #f9f9f9; padding: 15px; border-radius: 5px; border-top: 3px solid var(--navy); }
+        .card { background: #f9f9f9; padding: 15px; border-radius: 5px; border-top: 3px solid var(--navy); display: flex; flex-direction: column; justify-content: space-between; }
         .role { font-size: 0.85rem; color: #666; font-weight: bold; text-transform: uppercase; display: block; }
         .name { font-size: 1.1rem; color: var(--navy); }
 
@@ -33,7 +33,7 @@
         .branch-btn { background: var(--gold); color: var(--navy); font-size: 1.2rem; border: 2px solid var(--navy); }
         .fb-btn { background: #1877F2; color: white; }
         .fra-btn { background: var(--navy); color: white; border: 1px solid var(--gold); }
-        .map-link { font-size: 0.9rem; color: #004477; text-decoration: underline; display: block; margin-top: 5px; }
+        .map-link { font-size: 0.9rem; color: #004477; text-decoration: underline; display: block; margin-top: 10px; font-weight: bold; }
         .btn:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
         
         footer { text-align: center; padding: 3rem; font-size: 0.9rem; color: #777; background: #eee; }
@@ -66,22 +66,24 @@
         <h2>Visit Us</h2>
         <div class="grid">
             <div class="card">
-                <span class="role">Location</span>
-                <span class="name">400 Old York Hampton Hwy<br>Yorktown, VA 23692</span>
+                <div>
+                    <span class="role">Location</span>
+                    <span class="name">400 Old York Hampton Hwy<br>Yorktown, VA 23692</span>
+                </div>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=400+Old+York+Hampton+Hwy+Yorktown+VA+23692" class="map-link" target="_blank">Get Directions</a>
             </div>
             <div class="card">
-                <span class="role">Phone</span>
-                <span class="name">(757) 898-8070</span>
+                <div>
+                    <span class="role">Schedule</span>
+                    <span class="name">Monthly Events<br>& Food Specials</span>
+                </div>
+                <a href="calendar.html" class="map-link">View Calendar →</a>
             </div>
             <div class="card">
-                <span class="role">Hours</span>
-                <span class="name">Open Daily<br>1400 - 2200</span>
-            </div>
-            <div class="card">
-                <span class="role">Schedule</span>
-                <span class="name">View Our Monthly<br>Events Calendar</span>
-                <a href="calendar.html" class="map-link">Open Calendar →</a>
+                <div>
+                    <span class="role">Phone</span>
+                    <span class="name">(757) 898-8070</span>
+                </div>
             </div>
         </div>
     </section>
@@ -104,6 +106,11 @@
 
     <section>
         <h2>Leadership</h2>
+        <h3>Club Administration</h3>
+        <div class="grid">
+            <div class="card"><span class="role">Club Manager</span><span class="name">Tiffani Bowmen</span></div>
+        </div>
+
         <h3>Officers</h3>
         <div class="grid">
             <div class="card"><span class="role">Chairman</span><span class="name">Todd Dellostritto</span></div>
@@ -111,6 +118,7 @@
             <div class="card"><span class="role">Treasurer</span><span class="name">Ira Millen</span></div>
             <div class="card"><span class="role">Secretary</span><span class="name">Kendall Ryan</span></div>
         </div>
+        
         <h3>Directors</h3>
         <div class="grid">
             <div class="card"><span class="name">Larry Armstrong</span></div>
@@ -139,4 +147,3 @@
 
 </body>
 </html>
-
