@@ -10,18 +10,10 @@
         
         /* FLASHY LIVE STATUS BAR */
         .status-bar { 
-            background: var(--gold); 
-            color: var(--navy); 
-            text-align: center; 
-            padding: 15px; 
-            font-weight: 900; 
-            border-bottom: 3px solid var(--navy); 
-            font-size: 1.3rem; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            background: var(--gold); color: var(--navy); text-align: center; padding: 15px; font-weight: 900; 
+            border-bottom: 3px solid var(--navy); font-size: 1.3rem; text-transform: uppercase;
             animation: pulse-gold 2s infinite;
         }
-
         @keyframes pulse-gold {
             0% { background-color: var(--gold); }
             50% { background-color: var(--bright-gold); box-shadow: inset 0 0 20px rgba(255,255,255,0.5); }
@@ -29,12 +21,16 @@
         }
 
         /* SCROLLING TICKER */
-        .ticker-wrap { width: 100%; overflow: hidden; background: var(--navy); color: var(--gold); padding: 8px 0; border-bottom: 2px solid var(--gold); }
-        .ticker { white-space: nowrap; display: inline-block; animation: ticker 30s linear infinite; font-weight: bold; font-family: 'Courier New', Courier, monospace; font-size: 1.1rem; }
-        @keyframes ticker { 
-            0% { transform: translateX(100%); } 
-            100% { transform: translateX(-100%); } 
-        }
+        .ticker-wrap { width: 100%; overflow: hidden; background: var(--navy); color: var(--gold); padding: 10px 0; border-bottom: 2px solid var(--gold); }
+        .ticker { white-space: nowrap; display: inline-block; animation: ticker 40s linear infinite; font-weight: bold; font-family: 'Courier New', Courier, monospace; font-size: 1.1rem; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* TICKER ANIMATIONS */
+        .spin { display: inline-block; animation: spin 2s linear infinite; color: #ff4444; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        
+        .slide { display: inline-block; animation: slide 1.5s ease-in-out infinite; }
+        @keyframes slide { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(10px); } }
 
         header { background: var(--navy); color: var(--white); padding: 3rem 1rem; text-align: center; border-bottom: 5px solid var(--gold); }
         .logo-container { display: flex; justify-content: center; gap: 30px; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
@@ -44,28 +40,19 @@
         section { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 2.5rem; }
         h2 { color: var(--navy); border-left: 6px solid var(--gold); padding-left: 15px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* MEMBER SPOTLIGHT STYLING */
-        .spotlight-flex { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; background: #fffde7; padding: 20px; border-radius: 8px; border: 2px solid var(--gold); }
-        .spotlight-photo { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 4px solid var(--navy); box-shadow: 0 4px 8px rgba(0,0,0,0.2); flex-shrink: 0; }
-        .spotlight-text { flex: 1; min-width: 300px; }
-
-        /* GRID & CARDS */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 1rem; }
-        .card { background: #f9f9f9; padding: 15px; border-radius: 5px; border-top: 3px solid var(--navy); display: flex; flex-direction: column; justify-content: space-between; }
-        .role { font-size: 0.85rem; color: #666; font-weight: bold; text-transform: uppercase; display: block; }
-        .name { font-size: 1.1rem; color: var(--navy); }
-
         .event-highlight { background: linear-gradient(135deg, var(--navy) 0%, #004080 100%); color: white; padding: 2.5rem; border-radius: 8px; border: 3px solid var(--gold); text-align: center; margin-bottom: 2.5rem; }
         .event-highlight h3 { color: var(--gold); font-size: 1.8rem; margin-top: 0; text-transform: uppercase; }
-        #countdown { font-size: 2rem; font-weight: 900; color: var(--gold); margin-top: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        #countdown { font-size: 2rem; font-weight: 900; color: var(--gold); margin-top: 15px; }
 
-        .featured-photo { width: 100%; max-height: 500px; object-fit: cover; border-radius: 8px; border: 3px solid var(--gold); }
-        .history-card { background: #e3f2fd; border-left: 5px solid #1565c0; padding: 20px; border-radius: 5px; }
+        .spotlight-flex { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; background: #fffde7; padding: 20px; border-radius: 8px; border: 2px solid var(--gold); }
+        .spotlight-photo { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 4px solid var(--navy); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 1rem; }
+        .card { background: #f9f9f9; padding: 15px; border-radius: 5px; border-top: 3px solid var(--navy); display: flex; flex-direction: column; justify-content: space-between; }
         .btn { display: inline-block; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; margin: 10px 5px; text-align: center; }
         .branch-btn { background: var(--gold); color: var(--navy); font-size: 1.2rem; border: 2px solid var(--navy); }
         .fra-btn { background: var(--navy); color: white; border: 1px solid var(--gold); }
         .map-link { font-size: 0.9rem; color: #004477; text-decoration: underline; display: block; margin-top: 10px; font-weight: bold; }
-        .contact-footer { background: #eee; padding: 3rem; text-align: center; border-top: 1px solid #ccc; }
+        footer { background: #eee; padding: 3rem; text-align: center; border-top: 1px solid #ccc; }
     </style>
 </head>
 <body>
@@ -74,7 +61,10 @@
 
 <div class="ticker-wrap">
     <div class="ticker">
-        📢 TODAY: Pot Luck Dinner! | Tuesday Shuffleboard @ 1830 | Thursday Queen of Hearts drawing @ 1800 | MEMBERSHIP: Dues are now being accepted for 2026! 📢
+        🍲 <span id="ticker-today">TODAY: Pot Luck Dinner!</span> | 
+        <span class="slide">🥏</span> SHUFFLEBOARD: Every Tuesday @ 1830 | 
+        <span class="spin">👑</span> QUEEN OF HEARTS: Every Thursday @ 1800 | 
+        🏈 NEXT WEEKEND: Super Bowl Party! | 🇺🇸 FEB 16: Presidents Day Observance 📢
     </div>
 </div>
 
@@ -91,9 +81,9 @@
 <div class="container">
     
     <section class="event-highlight">
-        <h3>Next Big Event: Valentine's Social</h3>
-        <p>Saturday, Feb 14th @ 1800 | Dinner, Dancing, and Fellowship. RSVP with Tiffani by Feb 10th!</p>
-        <div id="countdown">Loading Timer...</div>
+        <h3>🏈 Super Bowl LXI Party</h3>
+        <p>Sunday, Feb 8th | Kickoff @ 1830 | Food Specials & Game Day Camaraderie!</p>
+        <div id="countdown">Loading Game Clock...</div>
     </section>
 
     <section>
@@ -101,10 +91,9 @@
         <div class="spotlight-flex">
             <img src="spotlight.jpg" alt="Member Spotlight" class="spotlight-photo">
             <div class="spotlight-text">
-                <h3 style="margin-top: 0;">Featured This Month: Mickey Baltgalvis</h3>
-                <p><strong>Service/Affiliation:</strong> United States Navy</p>
-                <p>"This section honors our entire membership—Regular and Associate. Whether you are a veteran of the USN, USMC, or USCG, or a family member dedicated to our mission, we thank you for your commitment to MSC Duley."</p>
-                <p><em>Know a member we should highlight? Let the Board know!</em></p>
+                <h3 style="margin-top: 0;">Featured Member: [Name]</h3>
+                <p><strong>Affiliation:</strong> [Branch/Class]</p>
+                <p>"Highlighting the veterans and family members who make MSC Duley a home away from home."</p>
             </div>
         </div>
     </section>
@@ -113,19 +102,11 @@
         <h2>Membership</h2>
         <div class="grid">
             <div class="card" style="border-top: 3px solid var(--gold);">
-                <div>
-                    <span class="role">Advocacy & Heritage</span>
-                    <h3 style="margin-top: 5px;">Join FRA Branch 172</h3>
-                    <p style="font-size: 0.95rem;">Open to all current and former US Navy, Marine Corps, and Coast Guard personnel. Help us protect the benefits you earned.</p>
-                </div>
+                <div><span class="role">FRA Branch 172</span><p>Open to USN, USMC, and USCG personnel.</p></div>
                 <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" class="btn fra-btn" target="_blank">Join FRA Online</a>
             </div>
             <div class="card">
-                <div>
-                    <span class="role">Social & Community</span>
-                    <h3 style="margin-top: 5px;">Join the Club</h3>
-                    <p style="font-size: 0.95rem;">The MSC Duley offers camaraderie and fellowship for the Yorktown military community. See our verification process.</p>
-                </div>
+                <div><span class="role">MSC Duley Club</span><p>Membership info and requirements.</p></div>
                 <a href="join.html" class="btn branch-btn">How to Join</a>
             </div>
         </div>
@@ -133,9 +114,8 @@
 
     <section>
         <h2>Featured Photo</h2>
-        <div class="featured-photo-container">
-            <img src="featured.jpg" alt="Featured Club Event" class="featured-photo">
-            <p style="margin-top:10px; font-style:italic;">Fellowship and camaraderie at the MSC Duley.</p>
+        <div style="text-align: center;">
+            <img src="featured.jpg" alt="Featured" style="width: 100%; border-radius: 8px; border: 3px solid var(--gold);">
             <a href="gallery.html" class="map-link">View Community Photo Gallery →</a>
         </div>
     </section>
@@ -163,80 +143,56 @@
                 <div><span class="role">Gallery</span><span class="name">Member Photos</span></div>
                 <a href="gallery.html" class="map-link">Open Gallery →</a>
             </div>
-            <div class="card">
-                <div><span class="role">Phone</span><span class="name">(757) 898-8070</span></div>
-            </div>
         </div>
     </section>
 
     <section>
         <h2>Leadership</h2>
         <div class="grid">
-            <div class="card"><span class="role">Club Manager</span><span class="name">Tiffani Bowmen</span></div>
+            <div class="card"><span class="role">Manager</span><span class="name">Tiffani Bowmen</span></div>
             <div class="card"><span class="role">Chairman</span><span class="name">Todd Dellostritto</span></div>
             <div class="card"><span class="role">Vice Chairman</span><span class="name">Jon Hardy</span></div>
             <div class="card"><span class="role">Treasurer</span><span class="name">Ira Millen</span></div>
             <div class="card"><span class="role">Secretary</span><span class="name">Kendall Ryan</span></div>
         </div>
-        <h3 style="margin-top:20px;">Directors</h3>
-        <div class="grid">
-            <div class="card"><span class="name">Larry Armstrong</span></div>
-            <div class="card"><span class="name">Ted Imbasciani</span></div>
-            <div class="card"><span class="name">Greg (Snoopy) Shultz</span></div>
-            <div class="card"><span class="name">Juan Falcon</span></div>
-            <div class="card"><span class="name">Steve Todd</span></div>
-        </div>
     </section>
 
 </div>
 
-<footer class="contact-footer">
-    <p>Questions? Contact the Board or Manager: <a href="mailto:info@mscduley.org" style="color:var(--navy); font-weight:bold;">info@mscduley.org</a></p>
-    <p style="margin-top: 1rem; color: #777; font-size: 0.8rem;">© 2026 Military Services Club Duley | 501(c)(19) Veterans Organization | Yorktown, VA</p>
+<footer>
+    <p>Questions? <a href="mailto:info@mscduley.org" style="color:var(--navy); font-weight:bold;">info@mscduley.org</a></p>
+    <p style="color: #777; font-size: 0.8rem;">© 2026 Military Services Club Duley | Yorktown, VA</p>
 </footer>
 
 <script>
     const weeklyStaff = { 0: "Valerie", 1: "Barbra", 2: "Barbra", 3: "Tiffani", 4: "Tiffani", 5: "Jen/Kandi", 6: "Jan" };
-    const targetEventDate = new Date("Feb 14, 2026 18:00:00").getTime();
-    const monthlyHistory = {
-        1: { title: "January in Military History", events: ["Vietnam (1968): The Tet Offensive begins.", "Korea (1951): UN forces begin Operation Thunderbolt.", "GWOT (2002): The first detainees arrive at Guantanamo Bay."] },
-        2: { title: "February in Military History", events: ["Vietnam (1968): The Battle of Hue rages.", "Korea (1951): The Battle of Chipyong-ni concludes.", "GWOT (1991/2003): February saw major troop buildups for Desert Storm and OIF."] },
-        3: { title: "March in Military History", events: ["GWOT (2003): Operation Iraqi Freedom begins.", "Vietnam (1965): The first U.S. combat troops land at Da Nang.", "Korea (1951): Operation Ripper is launched."] },
-        4: { title: "April in Military History", events: ["Korea (1951): The Battle of the Imjin River.", "Vietnam (1975): The Fall of Saigon marks the end of the conflict.", "GWOT (2004): The First Battle of Fallujah begins."] },
-        5: { title: "May in Military History", events: ["GWOT (2011): Bin Laden mission completed.", "Vietnam (1969): The Battle of Hamburger Hill concludes.", "Korea (1951): The 'May Massacre' occurs."] },
-        6: { title: "June in Military History", events: ["Korea (1950): The Korean War begins.", "Vietnam (1965): U.S. ground forces authorized for combat.", "GWOT (2006): Abu Musab al-Zarqawi killed."] },
-        7: { title: "July in Military History", events: ["Korea (1953): The Korean Armistice Agreement is signed.", "Vietnam (1954): The Geneva Accords divide Vietnam.", "GWOT (2009): Operation Khanjar begins."] },
-        8: { title: "August in Military History", events: ["Vietnam (1964): Gulf of Tonkin Incident.", "GWOT (1990): Operation Desert Shield begins.", "Korea (1950): The Battle of the Pusan Perimeter begins."] },
-        9: { title: "September in Military History", events: ["Korea (1950): MacArthur’s forces land at Inchon.", "GWOT (2001): September 11 attacks lead to launch of GWOT.", "Vietnam (1967): Siege of Con Thien begins."] },
-        10: { title: "October in Military History", events: ["GWOT (2001): Operation Enduring Freedom begins.", "Vietnam (1965): The Battle of Ia Drang begins.", "Korea (1950): UN forces capture Pyongyang."] },
-        11: { title: "November in Military History", events: ["Korea (1950): Battle of Chosin Reservoir begins.", "Vietnam (1967): The Battle of Dak To takes place.", "GWOT (2004): Second Battle of Fallujah begins."] },
-        12: { title: "December in Military History", events: ["Vietnam (1972): Operation Linebacker II launched.", "GWOT (2003): Saddam Hussein captured.", "Korea (1950): The Hungnam Evacuation rescues 100,000+."] }
-    };
-
+    const superBowlDate = new Date("Feb 8, 2026 18:30:00").getTime();
+    
     function updatePage() {
         const now = new Date();
         const day = now.getDay(); 
-        const month = now.getMonth() + 1;
+        
+        // Status Bar
         document.getElementById('live-status').innerText = `📢 We are OPEN! Come on in and see ${weeklyStaff[day]} (2pm - 10pm)`;
-        const data = monthlyHistory[month];
-        document.getElementById('history-month').innerText = data.title;
+        
+        // Dynamic Ticker Text
+        const tickerToday = document.getElementById('ticker-today');
+        if(day === 2) tickerToday.innerHTML = "🎯 HAPPENING TODAY: Shuffleboard @ 1830!";
+        else if(day === 4) tickerToday.innerHTML = "👑 HAPPENING TODAY: Queen of Hearts @ 1800!";
+        else tickerToday.innerHTML = "🍲 TODAY: Pot Luck Dinner!";
+
+        // History
         const listContainer = document.getElementById('history-list');
-        listContainer.innerHTML = "";
-        data.events.forEach(event => {
-            let li = document.createElement('li');
-            li.style.marginBottom = "10px";
-            li.innerText = event;
-            listContainer.appendChild(li);
-        });
+        document.getElementById('history-month').innerText = "February in Military History";
+        const events = ["Vietnam (1968): Battle of Hue rages.", "Korea (1951): Battle of Chipyong-ni concludes.", "GWOT (1991/2003): Major troop buildups for Desert Storm and OIF."];
+        events.forEach(e => { let li = document.createElement('li'); li.innerText = e; listContainer.appendChild(li); });
     }
 
     function updateCountdown() {
-        const now = new Date().getTime();
-        const diff = targetEventDate - now;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById("countdown").innerHTML = diff < 0 ? "EVENT IN PROGRESS!" : `${days}d ${hours}h ${mins}m Until the Social!`;
+        const diff = superBowlDate - new Date().getTime();
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("countdown").innerHTML = diff < 0 ? "GAME ON!" : `${d}d ${h}h Until Kickoff!`;
     }
 
     window.onload = function() { updatePage(); updateCountdown(); setInterval(updateCountdown, 60000); };
@@ -244,5 +200,3 @@
 
 </body>
 </html>
-
-
