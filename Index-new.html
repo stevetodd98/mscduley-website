@@ -1,0 +1,203 @@
+Since you’re looking to "jazz it up" like the VFW 3219 site, the best way to do a trial is to create a new file in your GitHub repository named index-new.html.
+
+This allows you to view the "Upgraded" version at your-username.github.io/index-new.html while keeping the current site live for the members until you're ready to flip the switch.
+
+The "VFW Style" Upgraded Code
+I’ve polished this to include the Hero Image, Quick Action Buttons, and a cleaner mobile-friendly layout.
+
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSC Duley | FRA Branch 172</title>
+    <style>
+        :root { --navy: #002147; --gold: #C5B358; --white: #ffffff; --light-gray: #f4f7f6; --bright-gold: #ffd700; --accent-blue: #003a7d; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; margin: 0; color: #333; background-color: var(--light-gray); }
+
+        /* TOP BAR TICKER */
+        .ticker-wrap { background: var(--navy); color: var(--gold); padding: 10px 0; overflow: hidden; border-bottom: 2px solid var(--gold); }
+        .ticker { white-space: nowrap; display: inline-block; animation: ticker 45s linear infinite; font-weight: bold; font-family: 'Courier New', monospace; font-size: 1.1rem; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* HERO SECTION (JAZZED UP) */
+        .hero {
+            background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('featured.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: white; padding: 100px 20px; text-align: center; border-bottom: 8px solid var(--gold);
+        }
+        .hero img { height: 180px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); margin-bottom: 20px; }
+        .hero h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 3px; }
+        .hero p { font-size: 1.4rem; color: var(--gold); font-weight: bold; }
+
+        /* STATUS BAR */
+        .status-bar { 
+            background: var(--gold); color: var(--navy); text-align: center; padding: 15px; font-weight: 900; 
+            font-size: 1.3rem; text-transform: uppercase; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* MAIN LAYOUT */
+        .container { max-width: 1200px; margin: -50px auto 50px auto; padding: 0 20px; }
+        
+        /* FEATURED CARDS (VFW Style) */
+        .card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .feature-card { 
+            background: white; padding: 30px; border-radius: 15px; text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-top: 6px solid var(--gold); transition: 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-10px); }
+        .feature-card h3 { color: var(--navy); margin-top: 0; font-size: 1.5rem; }
+
+        /* BUTTONS */
+        .btn { 
+            display: inline-block; padding: 12px 30px; border-radius: 50px; text-decoration: none; 
+            font-weight: bold; text-transform: uppercase; transition: 0.3s; margin-top: 15px;
+        }
+        .btn-navy { background: var(--navy); color: white; }
+        .btn-gold { background: var(--gold); color: var(--navy); }
+        .btn:hover { filter: brightness(1.2); transform: scale(1.05); }
+
+        /* CONTENT SECTIONS */
+        section { background: white; padding: 40px; border-radius: 15px; margin-bottom: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h2 { color: var(--navy); border-left: 10px solid var(--gold); padding-left: 20px; text-transform: uppercase; }
+
+        /* LEADERSHIP */
+        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .staff-box { background: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #ddd; text-align: center; }
+        .staff-name { display: block; font-weight: bold; color: var(--navy); font-size: 1.1rem; }
+        .staff-role { display: block; font-size: 0.8rem; color: #666; text-transform: uppercase; }
+
+        /* SERVICE LOGOS */
+        .service-strip { background: white; padding: 40px 0; text-align: center; border-top: 2px solid var(--gold); }
+        .service-strip img { height: 80px; margin: 0 20px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
+
+        footer { background: var(--navy); color: white; padding: 60px 20px; text-align: center; }
+        footer a { color: var(--gold); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+    <div class="ticker">
+        🏈 FEB 8: Super Bowl Party @ 1700 | 🍲 SUNDAY: Pot Luck Dinner | 🥏 TUESDAY: Shuffleboard @ 1830 | 👑 THURSDAY: Queen of Hearts @ 1800 📢
+    </div>
+</div>
+
+<div id="live-status" class="status-bar">Club Status Loading...</div>
+
+<div class="hero">
+    <div class="hero-content">
+        <img src="msc-logo.png" alt="MSC Duley Logo">
+        <h1>Military Services Club Duley</h1>
+        <p>FRA Branch 172 | Yorktown, Virginia</p>
+    </div>
+</div>
+
+<div class="container">
+    
+    <div class="card-row">
+        <div class="feature-card">
+            <h3>Super Bowl LXI</h3>
+            <p><strong>Feb 8th @ 1700</strong><br>Bring an appetizer or dessert to share!</p>
+            <div id="countdown" style="font-size: 1.3rem; font-weight: 900; color: var(--accent-blue);"></div>
+            <a href="calendar.html" class="btn btn-navy">View Calendar</a>
+        </div>
+        <div class="feature-card">
+            <h3>Join The FRA</h3>
+            <p>Representing the interests of Sea Service personnel for 100 years.</p>
+            <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" class="btn btn-gold">Join Online</a>
+        </div>
+        <div class="feature-card">
+            <h3>Membership</h3>
+            <p>Camaraderie and support for Yorktown's Military Families.</p>
+            <a href="join.html" class="btn btn-navy">New Applications</a>
+        </div>
+    </div>
+
+    <section>
+        <h2>Member Spotlight</h2>
+        <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+            <img src="spotlight.jpg" alt="Mickey" style="width: 250px; height: 250px; border-radius: 50%; border: 8px solid var(--gold); object-fit: cover;">
+            <div style="flex: 1; min-width: 300px;">
+                <h3 style="color: var(--navy); font-size: 1.8rem; margin: 0;">Imants 'Mickey' Baltgalvis</h3>
+                <p><em>US Navy Submarines | Retired Senior Chief</em></p>
+                <p>We are proud to highlight Mickey this month! He embodies the spirit of our community. <strong>Valentine's Day Tip:</strong> Mickey loves white chocolate candies—be sure to bring him some!</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>February Highlights</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+            <div style="padding: 15px; border-bottom: 4px solid var(--gold); background: #f0f4f8;">
+                <strong>Feb 11</strong><br>Firefighters Lunch (11-2)<br>Board Meeting (5:00)
+            </div>
+            <div style="padding: 15px; border-bottom: 4px solid var(--gold); background: #f0f4f8;">
+                <strong>Feb 14</strong><br>Valentine's Day<br>Member Social
+            </div>
+            <div style="padding: 15px; border-bottom: 4px solid var(--gold); background: #f0f4f8;">
+                <strong>Feb 17</strong><br>Taco Tuesday<br>(5:30 - 7:00)
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Leadership</h2>
+        <h3>Officers</h3>
+        <div class="staff-grid">
+            <div class="staff-box"><span class="staff-name">Tiffani Bowmen</span><span class="staff-role">Club Manager</span></div>
+            <div class="staff-box"><span class="staff-name">Todd Dellostritto</span><span class="staff-role">Chairman</span></div>
+            <div class="staff-box"><span class="staff-name">Jon Hardy</span><span class="staff-role">Vice Chairman</span></div>
+            <div class="staff-box"><span class="staff-name">Ira Millen</span><span class="staff-role">Treasurer</span></div>
+            <div class="staff-box"><span class="staff-name">Kendall Ryan</span><span class="staff-role">Secretary</span></div>
+        </div>
+        <h3 style="margin-top: 30px;">Board of Directors</h3>
+        <div class="staff-grid">
+            <div class="staff-box"><span class="staff-name">Larry Armstrong</span></div>
+            <div class="staff-box"><span class="staff-name">Ted Imbasciani</span></div>
+            <div class="staff-box"><span class="staff-name">Greg (Snoopy) Shultz</span></div>
+            <div class="staff-box"><span class="staff-name">Juan Falcon</span></div>
+            <div class="staff-box"><span class="staff-name">Steve Todd</span></div>
+        </div>
+    </section>
+
+</div>
+
+<div class="service-strip">
+    <img src="army.png" alt="Army"><img src="marines.png" alt="Marines"><img src="navy.png" alt="Navy">
+    <img src="airforce.png" alt="Air Force"><img src="coastguard.png" alt="Coast Guard"><img src="spaceforce.png" alt="Space Force">
+</div>
+
+<footer>
+    <p>400 Old York Hampton Hwy | Yorktown, VA 23692 | (757) 898-8070</p>
+    <p>Questions? <a href="mailto:info@mscduley.org">Contact the Board</a></p>
+    <p style="margin-top: 30px; opacity: 0.5; font-size: 0.8rem;">© 2026 Military Services Club Duley | Veterans Organization</p>
+</footer>
+
+<script>
+    const weeklyStaff = { 0: "Valerie", 1: "Barbara", 2: "Barbara", 3: "Tiffani", 4: "Tiffani", 5: "Jen B.", 6: "Jan A." };
+    const febOverrides = { 2: "Kandi", 3: "Kandi", 6: "Kandi", 7: "Kandi" };
+    const superBowlDate = new Date("Feb 8, 2026 17:00:00").getTime();
+    
+    function updatePage() {
+        const now = new Date();
+        const date = now.getDate();
+        const day = now.getDay();
+        
+        let staffName = febOverrides[date] || weeklyStaff[day];
+        document.getElementById('live-status').innerText = `📢 CLUB OPEN | BARTENDER ON DUTY: ${staffName}`;
+    }
+
+    function updateCountdown() {
+        const diff = superBowlDate - new Date().getTime();
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("countdown").innerHTML = diff < 0 ? "GAME ON!" : `${d}d ${h}h UNTIL KICKOFF`;
+    }
+
+    window.onload = function() { updatePage(); updateCountdown(); setInterval(updateCountdown, 60000); };
+</script>
+
+</body>
+</html>
