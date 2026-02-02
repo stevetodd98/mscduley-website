@@ -25,7 +25,7 @@
 
         /* HERO SECTION */
         .hero {
-            background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('featured.jpg');
+            background: linear-gradient(rgba(0,33,71,0.85), rgba(0,33,71,0.85)), url('featured.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
             color: white; padding: 80px 20px; text-align: center; border-bottom: 8px solid var(--gold);
         }
@@ -54,6 +54,11 @@
         .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
         .staff-box { background: #f9f9f9; padding: 12px; border-radius: 8px; border: 1px solid #ddd; text-align: center; }
 
+        /* Service Logos Footer */
+        .service-strip { background: white; padding: 40px 0; text-align: center; border-top: 2px solid var(--gold); }
+        .service-strip img { height: 75px; margin: 0 15px; transition: transform 0.3s; }
+        .service-strip img:hover { transform: scale(1.1); }
+
         footer { background: var(--navy); color: white; padding: 40px 20px; text-align: center; }
     </style>
 </head>
@@ -61,7 +66,7 @@
 
 <div class="ticker-wrap">
     <div class="ticker">
-        🎸 VALENTINE'S DAY: Crossing James Band Live! | 🏈 FEB 8: Super Bowl Party @ 1700 | 🍲 SUNDAY: Pot Luck Dinner | 🥏 TUESDAY: Shuffleboard @ 1830 📢
+        🎸 VALENTINE'S DAY: Crossing James Band Live!  | 🏈 FEB 8: Super Bowl Party @ 1700  | 🍲 SUNDAY: Pot Luck Dinner  | 🥏 TUESDAY: Shuffleboard @ 1830  📢
     </div>
 </div>
 
@@ -76,20 +81,20 @@
 <div class="container">
     <div class="card-row">
         <div class="feature-card" style="border-top-color: #ff4d4d;">
-            <h3 style="color: #ff4d4d;">Valentine's Special</h3>
-            <p><strong>Crossing James Band</strong><br>Saturday, Feb 14th @ 1800-2100</p>
-            <a href="https://www.facebook.com/crossing.james.band" target="_blank" class="btn btn-fb">View Band Page</a>
+            <h3 style="color: #ff4d4d;">Valentine's Special </h3>
+            <p><strong>Crossing James Band</strong><br>Saturday, Feb 14th @ 1800-2100 </p>
+            <a href="https://www.facebook.com/crossing.james.band" target="_blank" class="btn btn-fb">View Band Facebook</a>
         </div>
         <div class="feature-card">
-            <h3>Super Bowl LXI</h3>
-            <p><strong>Feb 8th @ 1700</strong><br>Bring a dish to share!</p>
+            <h3>Super Bowl Party </h3>
+            <p><strong>Sunday, Feb 8th @ 1700</strong> <br>Bring a dish to share!</p>
             <div id="countdown" style="font-weight: 900; color: var(--accent-blue);"></div>
             <a href="calendar.html" class="btn btn-navy">Full Calendar</a>
         </div>
         <div class="feature-card">
-            <h3>Stay Connected</h3>
+            <h3>Club Facebook</h3>
             <p>Join our club community online for updates and photos.</p>
-            <a href="https://www.facebook.com/your-club-page" target="_blank" class="btn btn-fb">Club Facebook</a>
+            <a href="https://www.facebook.com/your-club-page" target="_blank" class="btn btn-fb">Join the Conversation</a>
         </div>
     </div>
 
@@ -100,22 +105,23 @@
             <div style="flex: 1; min-width: 280px;">
                 <h3 style="color: var(--navy); margin: 0;">Senior Chief Imants 'Mickey' Baltgalvis</h3>
                 <p>US Navy Submarines (Retired)</p>
-                <p>Mickey loves <strong>white chocolate candies</strong>—bring him some for Valentine's Day!</p>
+                <p>Mickey loves <strong>white chocolate candies</strong>—bring him some for Valentine's Day! </p>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>February Calendar</h2>
+        <h2>February Calendar Highlights</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-            <div style="padding: 15px; border-bottom: 4px solid var(--gold); background: #f0f4f8;"><strong>Feb 11:</strong> Firefighters Lunch (11-2) & Board Meeting</div>
-            <div style="padding: 15px; border-bottom: 4px solid var(--gold); background: #f0f4f8;"><strong>Feb 17:</strong> Taco Tuesday (5:30 - 7:00)</div>
+            <div style="padding: 15px; border-bottom: 4px solid var(--gold); background: #f0f4f8;"><strong>Feb 11:</strong> Firefighters Lunch (11-2) & Board Meeting (5:00) </div>
+            <div style="padding: 15px; border-bottom: 4px solid var(--gold); background: #f0f4f8;"><strong>Feb 17:</strong> Taco Tuesday (5:30 - 7:00) </div>
             <div style="padding: 15px; border-bottom: 4px solid var(--gold); background: #f0f4f8;"><strong>Feb 16:</strong> Presidents Day Observance</div>
         </div>
     </section>
 
     <section>
         <h2>Leadership</h2>
+        <h3>Officers</h3>
         <div class="staff-grid">
             <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Tiffani Bowmen</span><br><small>Club Manager</small></div>
             <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Todd Dellostritto</span><br><small>Chairman</small></div>
@@ -123,7 +129,20 @@
             <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Ira Millen</span><br><small>Treasurer</small></div>
             <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Kendall Ryan</span><br><small>Secretary</small></div>
         </div>
+        <h3 style="margin-top: 25px;">Board of Directors</h3>
+        <div class="staff-grid">
+            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Larry Armstrong</span><br><small>Director</small></div>
+            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Ted Imbasciani</span><br><small>Director</small></div>
+            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Greg (Snoopy) Shultz</span><br><small>Director</small></div>
+            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Juan Falcon</span><br><small>Director</small></div>
+            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Steve Todd</span><br><small>Director</small></div>
+        </div>
     </section>
+</div>
+
+<div class="service-strip">
+    <img src="army.png" alt="Army"><img src="marines.png" alt="Marines"><img src="navy.png" alt="Navy">
+    <img src="airforce.png" alt="Air Force"><img src="coastguard.png" alt="Coast Guard"><img src="spaceforce.png" alt="Space Force">
 </div>
 
 <footer>
@@ -132,6 +151,7 @@
 </footer>
 
 <script>
+    // Updated Staffing based on February 2026 Calendar 
     const weeklyStaff = { 0: "Valerie", 1: "Barbara", 2: "Barbara", 3: "Tiffani", 4: "Tiffani", 5: "Jen B.", 6: "Jan A." };
     const febOverrides = { 2: "Kandi", 3: "Kandi", 6: "Kandi", 7: "Kandi" };
     const superBowlDate = new Date("Feb 8, 2026 17:00:00").getTime();
@@ -145,6 +165,7 @@
 
         let staffName = febOverrides[date] || weeklyStaff[day];
 
+        // Club opens at 2:00 PM (14:00) 
         if (hour >= 14 && hour < 22) {
             statusDiv.className = "status-bar open-now";
             statusDiv.innerText = `📢 We are OPEN! Bartender on duty: ${staffName}`;
@@ -154,7 +175,7 @@
                 let hLeft = 14 - hour;
                 statusDiv.innerText = `🔒 Opens at 2:00 PM (In approx ${hLeft} hours)`;
             } else {
-                statusDiv.innerText = `🔒 Currently closed. See you at 2 PM!`;
+                statusDiv.innerText = `🔒 Currently closed. See you tomorrow at 2 PM!`;
             }
         }
     }
