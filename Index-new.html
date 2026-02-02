@@ -3,119 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSC Duley | Trial Layout</title>
+    <title>MSC Duley | Home</title>
     <style>
-        :root { --navy: #002147; --gold: #C5B358; --white: #ffffff; --light-gray: #f4f7f6; --bright-gold: #ffd700; --accent-blue: #003a7d; --fb-blue: #1877F2; }
-        body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; margin: 0; color: #333; background-color: var(--light-gray); }
+        :root { --navy: #002147; --gold: #C5B358; --white: #ffffff; --bright-gold: #ffd700; --fb-blue: #1877F2; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; margin: 0; color: #333; background-color: #f0f2f5; }
 
-        /* TICKER BAR */
-        .ticker-wrap { background: var(--navy); color: var(--gold); padding: 10px 0; overflow: hidden; border-bottom: 2px solid var(--gold); }
-        .ticker { white-space: nowrap; display: inline-block; animation: ticker 45s linear infinite; font-weight: bold; font-family: 'Courier New', monospace; font-size: 1.1rem; }
-        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        /* HERO SECTION - BIG & PRONOUNCED */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,33,71,0.6), rgba(0,22,48,0.8)), url('featured.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            border-bottom: 10px solid var(--gold);
+        }
+        .hero h1 { 
+            font-size: clamp(2.5rem, 8vw, 4.5rem); 
+            margin: 0; 
+            text-transform: uppercase; 
+            letter-spacing: 5px;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.6);
+        }
+        .hero p { 
+            font-size: 1.5rem; 
+            color: var(--gold); 
+            font-weight: bold; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: rgba(0,0,0,0.3);
+            padding: 5px 20px;
+            border-radius: 50px;
+        }
 
         /* SMART STATUS BAR */
         .status-bar { 
             text-align: center; padding: 15px; font-weight: 900; 
-            font-size: 1.3rem; text-transform: uppercase; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: 0.5s;
+            font-size: 1.3rem; text-transform: uppercase; position: sticky; top: 0; z-index: 1000;
         }
-        .open-now { background: var(--gold); color: var(--navy); animation: pulse-gold 2s infinite; }
-        .closed-now { background: #333; color: #ccc; }
-        @keyframes pulse-gold { 0% { background-color: var(--gold); } 50% { background-color: var(--bright-gold); } 100% { background-color: var(--gold); } }
+        .open-now { background: var(--gold); color: var(--navy); box-shadow: 0 4px 15px rgba(197, 179, 88, 0.4); }
+        .closed-now { background: #222; color: #888; }
 
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(rgba(0,33,71,0.85), rgba(0,33,71,0.85)), url('featured.jpg');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: white; padding: 80px 20px; text-align: center; border-bottom: 8px solid var(--gold);
-        }
-        .hero img { height: 160px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); margin-bottom: 15px; }
-        .hero h1 { font-size: 3rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
-
-        .container { max-width: 1200px; margin: -40px auto 50px auto; padding: 0 20px; }
+        /* CONTAINER & GLASS CARDS */
+        .container { max-width: 1200px; margin: -80px auto 50px auto; padding: 0 20px; }
         
-        /* ACTION CARDS */
-        .card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px; }
+        
         .feature-card { 
-            background: white; padding: 25px; border-radius: 15px; text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid var(--gold); transition: 0.3s;
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 30px; 
+            border-radius: 20px; 
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0,33,71,0.2); }
+        
+        /* LOGOS INSIDE BUTTONS/CARDS */
+        .card-logo { height: 100px; width: auto; margin-bottom: 15px; border-radius: 10px; }
+        
+        .btn { 
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 15px 30px; border-radius: 50px; text-decoration: none; 
+            font-weight: bold; text-transform: uppercase; transition: 0.3s; width: 80%;
+        }
+        .btn-navy { background: var(--navy); color: white; border: 2px solid var(--navy); }
+        .btn-gold { background: var(--gold); color: var(--navy); border: 2px solid var(--navy); }
+        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-        /* BUTTONS */
-        .btn { display: inline-block; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; margin-top: 10px; border: none; cursor: pointer; font-size: 0.9rem; }
-        .btn-navy { background: var(--navy); color: white; }
-        .btn-gold { background: var(--gold); color: var(--navy); }
-        .btn-fb { background: var(--fb-blue); color: white; }
+        /* SECTIONS */
+        section { background: white; padding: 45px; border-radius: 20px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h2 { color: var(--navy); font-size: 2rem; border-left: 12px solid var(--gold); padding-left: 20px; margin-bottom: 30px; }
 
-        section { background: white; padding: 35px; border-radius: 15px; margin-bottom: 35px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        h2 { color: var(--navy); border-left: 10px solid var(--gold); padding-left: 15px; text-transform: uppercase; margin-top: 0; }
+        /* LEADERSHIP GRID */
+        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+        .staff-box { background: #f8f9fa; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #eee; }
+        .staff-name { display: block; font-weight: 800; color: var(--navy); font-size: 1.1rem; }
+        .staff-role { display: block; font-size: 0.8rem; color: #777; text-transform: uppercase; font-weight: bold; }
 
-        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-        .staff-box { background: #f9f9f9; padding: 12px; border-radius: 8px; border: 1px solid #ddd; text-align: center; }
+        /* FOOTER */
+        .service-strip { background: white; padding: 50px 0; text-align: center; border-top: 2px solid var(--gold); }
+        .service-strip img { height: 80px; margin: 0 20px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); transition: 0.3s; }
+        .service-strip img:hover { transform: translateY(-10px); }
 
-        /* Service Logos Footer */
-        .service-strip { background: white; padding: 40px 0; text-align: center; border-top: 2px solid var(--gold); }
-        .service-strip img { height: 75px; margin: 0 15px; transition: transform 0.3s; }
-        .service-strip img:hover { transform: scale(1.1); }
-
-        footer { background: var(--navy); color: white; padding: 40px 20px; text-align: center; }
+        footer { background: var(--navy); color: white; padding: 80px 20px; text-align: center; }
     </style>
 </head>
 <body>
 
-<div class="ticker-wrap">
-    <div class="ticker">
-        🎸 VALENTINE'S DAY: Crossing James Band Live!  | 🏈 FEB 8: Super Bowl Party @ 1700  | 🍲 SUNDAY: Pot Luck Dinner  | 🥏 TUESDAY: Shuffleboard @ 1830  📢
-    </div>
-</div>
+<div id="live-status" class="status-bar">Syncing...</div>
 
-<div id="live-status" class="status-bar">Syncing with Club Clock...</div>
-
-<div class="hero">
-    <img src="msc-logo.png" alt="MSC Duley Logo">
-    <h1>Military Services Club Duley</h1>
-    <p>Honoring Service | Building Community</p>
-</div>
+<header class="hero">
+    <h1>MSC Duley</h1>
+    <p>FRA Branch 172 | Yorktown, VA</p>
+</header>
 
 <div class="container">
+    
     <div class="card-row">
-        <div class="feature-card" style="border-top-color: #ff4d4d;">
-            <h3 style="color: #ff4d4d;">Valentine's Special </h3>
-            <p><strong>Crossing James Band</strong><br>Saturday, Feb 14th @ 1800-2100 </p>
-            <a href="https://www.facebook.com/crossing.james.band" target="_blank" class="btn btn-fb">View Band Facebook</a>
-        </div>
         <div class="feature-card">
-            <h3>Super Bowl Party </h3>
-            <p><strong>Sunday, Feb 8th @ 1700</strong> <br>Bring a dish to share!</p>
-            <div id="countdown" style="font-weight: 900; color: var(--accent-blue);"></div>
-            <a href="calendar.html" class="btn btn-navy">Full Calendar</a>
+            <img src="fra-logo.png" alt="FRA Logo" class="card-logo">
+            <h3>Join The FRA</h3>
+            <p>Representing Navy, Marine Corps, and Coast Guard Personnel since 1924.</p>
+            <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" class="btn btn-navy">Join Online</a>
         </div>
+
         <div class="feature-card">
-            <h3>Club Facebook</h3>
-            <p>Join our club community online for updates and photos.</p>
-            <a href="https://www.facebook.com/your-club-page" target="_blank" class="btn btn-fb">Join the Conversation</a>
+            <img src="msc-logo.png" alt="MSC Duley Logo" class="card-logo">
+            <h3>Join the Club</h3>
+            <p>camaraderie and community for veterans and military families in Yorktown.</p>
+            <a href="join.html" class="btn btn-gold">How to Join</a>
+        </div>
+
+        <div class="feature-card">
+            <div style="font-size: 3rem;">🎸</div>
+            <h3>Valentine's Band</h3>
+            <p><strong>Crossing James Band</strong><br>Saturday, Feb 14th @ 1800-2100</p>
+            <a href="https://www.facebook.com/crossing.james.band" target="_blank" class="btn btn-navy" style="background: var(--fb-blue); border:none;">Band Facebook</a>
         </div>
     </div>
 
     <section>
         <h2>Member Spotlight</h2>
-        <div style="display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
-            <img src="spotlight.jpg" alt="Mickey" style="width: 180px; height: 180px; border-radius: 50%; border: 6px solid var(--gold); object-fit: cover;">
-            <div style="flex: 1; min-width: 280px;">
-                <h3 style="color: var(--navy); margin: 0;">Senior Chief Imants 'Mickey' Baltgalvis</h3>
-                <p>US Navy Submarines (Retired)</p>
-                <p>Mickey loves <strong>white chocolate candies</strong>—bring him some for Valentine's Day! </p>
+        <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+            <img src="spotlight.jpg" alt="Mickey" style="width: 250px; height: 250px; border-radius: 50%; border: 8px solid var(--gold); object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <div style="flex: 1; min-width: 300px;">
+                <h3 style="color: var(--navy); font-size: 2rem; margin: 0;">Senior Chief Imants 'Mickey' Baltgalvis</h3>
+                <p><strong>US Navy Submarines (Retired)</strong></p>
+                <p>We are proud to highlight Mickey this month! He embodies the spirit of our community. <strong>Valentine's Day Tip:</strong> Mickey loves white chocolate candies—be sure to bring him some!</p>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>February Calendar Highlights</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-            <div style="padding: 15px; border-bottom: 4px solid var(--gold); background: #f0f4f8;"><strong>Feb 11:</strong> Firefighters Lunch (11-2) & Board Meeting (5:00) </div>
-            <div style="padding: 15px; border-bottom: 4px solid var(--gold); background: #f0f4f8;"><strong>Feb 17:</strong> Taco Tuesday (5:30 - 7:00) </div>
-            <div style="padding: 15px; border-bottom: 4px solid var(--gold); background: #f0f4f8;"><strong>Feb 16:</strong> Presidents Day Observance</div>
+        <h2>February Highlights</h2>
+        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div style="padding: 20px; background: #fdf9e6; border-radius: 15px; border-bottom: 5px solid var(--gold);">
+                <strong>Super Bowl Party</strong><br>Sunday, Feb 8th @ 1700<br>Bring a dish to share!
+            </div>
+            <div style="padding: 20px; background: #eef4fb; border-radius: 15px; border-bottom: 5px solid var(--navy);">
+                <strong>Board Meeting</strong><br>Wednesday, Feb 11th @ 1700<br>Firefighters Lunch (11-2)
+            </div>
+            <div style="padding: 20px; background: #fdf9e6; border-radius: 15px; border-bottom: 5px solid var(--gold);">
+                <strong>Taco Tuesday</strong><br>Tuesday, Feb 17th @ 1730<br>Shuffleboard @ 1830
+            </div>
         </div>
     </section>
 
@@ -123,21 +163,22 @@
         <h2>Leadership</h2>
         <h3>Officers</h3>
         <div class="staff-grid">
-            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Tiffani Bowmen</span><br><small>Club Manager</small></div>
-            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Todd Dellostritto</span><br><small>Chairman</small></div>
-            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Jon Hardy</span><br><small>Vice Chairman</small></div>
-            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Ira Millen</span><br><small>Treasurer</small></div>
-            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Kendall Ryan</span><br><small>Secretary</small></div>
+            <div class="staff-box"><span class="staff-name">Tiffani Bowmen</span><span class="staff-role">Club Manager</span></div>
+            <div class="staff-box"><span class="staff-name">Todd Dellostritto</span><span class="staff-role">Chairman</span></div>
+            <div class="staff-box"><span class="staff-name">Jon Hardy</span><span class="staff-role">Vice Chairman</span></div>
+            <div class="staff-box"><span class="staff-name">Ira Millen</span><span class="staff-role">Treasurer</span></div>
+            <div class="staff-box"><span class="staff-name">Kendall Ryan</span><span class="staff-role">Secretary</span></div>
         </div>
-        <h3 style="margin-top: 25px;">Board of Directors</h3>
+        <h3 style="margin-top: 30px;">Board of Directors</h3>
         <div class="staff-grid">
-            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Larry Armstrong</span><br><small>Director</small></div>
-            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Ted Imbasciani</span><br><small>Director</small></div>
-            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Greg (Snoopy) Shultz</span><br><small>Director</small></div>
-            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Juan Falcon</span><br><small>Director</small></div>
-            <div class="staff-box"><span style="font-weight:bold; color:var(--navy);">Steve Todd</span><br><small>Director</small></div>
+            <div class="staff-box"><span class="staff-name">Larry Armstrong</span><span class="staff-role">Director</span></div>
+            <div class="staff-box"><span class="staff-name">Ted Imbasciani</span><span class="staff-role">Director</span></div>
+            <div class="staff-box"><span class="staff-name">Greg (Snoopy) Shultz</span><span class="staff-role">Director</span></div>
+            <div class="staff-box"><span class="staff-name">Juan Falcon</span><span class="staff-role">Director</span></div>
+            <div class="staff-box"><span class="staff-name">Steve Todd</span><span class="staff-role">Director</span></div>
         </div>
     </section>
+
 </div>
 
 <div class="service-strip">
@@ -147,14 +188,12 @@
 
 <footer>
     <p>400 Old York Hampton Hwy | Yorktown, VA 23692</p>
-    <p>© 2026 Military Services Club Duley | FRA Branch 172</p>
+    <p>© 2026 Military Services Club Duley | Veterans Organization</p>
 </footer>
 
 <script>
-    // Updated Staffing based on February 2026 Calendar 
     const weeklyStaff = { 0: "Valerie", 1: "Barbara", 2: "Barbara", 3: "Tiffani", 4: "Tiffani", 5: "Jen B.", 6: "Jan A." };
     const febOverrides = { 2: "Kandi", 3: "Kandi", 6: "Kandi", 7: "Kandi" };
-    const superBowlDate = new Date("Feb 8, 2026 17:00:00").getTime();
     
     function updateStatus() {
         const now = new Date();
@@ -165,29 +204,21 @@
 
         let staffName = febOverrides[date] || weeklyStaff[day];
 
-        // Club opens at 2:00 PM (14:00) 
+        // Opens at 2:00 PM (14:00)
         if (hour >= 14 && hour < 22) {
             statusDiv.className = "status-bar open-now";
             statusDiv.innerText = `📢 We are OPEN! Bartender on duty: ${staffName}`;
         } else {
             statusDiv.className = "status-bar closed-now";
             if (hour < 14) {
-                let hLeft = 14 - hour;
-                statusDiv.innerText = `🔒 Opens at 2:00 PM (In approx ${hLeft} hours)`;
+                statusDiv.innerText = `🔒 Opens at 2 PM (In approx ${14 - hour} hours)`;
             } else {
-                statusDiv.innerText = `🔒 Currently closed. See you tomorrow at 2 PM!`;
+                statusDiv.innerText = `🔒 Currently closed. See you tomorrow!`;
             }
         }
     }
 
-    function updateCountdown() {
-        const diff = superBowlDate - new Date().getTime();
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("countdown").innerHTML = diff < 0 ? "PARTY TIME!" : `${d}d ${h}h UNTIL KICKOFF`;
-    }
-
-    window.onload = function() { updateStatus(); updateCountdown(); setInterval(updateStatus, 60000); };
+    window.onload = function() { updateStatus(); setInterval(updateStatus, 60000); };
 </script>
 
 </body>
