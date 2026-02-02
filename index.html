@@ -1,8 +1,3 @@
-That error is happening because some extra "span" markers or brackets likely got caught in the code during a copy-paste. Since we're cleaning that up, let's also fix the Super Bowl countdown to be accurate to the flyer you provided (Feb 8 at 1700) and ensure the staff schedule matches the February Calendar perfectly (including Kandi covering those specific early February shifts).
-
-Here is the "Gold Standard" version of your index.html. It fixes that display error, correctly lists the Directors, and has the logic to handle the specific bartender rotations for February.
-
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,12 +50,17 @@ HTML
         .card { background: #f9f9f9; padding: 15px; border-radius: 5px; border-top: 3px solid var(--navy); display: flex; flex-direction: column; justify-content: space-between; }
         .role { font-size: 0.85rem; color: #666; font-weight: bold; text-transform: uppercase; display: block; }
         .name { font-size: 1.1rem; color: var(--navy); }
+        
+        /* CLUB EVENTS CARD */
+        .event-card { background: #e3f2fd; border-left: 5px solid #1565c0; padding: 20px; border-radius: 5px; }
+        .event-list-item { margin-bottom: 12px; font-size: 1.1rem; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
+        .event-date { font-weight: bold; color: #1565c0; min-width: 80px; display: inline-block; }
+
         .btn { display: inline-block; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; margin: 10px 5px; text-align: center; }
         .branch-btn { background: var(--gold); color: var(--navy); font-size: 1.2rem; border: 2px solid var(--navy); }
         .fra-btn { background: var(--navy); color: white; border: 1px solid var(--gold); }
         .map-link { font-size: 0.9rem; color: #004477; text-decoration: underline; display: block; margin-top: 10px; font-weight: bold; }
         
-        /* Service Logos Footer */
         .service-logos { background: #fff; padding: 30px 10px; text-align: center; border-top: 1px solid #ddd; }
         .logo-row { display: flex; justify-content: center; align-items: center; gap: 25px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
         .service-logo { height: 75px; width: auto; transition: transform 0.3s; }
@@ -95,8 +95,25 @@ HTML
     
     <section class="event-highlight">
         <h3>🏈 Super Bowl LXI Party</h3>
-        <p>Sunday, Feb 8th | Party Starts @ 1700 | Bring an Appetizer or Dessert to share!</p>
+        <p>Sunday, Feb 8th | Party Starts @ 1700 | Kickoff @ 1830 | Bring an Appetizer or Dessert to share!</p>
         <div id="countdown">Loading Game Clock...</div>
+    </section>
+
+    <section>
+        <h2>Club Events & Monthly Highlights</h2>
+        <div class="event-card">
+            <h3 style="margin-top: 0; color: #1565c0;">Upcoming in February 2026</h3>
+            <div id="event-list-container">
+                <div class="event-list-item"><span class="event-date">Feb 8</span> Super Bowl Party (5:00 PM)</div>
+                <div class="event-list-item"><span class="event-date">Feb 9</span> FRA Meeting (6:00 PM)</div>
+                <div class="event-list-item"><span class="event-date">Feb 11</span> Firefighters Lunch (11:00 AM - 2:00 PM)</div>
+                <div class="event-list-item"><span class="event-date">Feb 11</span> Board Meeting (5:00 PM) & Hunt Club (6:30 PM)</div>
+                <div class="event-list-item"><span class="event-date">Feb 14</span> Valentine's Day - Bring Mickey a White Chocolate!</div>
+                <div class="event-list-item"><span class="event-date">Feb 16</span> Presidents Day Observance</div>
+                <div class="event-list-item"><span class="event-date">Feb 17</span> Taco Tuesday (5:30 PM - 7:00 PM)</div>
+            </div>
+            <p style="margin-top: 15px; font-style: italic;">Every Tuesday: Shuffleboard (6:30 PM) | Every Thursday: Queen of Hearts (6:00 PM)</p>
+        </div>
     </section>
 
     <section>
@@ -106,7 +123,7 @@ HTML
             <div class="spotlight-text">
                 <h3 style="margin-top: 0;">Featured This Month: Imants 'Mickey' Baltgalvis</h3>
                 <p><strong>Service/Affiliation:</strong> United States Navy Submarines. Retired Senior Chief.</p>
-                <p>We are proud to highlight Mickey this month for his dedicated service to our country and his continued fellowship here at MSC Duley. Mickey has a sweet tooth for <strong>white chocolate candies</strong>—if you see him around, be sure to bring him one for Valentine's Day!</p>
+                <p>We are proud to highlight Mickey this month for his dedicated service to our country and his continued fellowship here at MSC Duley. Mickey has a sweet tooth for <strong>white chocolate candies</strong>—bring him one for Valentine's Day!</p>
                 <p><em>Thank you for your service, Senior Chief!</em></p>
             </div>
         </div>
@@ -123,22 +140,6 @@ HTML
                 <div><span class="role">MSC Duley Club</span><p>Membership info and requirements.</p></div>
                 <a href="join.html" class="btn branch-btn">How to Join</a>
             </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Featured Photo</h2>
-        <div style="text-align: center;">
-            <img src="featured.jpg" alt="Featured Club Activity" style="width: 100%; border-radius: 8px; border: 3px solid var(--gold);">
-            <a href="gallery.html" class="map-link">View Community Photo Gallery →</a>
-        </div>
-    </section>
-
-    <section>
-        <h2>This Month in Military History</h2>
-        <div id="history-content" class="history-card">
-            <h3 id="history-month" style="margin-top: 0; color: #1565c0;">Loading History...</h3>
-            <ul id="history-list" style="padding-left: 20px;"></ul>
         </div>
     </section>
 
@@ -202,17 +203,9 @@ HTML
 </footer>
 
 <script>
-    // --- STAFF CONFIGURATION FROM FEB CALENDAR ---
+    // --- STAFF CONFIGURATION ---
     const weeklyStaff = { 0: "Valerie", 1: "Barbara", 2: "Barbara", 3: "Tiffani", 4: "Tiffani", 5: "Jen B.", 6: "Jan A." };
-    
-    // Manual Coverage Override for Feb 2nd - Feb 7th
-    const febOverrides = {
-        2: "Kandi", // Mon
-        3: "Kandi", // Tue
-        6: "Kandi", // Fri
-        7: "Kandi"  // Sat
-    };
-
+    const febOverrides = { 2: "Kandi", 3: "Kandi", 6: "Kandi", 7: "Kandi" };
     const superBowlDate = new Date("Feb 8, 2026 17:00:00").getTime();
     
     function updatePage() {
@@ -220,12 +213,7 @@ HTML
         const day = now.getDay(); 
         const date = now.getDate();
         
-        // Check for specific Feb overrides
-        let staffName = weeklyStaff[day];
-        if (febOverrides[date]) {
-            staffName = febOverrides[date];
-        }
-
+        let staffName = febOverrides[date] || weeklyStaff[day];
         document.getElementById('live-status').innerText = `📢 We are OPEN! Come on in and see ${staffName} (2pm - 10pm)`;
         
         const tickerToday = document.getElementById('ticker-today');
@@ -233,12 +221,6 @@ HTML
         else if (day === 2) tickerToday.innerHTML = "🎯 HAPPENING TODAY: Shuffleboard @ 1830!";
         else if (day === 4) tickerToday.innerHTML = "👑 HAPPENING TODAY: Queen of Hearts @ 1800!";
         else tickerToday.innerHTML = "📢 Check with the bartender for Daily Specials!";
-
-        const listContainer = document.getElementById('history-list');
-        listContainer.innerHTML = "";
-        document.getElementById('history-month').innerText = "February in Military History";
-        const events = ["Vietnam (1968): Battle of Hue rages.", "Korea (1951): Battle of Chipyong-ni concludes.", "GWOT (1991/2003): Major troop buildups for Desert Storm and OIF."];
-        events.forEach(e => { let li = document.createElement('li'); li.innerText = e; listContainer.appendChild(li); });
     }
 
     function updateCountdown() {
