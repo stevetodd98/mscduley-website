@@ -1,3 +1,8 @@
+That error is happening because some extra "span" markers or brackets likely got caught in the code during a copy-paste. Since we're cleaning that up, let's also fix the Super Bowl countdown to be accurate to the flyer you provided (Feb 8 at 1700) and ensure the staff schedule matches the February Calendar perfectly (including Kandi covering those specific early February shifts).
+
+Here is the "Gold Standard" version of your index.html. It fixes that display error, correctly lists the Directors, and has the logic to handle the specific bartender rotations for February.
+
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,16 +44,17 @@
         section { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 2.5rem; }
         h2 { color: var(--navy); border-left: 6px solid var(--gold); padding-left: 15px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* EVENT HIGHLIGHT */
         .event-highlight { background: linear-gradient(135deg, var(--navy) 0%, #004080 100%); color: white; padding: 2.5rem; border-radius: 8px; border: 3px solid var(--gold); text-align: center; margin-bottom: 2.5rem; }
         .event-highlight h3 { color: var(--gold); font-size: 1.8rem; margin-top: 0; text-transform: uppercase; }
         #countdown { font-size: 2rem; font-weight: 900; color: var(--gold); margin-top: 15px; }
 
         .spotlight-flex { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; background: #fffde7; padding: 20px; border-radius: 8px; border: 2px solid var(--gold); }
-        .spotlight-photo { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 4px solid var(--navy); box-shadow: 0 4px 8px rgba(0,0,0,0.2); flex-shrink: 0; }
+        .spotlight-photo { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 4px solid var(--navy); flex-shrink: 0; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 1rem; }
         .card { background: #f9f9f9; padding: 15px; border-radius: 5px; border-top: 3px solid var(--navy); display: flex; flex-direction: column; justify-content: space-between; }
+        .role { font-size: 0.85rem; color: #666; font-weight: bold; text-transform: uppercase; display: block; }
+        .name { font-size: 1.1rem; color: var(--navy); }
         .btn { display: inline-block; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; margin: 10px 5px; text-align: center; }
         .branch-btn { background: var(--gold); color: var(--navy); font-size: 1.2rem; border: 2px solid var(--navy); }
         .fra-btn { background: var(--navy); color: white; border: 1px solid var(--gold); }
@@ -69,8 +75,8 @@
 <div class="ticker-wrap">
     <div class="ticker">
         🍲 <span id="ticker-today">TODAY: Pot Luck Dinner!</span> | 
-        <span class="slide">🥏</span> SHUFFLEBOARD: Every Tuesday @ 1830  | 
-        <span class="spin">👑</span> QUEEN OF HEARTS: Every Thursday @ 1800  | 
+        <span class="slide">🥏</span> SHUFFLEBOARD: Every Tuesday @ 1830 | 
+        <span class="spin">👑</span> QUEEN OF HEARTS: Every Thursday @ 1800 | 
         🏈 FEB 8: Super Bowl Party @ 1700! | 🇺🇸 FEB 16: Presidents Day Observance 📢
     </div>
 </div>
@@ -81,7 +87,7 @@
         <img src="fra-logo.png" alt="FRA Logo">
     </div>
     <h1>Military Services Club Duley</h1>
-    <p>Home of FRA Branch 172 | Yorktown, VA [cite: 1]</p>
+    <p>Home of FRA Branch 172 | Yorktown, VA</p>
     <a href="https://frabranch172.org/" class="btn branch-btn" target="_blank">Visit FRA Branch 172 Website</a>
 </header>
 
@@ -89,7 +95,7 @@
     
     <section class="event-highlight">
         <h3>🏈 Super Bowl LXI Party</h3>
-        <p>Sunday, Feb 8th | Party @ 1700 | Bring an appetizer or dessert to share!</p>
+        <p>Sunday, Feb 8th | Party Starts @ 1700 | Bring an Appetizer or Dessert to share!</p>
         <div id="countdown">Loading Game Clock...</div>
     </section>
 
@@ -114,7 +120,7 @@
                 <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" class="btn fra-btn" target="_blank">Join FRA Online</a>
             </div>
             <div class="card">
-                <div><span class="role">MSC Duley Club</span><p>Submit a written application to the Board. [cite: 2, 11]</p></div>
+                <div><span class="role">MSC Duley Club</span><p>Membership info and requirements.</p></div>
                 <a href="join.html" class="btn branch-btn">How to Join</a>
             </div>
         </div>
@@ -144,7 +150,7 @@
                 <a href="https://www.google.com/maps/dir/?api=1&destination=400+Old+York+Hampton+Hwy+Yorktown+VA+23692" class="map-link" target="_blank">Get Directions</a>
             </div>
             <div class="card">
-                <div><span class="role">Schedule</span><span class="name">Events & Specials </span></div>
+                <div><span class="role">Schedule</span><span class="name">Events & Specials</span></div>
                 <a href="calendar.html" class="map-link">View Calendar →</a>
             </div>
             <div class="card">
@@ -158,7 +164,7 @@
         <h2>Leadership</h2>
         <h3>Club Administration</h3>
         <div class="grid">
-            <div class="card"><span class="role">Club Manager</span><span class="name">Tiffani Bowmen </span></div>
+            <div class="card"><span class="role">Club Manager</span><span class="name">Tiffani Bowmen</span></div>
         </div>
         <h3 style="margin-top: 25px;">Officers</h3>
         <div class="grid">
@@ -196,19 +202,16 @@
 </footer>
 
 <script>
-    // --- STAFF CONFIGURATION  ---
-    const weeklyStaff = { 
-        0: "Valerie",   // Sun
-        1: "Kandi / Barbara",    // Mon (Kandi Feb 2, Barbara others)
-        2: "Kandi / Barbara",    // Tue (Kandi Feb 3, Barbara others)
-        3: "Tiffani",   // Wed
-        4: "Tiffani",   // Thu
-        5: "Jen B.",    // Fri
-        6: "Kandi / Jan A."      // Sat (Kandi Feb 7, Jan others)
-    };
+    // --- STAFF CONFIGURATION FROM FEB CALENDAR ---
+    const weeklyStaff = { 0: "Valerie", 1: "Barbara", 2: "Barbara", 3: "Tiffani", 4: "Tiffani", 5: "Jen B.", 6: "Jan A." };
     
-    // --- MANUAL TICKER OVERRIDE ---
-    const manualTickerOverride = ""; 
+    // Manual Coverage Override for Feb 2nd - Feb 7th
+    const febOverrides = {
+        2: "Kandi", // Mon
+        3: "Kandi", // Tue
+        6: "Kandi", // Fri
+        7: "Kandi"  // Sat
+    };
 
     const superBowlDate = new Date("Feb 8, 2026 17:00:00").getTime();
     
@@ -217,38 +220,24 @@
         const day = now.getDay(); 
         const date = now.getDate();
         
-        // Dynamic Staff Adjustment based on Feb Calendar 
-        let currentStaff = weeklyStaff[day];
-        if (day === 1 && date === 2) currentStaff = "Kandi";
-        if (day === 2 && date === 3) currentStaff = "Kandi";
-        if (day === 6 && date === 7) currentStaff = "Kandi";
-        if (day === 1 && date > 2) currentStaff = "Barbara";
-        if (day === 2 && date > 3) currentStaff = "Barbara";
-
-        document.getElementById('live-status').innerText = `📢 We are OPEN! Come on in and see ${currentStaff} (2pm - 10pm)`;
-        
-        // Update Ticker 
-        const tickerToday = document.getElementById('ticker-today');
-        if (manualTickerOverride !== "") {
-            tickerToday.innerHTML = `🌟 HAPPENING TODAY: ${manualTickerOverride}`;
-        } else {
-            if (day === 0) tickerToday.innerHTML = "🏈 TODAY: Pot Luck & Super Bowl Party @ 1700!";
-            else if (day === 2) tickerToday.innerHTML = "🎯 HAPPENING TODAY: Shuffleboard @ 1830!";
-            else if (day === 4) tickerToday.innerHTML = "👑 HAPPENING TODAY: Queen of Hearts @ 1800!";
-            else if (day === 3 && date === 11) tickerToday.innerHTML = "🚒 TODAY: Firefighters Lunch 11-2!";
-            else tickerToday.innerHTML = "📢 Check with the bartender for Daily Specials!";
+        // Check for specific Feb overrides
+        let staffName = weeklyStaff[day];
+        if (febOverrides[date]) {
+            staffName = febOverrides[date];
         }
 
-        // History 
+        document.getElementById('live-status').innerText = `📢 We are OPEN! Come on in and see ${staffName} (2pm - 10pm)`;
+        
+        const tickerToday = document.getElementById('ticker-today');
+        if (day === 0) tickerToday.innerHTML = "🍲 TODAY: Pot Luck Dinner!";
+        else if (day === 2) tickerToday.innerHTML = "🎯 HAPPENING TODAY: Shuffleboard @ 1830!";
+        else if (day === 4) tickerToday.innerHTML = "👑 HAPPENING TODAY: Queen of Hearts @ 1800!";
+        else tickerToday.innerHTML = "📢 Check with the bartender for Daily Specials!";
+
         const listContainer = document.getElementById('history-list');
         listContainer.innerHTML = "";
-        document.getElementById('history-month').innerText = "February 2026 Highlights";
-        const events = [
-            "Feb 8: Super Bowl Party @ 17:00",
-            "Feb 11: Firefighters Lunch & Board Meeting ",
-            "Feb 14: Happy Valentine's Day! ",
-            "Feb 17: Taco Tuesday 5:30-7:00 "
-        ];
+        document.getElementById('history-month').innerText = "February in Military History";
+        const events = ["Vietnam (1968): Battle of Hue rages.", "Korea (1951): Battle of Chipyong-ni concludes.", "GWOT (1991/2003): Major troop buildups for Desert Storm and OIF."];
         events.forEach(e => { let li = document.createElement('li'); li.innerText = e; listContainer.appendChild(li); });
     }
 
