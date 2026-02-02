@@ -11,6 +11,7 @@
             font-family: 'Segoe UI', Roboto, sans-serif; 
             margin: 0; 
             color: #fff; 
+            /* THE BACKGROUND - Pronounced and Fixed */
             background: linear-gradient(rgba(0,33,71,0.6), rgba(0,22,48,0.8)), url('featured.jpg');
             background-size: cover;
             background-position: center;
@@ -23,7 +24,7 @@
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
         /* SMART STATUS BAR */
-        .status-bar { text-align: center; padding: 15px; font-weight: 900; font-size: 1.3rem; text-transform: uppercase; position: sticky; top: 0; z-index: 1000; }
+        .status-bar { text-align: center; padding: 15px; font-weight: 900; font-size: 1.3rem; text-transform: uppercase; position: sticky; top: 0; z-index: 1000; transition: 0.5s; }
         .open-now { background: var(--gold); color: var(--navy); box-shadow: 0 4px 15px rgba(197, 179, 88, 0.4); }
         .closed-now { background: rgba(0, 0, 0, 0.85); color: #888; border-bottom: 1px solid var(--gold); }
 
@@ -52,11 +53,11 @@
 
         .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
         
-        /* FLOATING ACTION CARDS - 5 COLUMN GRID */
+        /* FLOATING ACTION CARDS - 6 COLUMN GRID */
         .card-row { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
-            gap: 20px; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 15px; 
             margin-top: -150px; 
             margin-bottom: 60px; 
         }
@@ -143,6 +144,13 @@
             </div>
 
             <div class="feature-card">
+                <div style="font-size: 3rem; margin-bottom:10px;">📸</div>
+                <h3>Gallery</h3>
+                <p>View photos from our events and club socials.</p>
+                <a href="https://photos.google.com/share/YOUR_LINK_HERE" target="_blank" class="btn btn-gold">View Photos</a>
+            </div>
+
+            <div class="feature-card">
                 <div style="font-size: 3rem; margin-bottom:10px;">📍</div>
                 <h3>Visit Us</h3>
                 <p>400 Old York Hampton Hwy<br>Yorktown, VA 23692</p>
@@ -153,15 +161,15 @@
             <div class="feature-card">
                 <div style="font-size: 3rem; margin-bottom:10px;">💬</div>
                 <h3>Connect</h3>
-                <p>Follow us on Facebook for daily specials and club news.</p>
-                <a href="https://www.facebook.com/profile.php?id=100085637943027" target="_blank" class="btn btn-fb">Join the Conversation</a>
+                <p>Follow us on Facebook for daily specials and news.</p>
+                <a href="https://www.facebook.com/your-club-page" target="_blank" class="btn btn-fb">Facebook</a>
             </div>
 
             <div class="feature-card">
                 <div style="font-size: 3rem; margin-bottom:10px;">🎸</div>
                 <h3>Valentine's</h3>
                 <p><strong>Crossing James Band</strong><br>Sat, Feb 14th @ 1800</p>
-                <a href="https://www.facebook.com/crossing.james.band" target="_blank" class="btn btn-fb">Band Facebook</a>
+                <a href="https://www.facebook.com/crossing.james.band" target="_blank" class="btn btn-fb">Band Page</a>
             </div>
         </div>
 
@@ -253,4 +261,3 @@
 
 </body>
 </html>
-
