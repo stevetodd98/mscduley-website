@@ -69,8 +69,8 @@
 <div class="ticker-wrap">
     <div class="ticker">
         🍲 <span id="ticker-today">TODAY: Pot Luck Dinner!</span> | 
-        [span_6](start_span)<span class="slide">🥏</span> SHUFFLEBOARD: Every Tuesday @ 1830[span_6](end_span) | 
-        [span_7](start_span)<span class="spin">👑</span> QUEEN OF HEARTS: Every Thursday @ 1800[span_7](end_span) | 
+        <span class="slide">🥏</span> SHUFFLEBOARD: Every Tuesday @ 1830  | 
+        <span class="spin">👑</span> QUEEN OF HEARTS: Every Thursday @ 1800  | 
         🏈 FEB 8: Super Bowl Party @ 1700! | 🇺🇸 FEB 16: Presidents Day Observance 📢
     </div>
 </div>
@@ -81,7 +81,7 @@
         <img src="fra-logo.png" alt="FRA Logo">
     </div>
     <h1>Military Services Club Duley</h1>
-    <p>Home of FRA Branch 172 | [span_8](start_span)Yorktown, VA[span_8](end_span)</p>
+    <p>Home of FRA Branch 172 | Yorktown, VA [cite: 1]</p>
     <a href="https://frabranch172.org/" class="btn branch-btn" target="_blank">Visit FRA Branch 172 Website</a>
 </header>
 
@@ -114,7 +114,7 @@
                 <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" class="btn fra-btn" target="_blank">Join FRA Online</a>
             </div>
             <div class="card">
-                [span_9](start_span)[span_10](start_span)<div><span class="role">MSC Duley Club</span><p>Submit a written application to the Board.[span_9](end_span)[span_10](end_span)</p></div>
+                <div><span class="role">MSC Duley Club</span><p>Submit a written application to the Board. [cite: 2, 11]</p></div>
                 <a href="join.html" class="btn branch-btn">How to Join</a>
             </div>
         </div>
@@ -144,7 +144,7 @@
                 <a href="https://www.google.com/maps/dir/?api=1&destination=400+Old+York+Hampton+Hwy+Yorktown+VA+23692" class="map-link" target="_blank">Get Directions</a>
             </div>
             <div class="card">
-                [span_11](start_span)<div><span class="role">Schedule</span><span class="name">Events & Specials[span_11](end_span)</span></div>
+                <div><span class="role">Schedule</span><span class="name">Events & Specials </span></div>
                 <a href="calendar.html" class="map-link">View Calendar →</a>
             </div>
             <div class="card">
@@ -158,7 +158,7 @@
         <h2>Leadership</h2>
         <h3>Club Administration</h3>
         <div class="grid">
-            [span_12](start_span)<div class="card"><span class="role">Club Manager</span><span class="name">Tiffani Bowmen[span_12](end_span)</span></div>
+            <div class="card"><span class="role">Club Manager</span><span class="name">Tiffani Bowmen </span></div>
         </div>
         <h3 style="margin-top: 25px;">Officers</h3>
         <div class="grid">
@@ -196,7 +196,7 @@
 </footer>
 
 <script>
-    [span_13](start_span)// --- STAFF CONFIGURATION[span_13](end_span) ---
+    // --- STAFF CONFIGURATION  ---
     const weeklyStaff = { 
         0: "Valerie",   // Sun
         1: "Kandi / Barbara",    // Mon (Kandi Feb 2, Barbara others)
@@ -217,7 +217,7 @@
         const day = now.getDay(); 
         const date = now.getDate();
         
-        [span_14](start_span)// Dynamic Staff Adjustment based on Feb Calendar[span_14](end_span)
+        // Dynamic Staff Adjustment based on Feb Calendar 
         let currentStaff = weeklyStaff[day];
         if (day === 1 && date === 2) currentStaff = "Kandi";
         if (day === 2 && date === 3) currentStaff = "Kandi";
@@ -227,7 +227,7 @@
 
         document.getElementById('live-status').innerText = `📢 We are OPEN! Come on in and see ${currentStaff} (2pm - 10pm)`;
         
-        [span_15](start_span)// Update Ticker[span_15](end_span)
+        // Update Ticker 
         const tickerToday = document.getElementById('ticker-today');
         if (manualTickerOverride !== "") {
             tickerToday.innerHTML = `🌟 HAPPENING TODAY: ${manualTickerOverride}`;
@@ -239,15 +239,15 @@
             else tickerToday.innerHTML = "📢 Check with the bartender for Daily Specials!";
         }
 
-        [span_16](start_span)// History[span_16](end_span)
+        // History 
         const listContainer = document.getElementById('history-list');
         listContainer.innerHTML = "";
         document.getElementById('history-month').innerText = "February 2026 Highlights";
         const events = [
             "Feb 8: Super Bowl Party @ 17:00",
-            [span_17](start_span)"Feb 11: Firefighters Lunch & Board Meeting[span_17](end_span)",
-            [span_18](start_span)"Feb 14: Happy Valentine's Day[span_18](end_span)!",
-            [span_19](start_span)"Feb 17: Taco Tuesday 5:30-7:00[span_19](end_span)"
+            "Feb 11: Firefighters Lunch & Board Meeting ",
+            "Feb 14: Happy Valentine's Day! ",
+            "Feb 17: Taco Tuesday 5:30-7:00 "
         ];
         events.forEach(e => { let li = document.createElement('li'); li.innerText = e; listContainer.appendChild(li); });
     }
@@ -264,165 +264,3 @@
 
 </body>
 </html>
-<div id="live-status" class="status-bar">Checking club status...</div>
-
-<div class="ticker-wrap">
-    <div class="ticker">
-        🍲 <span id="ticker-today">TODAY: Pot Luck Dinner!</span> | 
-        <span class="slide">🥏</span> SHUFFLEBOARD: Every Tuesday @ 1830 | 
-        <span class="spin">👑</span> QUEEN OF HEARTS: Every Thursday @ 1800 | 
-        🏈 NEXT WEEKEND: Super Bowl Party! | 🇺🇸 FEB 16: Presidents Day Observance 📢
-    </div>
-</div>
-
-<header>
-    <div class="logo-container">
-        <img src="msc-logo.png" alt="MSC Duley Logo">
-        <img src="fra-logo.png" alt="FRA Logo">
-    </div>
-    <h1>Military Services Club Duley</h1>
-    <p>Home of FRA Branch 172 | Yorktown, VA</p>
-    <a href="https://frabranch172.org/" class="btn branch-btn" target="_blank">Visit FRA Branch 172 Website</a>
-</header>
-
-<div class="container">
-    
-    <section class="event-highlight">
-        <h3>🏈 Super Bowl LXI Party</h3>
-        <p>Sunday, Feb 8th | Kickoff @ 1830 | Food Specials & Game Day Camaraderie!</p>
-        <div id="countdown">Loading Game Clock...</div>
-    </section>
-
-    <section>
-        <h2>Member Spotlight</h2>
-        <div class="spotlight-flex">
-            <img src="spotlight.jpg" alt="Mickey Baltgalvis" class="spotlight-photo">
-            <div class="spotlight-text">
-                <h3 style="margin-top: 0;">Featured This Month: Imants 'Mickey' Baltgalvis</h3>
-                <p><strong>Service/Affiliation:</strong> United States Navy Submarines. Retired Senior Chief.</p>
-                <p>We are proud to highlight Mickey this month for his dedicated service to our country and his continued fellowship here at MSC Duley. Mickey has a sweet tooth for <strong>white chocolate candies</strong>—if you see him around, be sure to bring him one for Valentine's Day!</p>
-                <p><em>Thank you for your service, Senior Chief!</em></p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Membership</h2>
-        <div class="grid">
-            <div class="card" style="border-top: 3px solid var(--gold);">
-                <div><span class="role">FRA Branch 172</span><p>Open to USN, USMC, and USCG personnel.</p></div>
-                <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" class="btn fra-btn" target="_blank">Join FRA Online</a>
-            </div>
-            <div class="card">
-                <div><span class="role">MSC Duley Club</span><p>Membership info and requirements.</p></div>
-                <a href="join.html" class="btn branch-btn">How to Join</a>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Featured Photo</h2>
-        <div style="text-align: center;">
-            <img src="featured.jpg" alt="Featured Club Activity" style="width: 100%; border-radius: 8px; border: 3px solid var(--gold);">
-            <a href="gallery.html" class="map-link">View Community Photo Gallery →</a>
-        </div>
-    </section>
-
-    <section>
-        <h2>This Month in Military History</h2>
-        <div id="history-content" class="history-card">
-            <h3 id="history-month" style="margin-top: 0; color: #1565c0;">Loading History...</h3>
-            <ul id="history-list" style="padding-left: 20px;"></ul>
-        </div>
-    </section>
-
-    <section>
-        <h2>Visit Us</h2>
-        <div class="grid">
-            <div class="card">
-                <div><span class="role">Location</span><span class="name">400 Old York Hampton Hwy<br>Yorktown, VA 23692</span></div>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=400+Old+York+Hampton+Hwy+Yorktown+VA+23692" class="map-link" target="_blank">Get Directions</a>
-            </div>
-            <div class="card">
-                <div><span class="role">Schedule</span><span class="name">Events & Specials</span></div>
-                <a href="calendar.html" class="map-link">View Calendar →</a>
-            </div>
-            <div class="card">
-                <div><span class="role">Gallery</span><span class="name">Member Photos</span></div>
-                <a href="gallery.html" class="map-link">Open Gallery →</a>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Leadership</h2>
-        <h3>Club Administration</h3>
-        <div class="grid">
-            <div class="card"><span class="role">Club Manager</span><span class="name">Tiffani Bowmen</span></div>
-        </div>
-        <h3 style="margin-top: 25px;">Officers</h3>
-        <div class="grid">
-            <div class="card"><span class="role">Chairman</span><span class="name">Todd Dellostritto</span></div>
-            <div class="card"><span class="role">Vice Chairman</span><span class="name">Jon Hardy</span></div>
-            <div class="card"><span class="role">Treasurer</span><span class="name">Ira Millen</span></div>
-            <div class="card"><span class="role">Secretary</span><span class="name">Kendall Ryan</span></div>
-        </div>
-        <h3 style="margin-top: 25px;">Board of Directors</h3>
-        <div class="grid">
-            <div class="card"><span class="role">Director</span><span class="name">Larry Armstrong</span></div>
-            <div class="card"><span class="role">Director</span><span class="name">Ted Imbasciani</span></div>
-            <div class="card"><span class="role">Director</span><span class="name">Greg (Snoopy) Shultz</span></div>
-            <div class="card"><span class="role">Director</span><span class="name">Juan Falcon</span></div>
-            <div class="card"><span class="role">Director</span><span class="name">Steve Todd</span></div>
-        </div>
-    </section>
-
-</div>
-
-<div class="service-logos">
-    <div class="logo-row">
-        <img src="army.png" alt="US Army" class="service-logo">
-        <img src="marines.png" alt="US Marine Corps" class="service-logo">
-        <img src="navy.png" alt="US Navy" class="service-logo">
-        <img src="airforce.png" alt="US Air Force" class="service-logo">
-        <img src="coastguard.png" alt="US Coast Guard" class="service-logo">
-        <img src="spaceforce.png" alt="US Space Force" class="service-logo">
-    </div>
-</div>
-
-<footer>
-    <p>Questions? Contact the Board: <a href="mailto:info@mscduley.org" style="color:var(--navy); font-weight:bold;">info@mscduley.org</a></p>
-    <p style="color: #777; font-size: 0.8rem;">© 2026 Military Services Club Duley | Yorktown, VA</p>
-</footer>
-
-<script>
-    const weeklyStaff = { 0: "Valerie", 1: "Barbra", 2: "Barbra", 3: "Tiffani", 4: "Tiffani", 5: "Jen/Kandi", 6: "Jan" };
-    const superBowlDate = new Date("Feb 8, 2026 18:30:00").getTime();
-    
-    function updatePage() {
-        const now = new Date();
-        const day = now.getDay(); 
-        document.getElementById('live-status').innerText = `📢 We are OPEN! Come on in and see ${weeklyStaff[day]} (2pm - 10pm)`;
-        const tickerToday = document.getElementById('ticker-today');
-        if(day === 2) tickerToday.innerHTML = "🎯 HAPPENING TODAY: Shuffleboard @ 1830!";
-        else if(day === 4) tickerToday.innerHTML = "👑 HAPPENING TODAY: Queen of Hearts @ 1800!";
-        else tickerToday.innerHTML = "🍲 TODAY: Pot Luck Dinner!";
-        const listContainer = document.getElementById('history-list');
-        document.getElementById('history-month').innerText = "February in Military History";
-        const events = ["Vietnam (1968): Battle of Hue rages.", "Korea (1951): Battle of Chipyong-ni concludes.", "GWOT (1991/2003): Major troop buildups for Desert Storm and OIF."];
-        events.forEach(e => { let li = document.createElement('li'); li.innerText = e; listContainer.appendChild(li); });
-    }
-
-    function updateCountdown() {
-        const diff = superBowlDate - new Date().getTime();
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("countdown").innerHTML = diff < 0 ? "GAME ON!" : `${d}d ${h}h Until Kickoff!`;
-    }
-
-    window.onload = function() { updatePage(); updateCountdown(); setInterval(updateCountdown, 60000); };
-</script>
-
-</body>
-</html>
-
