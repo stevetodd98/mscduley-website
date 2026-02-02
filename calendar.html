@@ -1,17 +1,23 @@
+Here is the updated calendar.html designed to match the new "Glass Dashboard" style of your home page.
+
+It features the same parallax background, glass blur effects, and high-impact header. It is set up to display your MSCD February 2026 Calendar.pdf in a large, professional-grade viewer.
+
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events Calendar | Military Services Club Duley</title>
+    <title>Events & Staff Schedule | Military Services Club Duley</title>
     <style>
-        :root { --navy: #002147; --gold: #C5B358; --white: #ffffff; }
+        :root { --navy: #002147; --gold: #C5B358; --white: #ffffff; --bright-gold: #ffd700; }
         
         body { 
             font-family: 'Segoe UI', Roboto, sans-serif; 
             margin: 0; 
             color: #fff; 
-            background: linear-gradient(rgba(0,33,71,0.7), rgba(0,22,48,0.85)), url('featured.jpg');
+            /* MATCHING INDEX BACKGROUND */
+            background: linear-gradient(rgba(0,33,71,0.6), rgba(0,22,48,0.8)), url('featured.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -33,14 +39,15 @@
 
         /* MAIN GLASS CONTENT */
         .main-content {
-            background: rgba(255, 255, 255, 0.1); 
+            background: rgba(255, 255, 255, 0.08); 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             padding: 20px 0 60px 0;
             border-top: 1px solid rgba(255,255,255,0.2);
+            min-height: 80vh;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         .back-link { 
             display: inline-block;
@@ -50,16 +57,19 @@
             font-weight: bold; 
             text-transform: uppercase;
             font-size: 0.9rem;
+            transition: 0.3s;
         }
+        .back-link:hover { color: #fff; transform: translateX(-5px); }
 
         /* CALENDAR EMBED CONTAINER */
         .calendar-viewer {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            height: 85vh; /* Large viewing area */
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            height: 80vh; /* Large viewing area */
             width: 100%;
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
         iframe {
@@ -68,7 +78,13 @@
             border: none;
         }
 
-        footer { text-align: center; padding: 40px 20px; background: rgba(0,0,0,0.4); }
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 768px) {
+            .calendar-viewer { height: 60vh; }
+            .hero { padding: 40px 10px; }
+        }
+
+        footer { text-align: center; padding: 60px 20px; background: rgba(0,0,0,0.5); border-top: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
 <body>
@@ -83,19 +99,23 @@
         <a href="index.html" class="back-link">← Back to Dashboard</a>
 
         <div class="calendar-viewer">
-            <iframe src="MSCD February 2026 Calendar.pdf#view=FitH" title="February Calendar">
-                <p>Your browser does not support PDFs. 
-                   <a href="MSCD February 2026 Calendar.pdf">Download the PDF to view it.</a>
+            <iframe src="calendar.pdf#view=FitH" title="February 2026 Calendar">
+                <p>Your browser does not support embedded PDFs. 
+                   <a href="MSCD February 2026 Calendar.pdf" style="color: var(--navy); font-weight: bold;">Click here to download and view the calendar.</a>
                 </p>
             </iframe>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center;">
+            <p style="font-style: italic; opacity: 0.8;">Note: Schedule is subject to change. Check with the duty bartender for the latest updates.</p>
         </div>
 
     </div>
 </div>
 
 <footer>
-    <p>Military Services Club Duley | 400 Old York Hampton Hwy</p>
-    <p>© 2026 | Honoring Service</p>
+    <p>Military Services Club Duley | 400 Old York Hampton Hwy | Yorktown, VA 23692</p>
+    <p>© 2026 | Honoring Service | Building Community</p>
 </footer>
 
 </body>
