@@ -10,71 +10,72 @@
             --marine-scarlet: #990000; 
             --coast-guard-blue: #005aa9;
             --fra-gold: #C5B358; 
-            --parchment: #fdfdfd;
+            --white: #ffffff;
         }
         
-        body { font-family: 'Times New Roman', Times, serif; margin: 0; background-color: #e9ecef; color: #333; }
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            margin: 0; 
+            /* THE NEW BACKGROUND IMAGE */
+            background: linear-gradient(rgba(0,33,71,0.6), rgba(0,22,48,0.7)), url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff; 
+        }
 
         /* MULTI-SERVICE TOP BAR */
-        .service-bar { height: 10px; display: flex; }
+        .service-bar { height: 10px; display: flex; position: sticky; top: 0; z-index: 1000; }
         .bar-navy { flex: 1; background: var(--navy-blue); }
         .bar-marine { flex: 1; background: var(--marine-scarlet); }
         .bar-cg { flex: 1; background: var(--coast-guard-blue); }
 
         /* HEADER */
         header { 
-            background-color: var(--navy-blue); 
-            color: white; 
-            padding: 50px 20px; 
+            padding: 60px 20px; 
             text-align: center;
-            border-bottom: 5px solid var(--fra-gold);
         }
-        .fra-logo { height: 130px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
-        header h1 { margin: 15px 0 5px 0; font-size: 2.8rem; letter-spacing: 2px; }
-        header p { font-style: italic; color: var(--fra-gold); font-size: 1.2rem; margin: 0; }
+        .fra-logo { height: 130px; filter: drop-shadow(0 0 15px rgba(0,0,0,0.5)); }
+        header h1 { margin: 15px 0 5px 0; font-size: 3rem; letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+        header p { font-style: italic; color: var(--fra-gold); font-size: 1.4rem; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
 
-        nav { background: #001630; padding: 15px; text-align: center; sticky; top: 0; }
+        nav { background: rgba(0, 22, 48, 0.9); backdrop-filter: blur(10px); padding: 15px; text-align: center; }
         nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
-        nav a:hover { color: var(--fra-gold); border-bottom: 2px solid var(--fra-gold); }
+        nav a:hover { color: var(--fra-gold); border-bottom: 2px solid var(--gold); }
 
-        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
 
         .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
 
-        .main-card { 
-            background: white; 
+        /* GLASS EFFECT CARDS */
+        .main-card, .side-card { 
+            background: rgba(255, 255, 255, 0.92); 
+            color: #111;
             padding: 40px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            border-top: 8px solid var(--navy-blue);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
+            border-radius: 15px;
         }
-
-        .side-card { 
-            background: var(--parchment); 
-            padding: 25px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-            border-top: 8px solid var(--marine-scarlet);
-            margin-bottom: 30px;
-        }
+        .main-card { border-top: 10px solid var(--navy-blue); }
+        .side-card { border-top: 10px solid var(--marine-scarlet); margin-bottom: 30px; padding: 25px; }
 
         h2 { color: var(--navy-blue); text-transform: uppercase; border-bottom: 2px solid var(--fra-gold); padding-bottom: 10px; }
-        h3 { color: var(--marine-scarlet); text-transform: uppercase; font-size: 1.1rem; }
+        h3 { color: var(--marine-scarlet); text-transform: uppercase; font-size: 1.2rem; margin-top: 0; }
 
-        .meeting-info { background: var(--navy-blue); color: white; padding: 20px; border-radius: 5px; margin: 20px 0; }
-        .eligibility { border: 2px solid var(--coast-guard-blue); padding: 20px; background: #f0f7ff; }
+        .meeting-info { background: var(--navy-blue); color: white; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .eligibility { border: 3px solid var(--coast-guard-blue); padding: 20px; background: #f0f7ff; border-radius: 10px; }
 
         .btn { 
             display: inline-block; background: var(--navy-blue); color: white; padding: 15px 25px; 
-            text-decoration: none; font-weight: bold; border-radius: 3px; transition: 0.3s; width: 100%; text-align: center; box-sizing: border-box;
+            text-decoration: none; font-weight: bold; border-radius: 50px; transition: 0.3s; width: 100%; text-align: center; box-sizing: border-box;
         }
-        .btn:hover { background: var(--marine-scarlet); }
+        .btn:hover { background: var(--marine-scarlet); transform: scale(1.02); }
 
-        /* SERVICE ICONS ROW */
-        .service-icons { display: flex; justify-content: center; gap: 30px; margin: 40px 0; opacity: 0.7; }
-        .service-icons img { height: 60px; }
+        .service-icons { display: flex; justify-content: center; gap: 30px; margin: 60px 0; }
+        .service-icons img { height: 80px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3)); }
 
-        footer { text-align: center; padding: 50px; background: #001630; color: white; border-top: 5px solid var(--fra-gold); }
+        footer { text-align: center; padding: 60px; background: rgba(0,22,48,0.9); color: white; border-top: 5px solid var(--fra-gold); }
 
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        @media (max-width: 850px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -111,7 +112,7 @@
             </div>
 
             <h2>Legislative Priorities</h2>
-            <p>We work closely with National HQ to monitor legislation affecting:</p>
+            <p>Our advocacy protects the hard-earned benefits of those who served in the Navy, Marine Corps, and Coast Guard.</p>
             <ul>
                 <li>Retention of VA benefits and COLA adjustments.</li>
                 <li>Protection of the Military Health System and TRICARE.</li>
@@ -120,37 +121,24 @@
 
             <div class="eligibility" id="join">
                 <h3>Certification of Eligibility</h3>
-                <p>To join FRA Branch 172, you must certify that you meet the eligibility requirements of being a current or prior member of the **USN, USMC, or USCG**, and that you can produce **proof of service**.</p>
+                <p>To join FRA Branch 172, you must certify that you are a current or prior member of the **USN, USMC, or USCG**, and can produce **proof of service**.</p>
                 <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" class="btn">Apply Online Today</a>
             </div>
         </div>
 
-        <div class="side-card" id="officers">
-    <h3>Ship's Officers</h3>
-    
-    <div style="border-bottom: 1px solid var(--fra-gold); margin-bottom: 15px; padding-bottom: 10px;">
-        <p style="color: var(--marine-scarlet); font-weight: bold; margin-bottom: 5px;">In Memoriam</p>
-        <p><strong>Lyle Loomis</strong><br>Past Branch President<br>
-        <span style="font-size: 0.85rem; font-style: italic;">Serving the Supreme Commander</span></p>
-    </div>
-
-    <p><strong>Major Branch</strong><br>Acting Branch President</p>
-    
-    <p><strong>Jon Hardy</strong><br>Branch Treasurer</p>
-    
-    <p><strong>Juan Falcon</strong><br>Branch Secretary<br>
-       <a href="mailto:frabranch172sec@gmail.com" style="font-size: 0.85rem; color: var(--navy-blue);">frabranch172sec@gmail.com</a><br>
-       <span style="font-size: 0.85rem;">804-829-0451</span>
-    </p>
-    
-    <p><strong>Bob Ryan</strong><br>Branch Jr. Past President</p>
-</div>
-
-            <div class="side-card">
-                <h3>Important Links</h3>
-                <p><a href="https://www.fra.org/fra/Web/Events/Legislative_Updates/Web/Content/Legislative_Updates.aspx" target="_blank">National Action Center</a></p>
-                <p><a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" target="_blank">Renew Membership</a></p>
-                <p><a href="mailto:info@mscduley.org">Contact Branch 172</a></p>
+        <div class="sidebar">
+            <div class="side-card" id="officers">
+                <h3>Ship's Officers</h3>
+                <div style="border-bottom: 1px solid var(--fra-gold); margin-bottom: 15px; padding-bottom: 10px;">
+                    <p style="color: var(--marine-scarlet); font-weight: bold; margin-bottom: 5px;">In Memoriam</p>
+                    <p><strong>Lyle Loomis</strong><br><span style="font-size: 0.85rem; font-style: italic;">Serving the Supreme Commander</span></p>
+                </div>
+                <p><strong>Major Branch</strong><br>Acting Branch President</p>
+                <p><strong>Jon Hardy</strong><br>Branch Treasurer</p>
+                <p><strong>Juan Falcon</strong><br>Branch Secretary<br>
+                   <a href="mailto:frabranch172sec@gmail.com" style="font-size: 0.85rem; color: var(--navy-blue);">frabranch172sec@gmail.com</a>
+                </p>
+                <p><strong>Bob Ryan</strong><br>Branch Jr. Past President</p>
             </div>
         </div>
     </div>
@@ -163,7 +151,7 @@
 
 <footer>
     <p>FRA Branch 172 | 400 Old York Hampton Hwy | Yorktown, VA 23692</p>
-    <p>Representing those who serve in the U.S. Navy, Marine Corps, and Coast Guard.</p>
+    <p>© 2026 | Representing the U.S. Navy, Marine Corps, and Coast Guard.</p>
 </footer>
 
 </body>
