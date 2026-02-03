@@ -3,111 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRA Branch 172 | Official Site</title>
+    <title>FRA Branch 172 | Yorktown, VA</title>
     <style>
-        :root { --fra-navy: #002147; --fra-gold: #C5B358; --fra-red: #b22222; }
-        
-        body { 
-            font-family: 'Georgia', serif; 
-            margin: 0; 
-            background-color: #f4f4f4; 
-            color: #333; 
+        :root { 
+            --navy-blue: #002147; 
+            --marine-scarlet: #990000; 
+            --coast-guard-blue: #005aa9;
+            --fra-gold: #C5B358; 
+            --parchment: #fdfdfd;
         }
+        
+        body { font-family: 'Times New Roman', Times, serif; margin: 0; background-color: #e9ecef; color: #333; }
 
-        /* LEGACY HEADER */
+        /* MULTI-SERVICE TOP BAR */
+        .service-bar { height: 10px; display: flex; }
+        .bar-navy { flex: 1; background: var(--navy-blue); }
+        .bar-marine { flex: 1; background: var(--marine-scarlet); }
+        .bar-cg { flex: 1; background: var(--coast-guard-blue); }
+
+        /* HEADER */
         header { 
-            background-color: var(--fra-navy); 
+            background-color: var(--navy-blue); 
             color: white; 
-            padding: 40px 20px; 
+            padding: 50px 20px; 
             text-align: center;
             border-bottom: 5px solid var(--fra-gold);
         }
-        .fra-logo { height: 120px; margin-bottom: 15px; }
-        header h1 { margin: 0; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
-        header p { font-style: italic; color: var(--fra-gold); }
+        .fra-logo { height: 130px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
+        header h1 { margin: 15px 0 5px 0; font-size: 2.8rem; letter-spacing: 2px; }
+        header p { font-style: italic; color: var(--fra-gold); font-size: 1.2rem; margin: 0; }
 
-        /* NAVIGATION */
-        nav { background: #001630; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }
-        nav a:hover { color: var(--fra-gold); }
+        nav { background: #001630; padding: 15px; text-align: center; sticky; top: 0; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+        nav a:hover { color: var(--fra-gold); border-bottom: 2px solid var(--fra-gold); }
 
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
 
-        /* MISSION SECTION */
-        .mission-box { 
+        .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+
+        .main-card { 
             background: white; 
             padding: 40px; 
-            border: 1px solid #ddd; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border-top: 10px solid var(--fra-navy);
-        }
-        h2 { color: var(--fra-navy); border-bottom: 2px solid var(--fra-gold); padding-bottom: 10px; }
-
-        /* ELIGIBILITY CARD */
-        .eligibility {
-            background-color: #fff9e6;
-            border: 2px solid var(--fra-gold);
-            padding: 25px;
-            margin-top: 30px;
-            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            border-top: 8px solid var(--navy-blue);
         }
 
-        /* BUTTONS */
+        .side-card { 
+            background: var(--parchment); 
+            padding: 25px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            border-top: 8px solid var(--marine-scarlet);
+            margin-bottom: 30px;
+        }
+
+        h2 { color: var(--navy-blue); text-transform: uppercase; border-bottom: 2px solid var(--fra-gold); padding-bottom: 10px; }
+        h3 { color: var(--marine-scarlet); text-transform: uppercase; font-size: 1.1rem; }
+
+        .meeting-info { background: var(--navy-blue); color: white; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .eligibility { border: 2px solid var(--coast-guard-blue); padding: 20px; background: #f0f7ff; }
+
         .btn { 
-            display: inline-block; 
-            background: var(--fra-navy); 
-            color: white; 
-            padding: 15px 30px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 3px;
-            margin-top: 20px;
-            transition: 0.3s;
+            display: inline-block; background: var(--navy-blue); color: white; padding: 15px 25px; 
+            text-decoration: none; font-weight: bold; border-radius: 3px; transition: 0.3s; width: 100%; text-align: center; box-sizing: border-box;
         }
-        .btn:hover { background: var(--fra-red); }
+        .btn:hover { background: var(--marine-scarlet); }
 
-        footer { text-align: center; padding: 40px; background: #eee; font-size: 0.8rem; color: #666; }
+        /* SERVICE ICONS ROW */
+        .service-icons { display: flex; justify-content: center; gap: 30px; margin: 40px 0; opacity: 0.7; }
+        .service-icons img { height: 60px; }
+
+        footer { text-align: center; padding: 50px; background: #001630; color: white; border-top: 5px solid var(--fra-gold); }
+
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
+<div class="service-bar">
+    <div class="bar-navy"></div>
+    <div class="bar-marine"></div>
+    <div class="bar-cg"></div>
+</div>
+
 <header>
     <img src="../fra-logo.png" alt="FRA Logo" class="fra-logo">
     <h1>FRA Branch 172</h1>
-    <p>Yorktown, Virginia | "Loyalty, Protection, and Service"</p>
+    <p>"Loyalty, Protection, and Service"</p>
 </header>
 
 <nav>
-    <a href="../index.html">← Back to MSC Duley Club</a>
+    <a href="../index.html">Club Home</a>
+    <a href="#legislative">Legislative</a>
+    <a href="#officers">Ship's Officers</a>
     <a href="https://www.fra.org" target="_blank">National HQ</a>
-    <a href="#join">Join Branch 172</a>
 </nav>
 
 <div class="container">
     
-    <div class="mission-box">
-        <h2>Our Mission</h2>
-        <p>Branch 172 of the Fleet Reserve Association (FRA) is dedicated to representing the interests of current and former enlisted members of the **U.S. Navy, Marine Corps, and Coast Guard**.</p>
-        
-        <p>Since our charter, we have stood as a pillar of advocacy in the Yorktown community, ensuring that the voices of sea service personnel are heard on Capitol Hill and that the bonds of shipmates remain strong long after the uniform is put away.</p>
+    <div class="grid">
+        <div class="main-card">
+            <h2>Branch Mission</h2>
+            <p>For 100 years, the Fleet Reserve Association has been the leading voice for the Sea Services. Branch 172 serves the Yorktown community by providing a focused venue for advocacy and fellowship among enlisted shipmates.</p>
+            
+            <div class="meeting-info">
+                <strong>📅 General Assembly:</strong> Second Monday of every month @ 1800<br>
+                <strong>📍 Location:</strong> MSC Duley Lounge
+            </div>
 
-        <div class="eligibility" id="join">
-            <h3>Membership Eligibility</h3>
-            <p>To join FRA Branch 172, you must certify that you meet the following requirements:</p>
+            <h2>Legislative Priorities</h2>
+            <p>We work closely with National HQ to monitor legislation affecting:</p>
             <ul>
-                <li>Current or prior member of the USN, USMC, or USCG.</li>
-                <li>Able to produce proof of service (DD-214 or ID card).</li>
-                <li>Committed to the principles of Loyalty, Protection, and Service.</li>
+                <li>Retention of VA benefits and COLA adjustments.</li>
+                <li>Protection of the Military Health System and TRICARE.</li>
+                <li>Proper funding for Sea Service readiness and personnel.</li>
             </ul>
-            <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" class="btn">Apply for Membership</a>
+
+            <div class="eligibility" id="join">
+                <h3>Certification of Eligibility</h3>
+                <p>To join FRA Branch 172, you must certify that you meet the eligibility requirements of being a current or prior member of the **USN, USMC, or USCG**, and that you can produce **proof of service**.</p>
+                <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" class="btn">Apply Online Today</a>
+            </div>
         </div>
+
+        <div class="sidebar">
+            <div class="side-card" id="officers">
+                <h3>Ship's Officers</h3>
+                <p><strong>President:</strong> Kendall Ryan</p>
+                <p><strong>Vice President:</strong> Jon Hardy</p>
+                <p><strong>Secretary:</strong> Larry Armstrong</p>
+                <p><strong>Treasurer:</strong> Ira Millen</p>
+            </div>
+
+            <div class="side-card">
+                <h3>Important Links</h3>
+                <p><a href="https://www.fra.org/fra/Web/Events/Legislative_Updates/Web/Content/Legislative_Updates.aspx" target="_blank">National Action Center</a></p>
+                <p><a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" target="_blank">Renew Membership</a></p>
+                <p><a href="mailto:info@mscduley.org">Contact Branch 172</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="service-icons">
+        <img src="../navy.png" alt="Navy"><img src="../marines.png" alt="Marines"><img src="../coastguard.png" alt="Coast Guard">
     </div>
 
 </div>
 
 <footer>
     <p>FRA Branch 172 | 400 Old York Hampton Hwy | Yorktown, VA 23692</p>
-    <p>A non-profit organization supporting the Sea Services.</p>
+    <p>Representing those who serve in the U.S. Navy, Marine Corps, and Coast Guard.</p>
 </footer>
 
 </body>
