@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About the FRA | Branch 172 Yorktown</title>
+    <title>Our Heritage | FRA Branch 172</title>
     <style>
-        :root { --navy: #002147; --scarlet: #990000; --cg-blue: #005aa9; --gold: #C5B358; }
+        :root { --navy: #002147; --scarlet: #990000; --gold: #C5B358; --white: #ffffff; }
         
         body { 
             font-family: 'Times New Roman', Times, serif; 
@@ -17,62 +17,103 @@
             color: #fff;
         }
 
-        header { padding: 40px 20px; text-align: center; background: rgba(0,33,71,0.9); border-bottom: 4px solid var(--gold); }
-        .fra-logo { height: 100px; }
+        header { padding: 40px 20px; text-align: center; background: rgba(0,33,71,0.9); border-bottom: 5px solid var(--gold); }
+        .fra-logo { height: 100px; margin-bottom: 10px; }
 
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
 
-        .glass-panel { 
-            background: rgba(255, 255, 255, 0.95); 
+        /* THE STYLIZED PREAMBLE */
+        .preamble-box {
+            background: #fdf5e6; /* Old Paper color */
+            color: #222;
+            padding: 50px;
+            border-radius: 5px;
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.1), 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #d2b48c;
+            margin-bottom: 40px;
+        }
+        .preamble-box::before {
+            content: "THE PREAMBLE";
+            display: block;
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+        .preamble-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            font-style: italic;
+            text-align: center;
+            border-top: 1px solid #d2b48c;
+            border-bottom: 1px solid #d2b48c;
+            padding: 30px 0;
+            color: #2c1e14;
+        }
+
+        /* CONTENT PANELS */
+        .content-panel { 
+            background: rgba(255, 255, 255, 0.96); 
             color: #111; 
             padding: 40px; 
             border-radius: 15px; 
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            line-height: 1.6;
+            margin-bottom: 40px;
         }
 
-        h1, h2 { color: var(--navy); text-transform: uppercase; border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
-        .motto { font-style: italic; color: var(--scarlet); font-weight: bold; text-align: center; font-size: 1.3rem; margin: 20px 0; }
+        h2 { color: var(--navy); text-transform: uppercase; border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-top: 0; }
         
-        .preamble { background: #f9f9f9; padding: 30px; border-left: 5px solid var(--navy); font-style: italic; margin: 30px 0; border-radius: 0 10px 10px 0; }
+        .motto { font-style: italic; color: var(--scarlet); font-weight: bold; text-align: center; font-size: 1.5rem; margin: 20px 0; }
 
-        .back-link { display: inline-block; margin-bottom: 20px; color: var(--gold); text-decoration: none; font-weight: bold; }
-        footer { text-align: center; padding: 40px; background: rgba(0,33,71,0.9); margin-top: 50px; border-top: 4px solid var(--gold); }
+        .back-link { display: inline-block; margin-bottom: 20px; color: var(--gold); text-decoration: none; font-weight: bold; border-bottom: 1px dashed var(--gold); }
+        .back-link:hover { color: #fff; border-bottom-style: solid; }
+
+        footer { text-align: center; padding: 40px; background: rgba(0,33,71,0.95); border-top: 5px solid var(--gold); }
     </style>
 </head>
 <body>
 
 <header>
     <img src="../fra-logo.png" alt="FRA Logo" class="fra-logo">
-    <h1>About the Fleet Reserve Association</h1>
+    <h1>Our Heritage & Mission</h1>
 </header>
 
 <div class="container">
-    <a href="index.html" class="back-link">← Back to Branch 172 Home</a>
+    <a href="index.html" class="back-link">← Return to Branch 172</a>
 
-    <div class="glass-panel">
+    <div class="preamble-box">
+        <div class="preamble-text">
+            "With reverence for God and Country, and being ever mindful of the glorious traditions of the United States Navy, Marine Corps and Coast Guard; our duty to uphold and defend the Constitution of the United States of America; our responsibility to aid in maintaining adequate defense for our beloved country; our desire to assist in obtaining the best conditions of service and personnel for the enlisted men and women of our Sea Services; we associate ourselves together and declare this to be the Preamble to the Constitution of the Fleet Reserve Association."
+        </div>
+    </div>
+
+    <div class="content-panel">
         <p class="motto">"Loyalty, Protection, and Service"</p>
 
-        <h2>Who We Are</h2>
-        <p>The Fleet Reserve Association (FRA) is a congressionally chartered, non-profit organization that represents the interests of the Sea Service community before the U.S. Congress. Since 1924, the FRA has been the premier voice for enlisted personnel of the **U.S. Navy, Marine Corps, and Coast Guard**.</p>
+        <h2>100 Years of Advocacy</h2>
+        <p>The Fleet Reserve Association (FRA) is more than just a veterans' group—it is the direct link between the enlisted sea services and the lawmakers in Washington, D.C. Founded in 1924, the FRA was the first organization to represent the specific needs of the enlisted ranks of the Navy, Marine Corps, and Coast Guard.</p>
 
-        <div class="preamble">
-            "With reverence for God and country, and being ever mindful of the glorious traditions of the United States Navy, Marine Corps, and Coast Guard... we associate ourselves together."
-        </div>
+        <h2>Who We Represent</h2>
+        <p>The FRA represents the interests of Sea Service personnel across all phases of their careers:</p>
+        <ul>
+            <li><strong>Active Duty:</strong> Fighting for fair pay and housing allowances.</li>
+            <li><strong>Reservists:</strong> Ensuring deployment protections and benefit parity.</li>
+            <li><strong>Retirees:</strong> Protecting COLA increases and TRICARE access.</li>
+            <li><strong>Veterans:</strong> Advocacy for VA health care and disability recognition.</li>
+        </ul>
 
-        <h2>Our Mission</h2>
-        <p>The FRA's primary mission is to protect the pay, benefits, and compensation of Sea Services personnel—active duty, reserve, retired, and veteran—and their families through direct contact with elected officials.</p>
-        
-        <h2>History of Advocacy</h2>
-        <p>Founded by Navy Chief Yeoman George L. Carlin and chartered on November 11, 1924, the FRA was the first organization to exclusively represent the interests of enlisted personnel before Congress. Today, we continue that legacy by maintaining close liaison with the Departments of Defense, Veterans Affairs, and Homeland Security.</p>
-
-        <h2>A Community of Shipmates</h2>
-        <p>Beyond the halls of Washington D.C., the FRA is a community. We believe that a "Shipmate is a Shipmate," regardless of rank or background. Through our local branches, like Branch 172 in Yorktown, we provide a homeport for fellowship, support in times of distress, and a shared dedication to the traditions of the sea.</p>
+        <h2>The Branch 172 Legacy</h2>
+        <p>Here in Yorktown, Branch 172 provides the "homeport" for these national missions. We meet monthly to discuss legislative updates, support our local shipmates, and honor the traditions that define the Sea Services. We believe that a <strong>Shipmate is a Shipmate</strong>—no matter the rank, no matter the branch.</p>
     </div>
 </div>
 
 <footer>
-    <p>© 2026 FRA Branch 172 | Yorktown, VA</p>
+    <p>FRA Branch 172 | Yorktown, VA</p>
+    <p>© 2026 | Honoring the Past, Protecting the Future</p>
 </footer>
 
 </body>
