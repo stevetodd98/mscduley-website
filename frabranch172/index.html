@@ -45,7 +45,6 @@
             100% { transform: translate(-100%, 0); }
         }
 
-        /* SERVICE BAR */
         .service-bar { height: 10px; display: flex; position: sticky; top: 0; z-index: 1000; }
         .bar-navy { flex: 1; background: var(--navy-blue); }
         .bar-marine { flex: 1; background: var(--marine-scarlet); }
@@ -74,25 +73,30 @@
 
         h2 { color: var(--navy-blue); text-transform: uppercase; border-bottom: 2px solid var(--fra-gold); padding-bottom: 10px; margin-top: 0; }
         
-        /* SPECIAL HOTLINE BOX */
         .hotline-box { 
             background: #000; 
             color: #ff3333; 
-            padding: 20px; 
+            padding: 15px; 
             border-radius: 8px; 
             text-align: center; 
             margin-bottom: 30px; 
-            border: 3px solid #ff3333;
-            box-shadow: 0 0 15px rgba(255,0,0,0.3);
+            border: 2px solid #ff3333;
         }
-        .hotline-number { font-size: 1.8rem; display: block; font-weight: 900; letter-spacing: 1px; }
 
         .resource-link { 
-            display: flex; align-items: center; background: #f4f7f9; color: var(--navy-blue); 
-            padding: 15px; margin: 12px 0; border-radius: 8px; text-decoration: none; 
-            font-weight: bold; border-left: 6px solid var(--coast-guard-blue); transition: 0.2s;
+            display: block; background: #f4f7f9; color: var(--navy-blue); 
+            padding: 12px; margin: 8px 0; border-radius: 6px; text-decoration: none; 
+            font-weight: bold; border-left: 5px solid var(--coast-guard-blue); transition: 0.2s;
         }
-        .resource-link:hover { transform: translateX(10px); background: #eef2f5; border-left-color: var(--fra-gold); }
+        .resource-link:hover { background: #eef2f5; border-left-color: var(--fra-gold); }
+
+        .eligibility { 
+            border: 3px solid var(--coast-guard-blue); 
+            padding: 25px; 
+            background: #f0f7ff; 
+            border-radius: 10px; 
+            margin: 30px 0;
+        }
 
         .btn { 
             display: inline-block; background: var(--navy-blue); color: white; padding: 15px 25px; 
@@ -110,7 +114,7 @@
 
 <div class="ticker-wrap">
     <div class="ticker">
-        ⚓ LATEST: National FRA Convention 2026 scheduled | ⚖️ LEGISLATIVE ALERT: Protecting COLA and Pharmacy Benefits | 📅 NEXT MEETING: Second Monday @ 1800 | 🎁 SUPPORT: View our new Donations page to assist Shipmates in need...
+        ⚓ LATEST: National FRA Convention 2026 scheduled | ⚖️ LEGISLATIVE ALERT: Protecting COLA and Pharmacy Benefits | 📅 NEXT MEETING: Feb 9th @ 1800 | 🎁 SUPPORT: New local donation partners added to Support page...
     </div>
 </div>
 
@@ -136,45 +140,50 @@
 <div class="container">
     <div class="grid">
         <div class="main-card">
-            <div class="hotline-box">
-                <span style="font-size: 0.9rem; letter-spacing: 2px;">VETERANS CRISIS LINE</span>
-                <span class="hotline-number">DIAL 988, THEN PRESS 1</span>
-                <span style="font-size: 0.8rem; color: #aaa;">CONFIDENTIAL HELP AVAILABLE 24/7</span>
+            <h2>Branch Mission</h2>
+            <p>Branch 172 serves the Yorktown community by providing a focused venue for advocacy and fellowship among enlisted shipmates of the Navy, Marine Corps, and Coast Guard.</p>
+            
+            <div style="background: var(--navy-blue); color: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <strong>📅 Branch Meeting:</strong> Second Monday of every month @ 1800<br>
+                <strong>📍 Location:</strong> MSC Duley Lounge
             </div>
 
-            <h2>Shipmate Support Resources</h2>
-            <p>Access critical support systems for our Navy, Marine Corps, and Coast Guard community:</p>
-            
-            <a href="https://www.va.gov" target="_blank" class="resource-link">🏛️ U.S. Department of Veterans Affairs (VA.gov)</a>
-            <a href="https://www.fraeastcoast.org" target="_blank" class="resource-link">⚓ FRA East Coast Regional Website</a>
-            <a href="https://www.fra.org/fra/Web/Events/Legislative_Updates/Web/Content/Legislative_Updates.aspx" target="_blank" class="resource-link">⚖️ National Legislative Tracker & Action Center</a>
-            <a href="https://www.tricare.mil" target="_blank" class="resource-link">🏥 TRICARE Online - Healthcare Management</a>
-
-            <h2 style="margin-top: 40px;">Welfare of the Shipmate</h2>
-            <p>If you or a shipmate are experiencing hardship, illness, or require assistance, please contact the Branch Secretary or come to our monthly meeting. **No Shipmate stands alone.**</p>
-            
-            <div style="background: var(--navy-blue); color: white; padding: 25px; border-radius: 12px; margin-top: 20px;">
-                <h3 style="color: var(--fra-gold); margin-top: 0;">National Mission Video</h3>
-                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+            <div style="margin-top: 30px;">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000;">
                     <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.youtube.com/embed/Zqni8BhO8lM" allowfullscreen></iframe>
                 </div>
             </div>
+
+            <div class="eligibility" id="join">
+                <h3 style="margin-top: 0; color: var(--navy-blue);">Certification of Eligibility</h3>
+                <p>To join FRA Branch 172, you must certify that you are a current or prior member of the **USN, USMC, or USCG**, and can produce **proof of service** (DD-214 or ID Card).</p>
+                <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" target="_blank" class="btn">Apply Online Today</a>
+            </div>
+
+            <h2 style="margin-top: 40px;">Shipmate Support Resources</h2>
+            <div class="hotline-box">
+                <strong>🆘 VETERANS CRISIS LINE: DIAL 988, THEN PRESS 1</strong>
+            </div>
+            
+            <a href="https://www.dvs.virginia.gov/Home/Components/FacilityDirectory/FacilityDirectory/49/" target="_blank" class="resource-link">📋 DVS Hampton Office (Claims & Benefits)</a>
+            <a href="https://www.yorkcounty.gov/511/Military-Exemptions" target="_blank" class="resource-link">🏠 York County Tax Exemptions (Real Estate & Vehicle)</a>
+            <a href="https://www.dvs.virginia.gov/benefits-services/education/virginia-military-survivors-dependents-education-program-vmsdep" target="_blank" class="resource-link">🎓 VMSDEP (Education Waiver for Families)</a>
+            <a href="https://www.va.gov" target="_blank" class="resource-link">🏛️ U.S. Department of Veterans Affairs (VA.gov)</a>
+            <a href="https://www.fraeastcoast.org" target="_blank" class="resource-link">⚓ FRA East Coast Regional Website</a>
         </div>
 
         <div class="sidebar">
             <div class="side-card">
-                <h3>Branch Dashboard</h3>
+                <h3>Quick Access</h3>
                 <a href="officers.html" class="btn" style="margin-bottom: 12px;">👮‍♂️ Ship's Officers</a>
                 <a href="gallery/gallery.html" class="btn" style="background: var(--marine-scarlet); margin-bottom: 12px;">📸 Photo Gallery</a>
                 <a href="donations.html" class="btn" style="background: var(--fra-gold); color: #000;">🎁 Support & Donations</a>
             </div>
             
             <div class="side-card" style="border-top: 10px solid var(--coast-guard-blue);">
-                <h3>Meeting Info</h3>
-                <p><strong>When:</strong> 2nd Monday @ 1800<br>
-                <strong>Where:</strong> MSC Duley Lounge</p>
-                <hr>
-                <p style="font-size: 0.85rem; font-style: italic; color: #666;">Serving Enlisted USN, USMC, and USCG since 1924.</p>
+                <h3>Legislative Advocacy</h3>
+                <p>We are the premier voice on Capitol Hill for sea service enlisted personnel.</p>
+                <a href="https://www.fra.org/fra/Web/Events/Legislative_Updates/Web/Content/Legislative_Updates.aspx" target="_blank" style="color: var(--navy-blue); font-weight: bold; text-decoration: none;">⚖️ View National Tracker</a>
             </div>
         </div>
     </div>
