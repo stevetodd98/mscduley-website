@@ -40,7 +40,7 @@
         h2:first-of-type { margin-top: 0; }
         h3 { color: var(--navy); margin: 0 0 5px 0; font-size: 1.2rem; }
 
-        .donation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+        .donation-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
 
         .donation-card {
             background: #f4f7f9;
@@ -52,6 +52,7 @@
             justify-content: space-between;
             transition: 0.3s;
         }
+        .donation-card:hover { background: #eef2f5; transform: translateY(-3px); }
 
         .address { font-size: 0.85rem; color: #666; font-style: italic; margin-top: 10px; line-height: 1.4; border-top: 1px solid #ddd; padding-top: 10px; }
 
@@ -67,8 +68,8 @@
             margin-top: 10px;
             font-size: 0.85rem;
         }
+        .btn-link:hover { background: var(--scarlet); }
 
-        /* FORM STYLING */
         .suggestion-box {
             background: #f0f4f8;
             padding: 30px;
@@ -77,27 +78,11 @@
             margin-top: 40px;
         }
         .suggestion-box input, .suggestion-box textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-family: inherit;
+            width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;
         }
         .btn-submit {
-            background: var(--scarlet);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 100%;
-            transition: 0.3s;
+            background: var(--scarlet); color: white; border: none; padding: 15px 30px; font-weight: bold; text-transform: uppercase; cursor: pointer; border-radius: 5px; width: 100%;
         }
-        .btn-submit:hover { background: var(--navy); }
 
         .back-link { display: inline-block; margin-bottom: 20px; color: var(--gold); text-decoration: none; font-weight: bold; }
         footer { text-align: center; padding: 40px; background: rgba(0,33,71,0.95); border-top: 5px solid var(--gold); margin-top: 50px; }
@@ -134,7 +119,7 @@
                 <div class="address">4674 Old Forest Rd.<br>Gloucester, VA 23061</div>
             </div>
 
-            <div class="donation-card" style="border-left-color: var(--navy);">
+            <div class="donation-card">
                 <div>
                     <h3>Literacy for Life</h3>
                     <p>Empowering adults through literacy and education.</p>
@@ -142,8 +127,59 @@
                 </div>
                 <div class="address">School of Education, William & Mary<br>P.O. Box 8795<br>Williamsburg, VA 23187</div>
             </div>
-            
+
+            <div class="donation-card">
+                <div>
+                    <h3>Claus Cares</h3>
+                    <p>Community care and compassionate service.</p>
+                    <a href="https://clauscares.org/" target="_blank" class="btn-link">Visit Website</a>
+                </div>
+                <div class="address">1209 Country Club Road<br>Newport News, VA 23606</div>
             </div>
+
+            <div class="donation-card" style="border-left-color: #4a148c;">
+                <div>
+                    <h3>Evolution House</h3>
+                    <p>Providing essential support and transitional services.</p>
+                    <a href="https://evolutionhouse.org/" target="_blank" class="btn-link">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="donation-card">
+                <div>
+                    <h3>Veterans Care Project</h3>
+                    <p>Dedicated community services for our veterans.</p>
+                </div>
+                <div class="address">6558 Main Street<br>Gloucester, VA 23061</div>
+            </div>
+        </div>
+
+        <h2>Recreational & Outdoors</h2>
+        <div class="donation-grid">
+            <div class="donation-card" style="border-left-color: #2e7d32;">
+                <div>
+                    <h3>The Fallen Outdoors</h3>
+                    <p>Connecting veterans to outdoor therapeutic adventures.</p>
+                    <a href="https://thefallenoutdoors.org/virginia/#" target="_blank" class="btn-link" style="background: #2e7d32;">Visit VA Site</a>
+                </div>
+            </div>
+            <div class="donation-card" style="border-left-color: #5d4037;">
+                <div>
+                    <h3>Freedom Hunters</h3>
+                    <p>Outdoor experiences for the military community.</p>
+                    <a href="https://freedomhunters.org/" target="_blank" class="btn-link" style="background: #5d4037;">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <h2>National FRA Mission</h2>
+        <div class="donation-card">
+            <div>
+                <h3>FRA Education Foundation</h3>
+                <p>Investing in the future of Sea Service families through scholarships.</p>
+                <a href="https://www.fra.org/fra/Web/About_FRA/Education_Foundation/Web/Content/FRA_Education_Foundation.aspx" target="_blank" class="btn-link" style="background: var(--gold); color: #000;">Donate to Foundation</a>
+            </div>
+        </div>
 
         <div class="suggestion-box">
             <h3>Suggest a New Organization</h3>
@@ -158,23 +194,17 @@
     </div>
 </div>
 
-<footer>
-    <p>FRA Branch 172 | Yorktown, VA</p>
-</footer>
+<footer><p>FRA Branch 172 | Yorktown, VA</p></footer>
 
 <script>
     function submitSuggestion() {
         const name = document.getElementById('orgName').value;
         const web = document.getElementById('orgWeb').value;
         const reason = document.getElementById('orgReason').value;
-        
         const subject = encodeURIComponent("New Charity Suggestion for Branch 172");
         const body = encodeURIComponent(`Shipmate Suggestion:\n\nOrg Name: ${name}\nWebsite: ${web}\n\nReason for Support:\n${reason}`);
-        
-        // This opens the user's email client
         window.location.href = `mailto:frabranch172sec@gmail.com?subject=${subject}&body=${body}`;
     }
 </script>
-
 </body>
 </html>
