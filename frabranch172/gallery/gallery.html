@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipmate Gallery | FRA Branch 172</title>
+    <style>
+        :root { 
+            --navy: #002147; 
+            --gold: #C5B358; 
+            --scarlet: #990000; 
+            --white: #ffffff;
+        }
+        
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            margin: 0; 
+            background: linear-gradient(rgba(0,33,71,0.9), rgba(0,22,48,0.95)), url('/frabranch172/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        header { padding: 40px 20px; text-align: center; background: rgba(0,33,71,0.95); border-bottom: 5px solid var(--gold); }
+        nav { background: rgba(0,22,48,0.9); padding: 15px; text-align: center; border-bottom: 1px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+        nav a:hover { color: var(--gold); }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        h1 { text-transform: uppercase; letter-spacing: 2px; margin: 0; }
+        .subtitle { font-style: italic; color: var(--gold); margin-top: 10px; display: block; text-align: center; }
+
+        /* THUMBNAIL GRID */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Medium Thumbnails */
+            gap: 20px;
+        }
+
+        .photo-item {
+            aspect-ratio: 1 / 1; /* Square Thumbnails */
+            overflow: hidden;
+            border: 3px solid #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images fill the square without stretching */
+            display: block;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+            border-color: var(--gold);
+        }
+
+        /* MODAL (ENLARGED VIEW) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 85%;
+            border: 4px solid var(--gold);
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer { text-align: center; padding: 40px; background: rgba(0,33,71,0.95); border-top: 5px solid var(--gold); margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Shipmate Gallery</h1>
+    <span class="subtitle">Branch 172 Events & Fellowship</span>
+</header>
+
+<nav>
+    <a href="../index.html">Branch Home</a>
+    <a href="../about.html">About</a>
+    <a href="../officers.html">Officers</a>
+</nav>
+
+<div class="container">
+    <div class="photo-grid">
+        <div class="photo-item" onclick="expandImage('event1.jpg')"><img src="event1.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event2.jpg')"><img src="event2.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event3.jpg')"><img src="event3.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event4.jpg')"><img src="event4.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event5.jpg')"><img src="event5.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event6.jpg')"><img src="event6.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event7.jpg')"><img src="event7.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event8.jpg')"><img src="event8.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event9.jpg')"><img src="event9.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event10.jpg')"><img src="event10.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event11.jpg')"><img src="event11.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event12.jpg')"><img src="event12.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event13.jpg')"><img src="event13.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event14.jpg')"><img src="event14.jpg" alt="FRA Event"></div>
+        <div class="photo-item" onclick="expandImage('event15.jpg')"><img src="event15.jpg" alt="FRA Event"></div>
+    </div>
+</div>
+
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close-btn">&times;</span>
+    <img class="modal-content" id="fullImage">
+</div>
+
+<footer>
+    <p>FRA Branch 172 | Yorktown, VA</p>
+</footer>
+
+<script>
+    function expandImage(imgSrc) {
+        document.getElementById("imageModal").style.display = "flex";
+        document.getElementById("fullImage").src = imgSrc;
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+
+    // Close with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>
