@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U.S. Coast Guard Heritage | FRA Branch 172</title>
+    <style>
+        :root { 
+            --cg-blue: #005aa9; 
+            --cg-scarlet: #ef3340; 
+            --white: #ffffff;
+        }
+        
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            margin: 0; 
+            background: linear-gradient(rgba(0,90,169,0.85), rgba(0,40,100,0.95)), 
+                        url('cg-bg.jpg'); /* Suggestion: A Coast Guard Cutter or a rescue helicopter in action */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff; 
+        }
+
+        header { padding: 60px 20px; text-align: center; border-bottom: 8px solid var(--cg-scarlet); background: rgba(0,0,0,0.5); }
+        header h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: 4px; margin: 0; text-shadow: 3px 3px 10px #000; }
+        header p { color: #fff; font-weight: bold; font-size: 1.2rem; margin-top: 10px; text-transform: uppercase; letter-spacing: 2px; }
+
+        nav { background: rgba(0, 0, 0, 0.85); padding: 15px; text-align: center; border-bottom: 2px solid var(--white); }
+        nav a { color: var(--white); margin: 0 15px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+        nav a:hover { color: var(--cg-scarlet); }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        
+        /* BIRTHDAY SPECIAL SECTION */
+        .birthday-banner {
+            background: var(--white);
+            color: var(--cg-blue);
+            padding: 15px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+            border-radius: 8px 8px 0 0;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border-bottom: 4px solid var(--cg-scarlet);
+        }
+
+        .history-card { 
+            background: rgba(255, 255, 255, 0.98); 
+            color: #111;
+            padding: 40px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
+            border-radius: 0 0 8px 8px;
+            border-left: 15px solid var(--cg-blue);
+        }
+
+        h2 { color: var(--cg-blue); border-bottom: 2px solid var(--cg-scarlet); padding-bottom: 10px; }
+        .fact-box { background: #f0f7ff; border-radius: 8px; padding: 20px; margin: 20px 0; border: 1px solid #c2d6ea; }
+        .fact-box strong { color: var(--cg-blue); font-size: 1.1rem; }
+
+        .quote { font-style: italic; font-size: 1.4rem; color: #fff; text-align: center; margin: 40px 0; text-shadow: 2px 2px 5px #000; }
+
+        footer { text-align: center; padding: 40px; background: rgba(0,0,0,0.8); color: #fff; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>United States Coast Guard</h1>
+    <p>Semper Paratus (Always Ready)</p>
+</header>
+
+<nav>
+    <a href="index.html">← Back to Branch Home</a>
+    <a href="history-navy.html">U.S. Navy</a>
+    <a href="history-marines.html">U.S. Marine Corps</a>
+</nav>
+
+<div class="container">
+    <div class="birthday-banner">
+        🚢 Established: August 4, 1790
+    </div>
+    <div class="history-card">
+        <h2>Shield of the Freedom</h2>
+        <p>The Coast Guard is one of the nation's five armed services, unique in its dual role as a military service and a federal law enforcement agency. Founded by Alexander Hamilton as the **Revenue Marine**, it is the oldest continuous seagoing service of the United States.</p>
+
+        <div class="fact-box">
+            <strong>⚓ The "Revenue Cutter Service"</strong><br>
+            For several years after the Continental Navy was disbanded, the Revenue Marine (later the Coast Guard) was the nation's *only* armed force afloat. They were responsible for protecting the coast from smugglers and ensuring the collection of vital customs duties.
+        </div>
+
+        <div class="fact-box">
+            <strong>⚓ The Racing Stripe</strong><br>
+            The iconic red and blue "Racing Stripe" seen on Coast Guard vessels was adopted in 1967. It was designed to give Coast Guard assets a distinctive look that would be easily recognized from a distance, even by international vessels.
+        </div>
+
+        <div class="fact-box">
+            <strong>⚓ Douglas Munro: A Hero of Guadalcanal</strong><br>
+            Signalman 1st Class Douglas Munro is the only Coast Guardsman to receive the Medal of Honor. He was posthumously awarded for his heroic actions in evacuating a detachment of Marines under heavy fire at Point Cruz, Guadalcanal, in 1942.
+        </div>
+
+        <div class="fact-box">
+            <strong>⚓ Lifesavers from the Start</strong><br>
+            In 1915, the Revenue Cutter Service merged with the U.S. Life-Saving Service to form the modern Coast Guard. Today, they perform an average of 45 search and rescue cases every single day.
+        </div>
+    </div>
+
+    <div class="quote">
+        "The law says that we have to go out. It doesn't say anything about having to come back." <br>— Famous Coast Guard Saying
+    </div>
+</div>
+
+<footer>
+    FRA Branch 172 | Yorktown, VA | Supporting the Guardians of the Sea.
+</footer>
+
+</body>
+</html>
