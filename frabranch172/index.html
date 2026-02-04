@@ -28,7 +28,26 @@
             color: #fff; 
             scroll-behavior: smooth;
         }
+        
+        /* SERVICE STRIP STYLING */
+        .service-strip { 
+        padding: 50px 0; 
+        text-align: center; 
+        border-top: 1px solid rgba(255,255,255,0.1);
+        margin-top: 40px;
+        }
 
+        .service-strip img { 
+        height: 75px; 
+        margin: 15px; 
+        filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6)); 
+        transition: transform 0.3s ease;
+        }
+
+        .service-strip img:hover {
+        transform: scale(1.1);
+        }
+        
         /* URGENT NEWS TICKER */
         .ticker-wrap {
             background: var(--marine-scarlet);
@@ -297,8 +316,14 @@
 
 <a href="#top" class="back-to-top" title="Back to Top">⚓</a>
 
-<footer>
-    <p>FRA Branch 172 | 400 Old York Hampton Hwy | Yorktown, VA 23692</p>
-</footer>
+<div class="service-strip">
+            <img src="marines.png" alt="U.S. Marine Corps">
+            <img src="navy.png" alt="U.S. Navy">
+            <img src="coastguard.png" alt="U.S. Coast Guard">
+        </div>
+
+    </div> <footer>
+        <p>© 2026 Fleet Reserve Association Branch 172 | Yorktown, VA</p>
+    </footer>
 </body>
 </html>
