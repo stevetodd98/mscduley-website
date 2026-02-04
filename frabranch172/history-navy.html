@@ -15,7 +15,7 @@
             font-family: 'Times New Roman', Times, serif; 
             margin: 0; 
             background: linear-gradient(rgba(0,0,128,0.85), rgba(0,0,50,0.95)), 
-                        url('navy-bg.jpg'); /* Suggestion: An image of the USS Constitution or a modern Carrier */
+                        url('navy-bg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -31,18 +31,38 @@
 
         .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
         
+        /* BIRTHDAY BANNER */
+        .birthday-banner {
+            background: var(--navy-gold);
+            color: var(--navy-blue);
+            padding: 15px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+            border-radius: 8px 8px 0 0;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
         .history-card { 
             background: rgba(255, 255, 255, 0.98); 
             color: #111;
             padding: 40px; 
             box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
-            border-radius: 8px;
+            border-radius: 0 0 8px 8px;
             border-left: 15px solid var(--navy-blue);
         }
 
-        h2 { color: var(--navy-blue); border-bottom: 2px solid var(--navy-gold); padding-bottom: 10px; }
+        h2 { color: var(--navy-blue); border-bottom: 2px solid var(--navy-gold); padding-bottom: 10px; margin-top: 30px; }
+        h2:first-child { margin-top: 0; }
+
         .fact-box { background: #f0f4f8; border-radius: 8px; padding: 20px; margin: 20px 0; border: 1px solid #d1d9e0; }
         .fact-box strong { color: var(--navy-blue); font-size: 1.1rem; }
+
+        /* MODERN STATS GRID */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 25px 0; }
+        .stat-item { background: var(--navy-blue); color: white; padding: 20px; border-radius: 10px; text-align: center; border-bottom: 4px solid var(--navy-gold); }
+        .stat-number { display: block; font-size: 2rem; font-weight: 900; color: var(--navy-gold); }
 
         .quote { font-style: italic; font-size: 1.4rem; color: var(--navy-gold); text-align: center; margin: 40px 0; text-shadow: 1px 1px 3px #000; }
 
@@ -63,9 +83,12 @@
 </nav>
 
 <div class="container">
+    <div class="birthday-banner">
+        ⚓ Established: October 13, 1775
+    </div>
     <div class="history-card">
         <h2>A Legacy of Sea Power</h2>
-        <p>Established on October 13, 1775, the United States Navy was born out of the necessity to defend the colonies from the British fleet. From the wooden hulls of the original six frigates to the nuclear-powered supercarriers of today, the Navy remains the world's premier maritime force.</p>
+        <p>From the wooden hulls of the original six frigates to the nuclear-powered supercarriers of today, the Navy remains the world's premier maritime force, ensuring the freedom of the seas for over 250 years.</p>
 
         <div class="fact-box">
             <strong>⚓ The "Oldest" Commissioned Ship</strong><br>
@@ -73,23 +96,40 @@
         </div>
 
         <div class="fact-box">
-            <strong>⚓ The Six Original Frigates</strong><br>
-            In 1794, Congress authorized the construction of six frigates to combat Barbary pirates. One of these, the <em>USS United States</em>, was the first ship to ever fly the "Stars and Stripes" in a naval battle.
-        </div>
-
-        <div class="fact-box">
-            <strong>⚓ Breaking the Sound Barrier at Sea</strong><br>
-            The U.S. Navy didn't just master the water; it mastered the sky. Navy Captain Chuck Yeager may have been Air Force, but Navy Commander Alan Shepard was the first American in space, and Navy aviator Neil Armstrong was the first man on the moon.
-        </div>
-
-        <div class="fact-box">
             <strong>⚓ "I Have Not Yet Begun to Fight!"</strong><br>
             During the Battle of Flamborough Head in 1779, John Paul Jones uttered these famous words when asked to surrender his sinking ship. He went on to capture the British ship <em>Serapis</em>, securing a legendary victory.
+        </div>
+
+        <h2>The Modern Fleet</h2>
+        <p>Today, the U.S. Navy maintains a constant global presence. As of early 2026, the battle force consists of approximately **290-300 deployable ships**, providing unmatched power projection across the globe.</p>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">11</span>
+                Aircraft Carriers (Nuclear)
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">68</span>
+                Submarines (SSN/SSBN/SSGN)
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">92</span>
+                Destroyers (DDG)
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">31</span>
+                Amphibious Warfare Ships
+            </div>
+        </div>
+
+        <div class="fact-box">
+            <strong>⚓ Silent Service: The Submarine Force</strong><br>
+            The Navy operates an entirely nuclear-powered submarine fleet. This includes Virginia-class fast attack subs and the Ohio-class ballistic missile submarines, which carry the lion's share of the U.S. nuclear deterrent.
         </div>
     </div>
 
     <div class="quote">
-        "I can imagine no more rewarding a career. And any man who may be asked in this century what he did to make his life worthwhile, I think can respond with a good deal of pride and satisfaction: 'I served in the United States Navy.'" <br>— President John F. Kennedy
+        "I can imagine no more rewarding a career... I think can respond with a good deal of pride and satisfaction: 'I served in the United States Navy.'" <br>— President John F. Kennedy
     </div>
 </div>
 
