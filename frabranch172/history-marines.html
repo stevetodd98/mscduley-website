@@ -15,7 +15,7 @@
             font-family: 'Times New Roman', Times, serif; 
             margin: 0; 
             background: linear-gradient(rgba(153,0,0,0.85), rgba(80,0,0,0.95)), 
-                        url('marine-bg.jpg'); /* Suggestion: Iwo Jima memorial or EGA emblem */
+                        url('marines-bg.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -31,7 +31,7 @@
 
         .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
         
-        /* BIRTHDAY SPECIAL SECTION */
+        /* BIRTHDAY BANNER */
         .birthday-banner {
             background: var(--marine-gold);
             color: #111;
@@ -53,9 +53,16 @@
             border-left: 15px solid var(--marine-scarlet);
         }
 
-        h2 { color: var(--marine-scarlet); border-bottom: 2px solid var(--marine-gold); padding-bottom: 10px; }
+        h2 { color: var(--marine-scarlet); border-bottom: 2px solid var(--marine-gold); padding-bottom: 10px; margin-top: 30px; }
+        h2:first-child { margin-top: 0; }
+
         .fact-box { background: #fff5f5; border-radius: 8px; padding: 20px; margin: 20px 0; border: 1px solid #eccaca; }
         .fact-box strong { color: var(--marine-scarlet); font-size: 1.1rem; }
+
+        /* MODERN FORCE GRID */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 25px 0; }
+        .stat-item { background: var(--marine-scarlet); color: white; padding: 20px; border-radius: 10px; text-align: center; border-bottom: 4px solid var(--marine-gold); }
+        .stat-number { display: block; font-size: 2rem; font-weight: 900; color: var(--marine-gold); }
 
         .quote { font-style: italic; font-size: 1.4rem; color: var(--marine-gold); text-align: center; margin: 40px 0; text-shadow: 1px 1px 3px #000; }
 
@@ -81,31 +88,48 @@
     </div>
     <div class="history-card">
         <h2>The Tip of the Spear</h2>
-        <p>The Marine Corps was founded at **Tun Tavern** in Philadelphia by a resolution of the Continental Congress. For over 250 years, Marines have been the first to fight, serving as the nation’s premier force-in-readiness on every continent and in every climate.</p>
-
-        <div class="fact-box">
-            <strong>⚔️ The Mameluke Sword</strong><br>
-            The oldest continuously used weapon in the U.S. arsenal is the Mameluke Sword, carried by Marine officers. It was presented to Lieutenant Presley O'Bannon in 1805 after the Battle of Derne in Tripoli—the first time the U.S. flag was raised over foreign soil.
-        </div>
+        <p>Founded at Tun Tavern in Philadelphia, the Marine Corps has served in every conflict in U.S. history. They are the nation's 9-1-1 force, capable of rapid response by sea, land, and air.</p>
 
         <div class="fact-box">
             <strong>⚔️ Why "Leatherneck"?</strong><br>
-            The nickname comes from the high leather collar Marines wore as part of their uniform from 1798 to 1872. It was designed to protect the neck from sword cuts and to keep a Marine’s head held high and straight.
+            The nickname comes from the high leather collar worn from 1798 to 1872, designed to protect the neck from sword cuts and ensure a sharp military bearing.
+        </div>
+
+        <h2>Today's Marine Force</h2>
+        <p>The Marine Corps maintains a high state of readiness through **Marine Expeditionary Units (MEU)**, which are self-contained task forces deployed globally aboard Navy amphibious ships.</p>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">172,000+</span>
+                Active Duty Marines
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                Marine Expeditionary Forces
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24</span>
+                Infantry Battalions
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">~350</span>
+                MV-22B Osprey Aircraft
+            </div>
         </div>
 
         <div class="fact-box">
-            <strong>⚔️ The "Teufel Hunden" (Devil Dogs)</strong><br>
-            During the Battle of Belleau Wood in WWI, the ferocity of the Marines was so intense that the Germans reportedly called them "Teufel Hunden"—Devil Dogs. The nickname has been a point of pride for Marines ever since.
+            <strong>⚔️ MV-22 Osprey: Versatility in the Air</strong><br>
+            The MV-22 Osprey is the backbone of Marine medium-tiltrotor squadrons. By combining the vertical flight capabilities of a helicopter with the speed and range of a fixed-wing plane, the Osprey allows Marines to launch amphibious assaults from much further over the horizon, significantly increasing mission safety and surprise.
         </div>
 
         <div class="fact-box">
-            <strong>⚔️ Uncommon Valor</strong><br>
-            The flag-raising on **Iwo Jima** during WWII remains one of the most iconic moments in military history. Admiral Chester Nimitz famously remarked that on Iwo Jima, "Uncommon valor was a common virtue."
+            <strong>⚔️ "Devil Dogs"</strong><br>
+            Legend has it that during WWI at Belleau Wood, the Germans called the persistent Marines "Teufel Hunden" (Devil Dogs) due to their relentless fighting spirit.
         </div>
     </div>
 
     <div class="quote">
-        "The Marines have landed, and the situation is well in hand." <br>— Attributed to Richard Harding Davis
+        "Some people spend an entire lifetime wondering if they made a difference in the world. But, the Marines don't have that problem." <br>— President Ronald Reagan
     </div>
 </div>
 
