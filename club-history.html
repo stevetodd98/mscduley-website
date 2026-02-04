@@ -47,11 +47,28 @@
         .charter-box { background: #f4f7f9; border-left: 5px solid var(--navy); padding: 25px; margin: 20px 0; border-radius: 0 8px 8px 0; }
         .charter-box h3 { margin-top: 0; color: var(--navy); }
 
+        /* FOUNDERS TRIBUTE GRID */
+        .founders-tribute { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            margin-top: 30px; 
+        }
+        
+        .founder-profile { 
+            background: #f8f9fa; 
+            border-left: 5px solid var(--navy); 
+            padding: 20px; 
+            border-radius: 0 8px 8px 0;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .founder-profile h3 { color: var(--navy); margin: 0 0 5px 0; font-size: 1.2rem; }
+        .founder-profile .rank { color: #555; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 10px; }
+        .founder-profile p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: #333; }
+
         .timeline-item { border-left: 3px solid var(--gold); padding-left: 20px; margin-bottom: 30px; position: relative; }
         .timeline-item::before { content: '⚓'; position: absolute; left: -12px; background: white; }
-
-        .founders-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
-        .founder-name { background: var(--navy); color: white; padding: 10px; border-radius: 6px; text-align: center; font-size: 0.9rem; font-weight: bold; }
 
         footer { text-align: center; padding: 40px; background: rgba(0,0,0,0.8); color: var(--gold); font-size: 0.9rem; }
     </style>
@@ -59,8 +76,8 @@
 <body>
 
 <header>
-    <h1>Our Heritage</h1>
-    <p>The Legacy of Horace Ray Duley & FRA Branch 172</p>
+    <h1>The Legacy of Service</h1>
+    <p>Honoring Horace Ray Duley & Our Founding Shipmates</p>
 </header>
 
 <nav>
@@ -70,70 +87,77 @@
 
 <div class="container">
     <div class="history-card">
+        
         <div class="hero-section">
-            <img src=""
- alt="Horace Ray Duley" class="hero-image">
+            <img src="duley-photo.jpg" alt="Horace Ray Duley" class="hero-image">
             <div style="flex: 1; min-width: 300px;">
                 <h2>Horace Ray Duley (1919-2021)</h2>
-                <p><strong>First Chairman of the Board & Club Namesake</strong></p>
-                <p>A native of Portsmouth and a 22.5-year veteran of the U.S. Navy, Horace Ray Duley witnessed the most pivotal moments of the 20th Century. His leadership laid the foundation for the Military Services Club we enjoy today.</p>
+                <p><strong>Founder, First President, and Chairman of the Board</strong></p>
+                <p>A native of Portsmouth and a 22.5-year veteran of the U.S. Navy, Mr. Duley was the architect of our community. He lived to the age of 102, leaving behind a legacy that defines the Military Services Club today.</p>
             </div>
         </div>
 
-        <div class="charter-box">
-            <h3>⚓ A World War II Hero</h3>
-            <p>During his Naval service, Mr. Duley participated in the <strong>Doolittle Raid</strong> and the <strong>Battle of Midway</strong>. He survived the <strong>Battle of Savo Island</strong> and was present in <strong>Tokyo Bay</strong> aboard the USS Missouri to witness the formal surrender of Japan, ending World War II.</p>
+        <div class="charter-box" style="background: #fff5f5; border-left-color: #990000;">
+            <h3>⚓ World War II Naval Record</h3>
+            <p>During his distinguished career, Mr. Duley witnessed history firsthand. He was part of the task force for the <strong>Doolittle Raid</strong>, fought in the <strong>Battle of Midway</strong>, and survived the <strong>Battle of Savo Island</strong>. He came full circle in his service by witnessing the formal Japanese surrender aboard the <strong>USS Missouri</strong> in Tokyo Bay on September 2, 1945.</p>
         </div>
 
-        <h2>The Evolution of Our Name</h2>
-        <p>The club has grown and evolved alongside the Yorktown community, reaching its final milestone in 2021.</p>
+        <h2>The Charter Seven: 1977 Founding Directors</h2>
+        <p>Alongside Mr. Duley, six other Shipmates signed the original 1977 Articles of Incorporation, dedicating themselves to the "Protection, Loyalty, and Service" of enlisted veterans.</p>
 
+        <div class="founders-tribute">
+            <div class="founder-profile">
+                <h3>Gordon H. Webster</h3>
+                <span class="rank">Senior Enlisted | Vice President</span>
+                <p>The primary operational leader alongside Mr. Duley who helped secure the initial property and incorporation status on Cook Road.</p>
+            </div>
+
+            <div class="founder-profile">
+                <h3>Blackledge "Blackie" Harper</h3>
+                <span class="rank">Senior Chief Petty Officer | Director</span>
+                <p>A WWII veteran and career sailor known for his steadfast dedication to the FRA mission and the security of the club's home.</p>
+            </div>
+
+            <div class="founder-profile">
+                <h3>Harry C. Depue, Jr.</h3>
+                <span class="rank">Chief Petty Officer | Director</span>
+                <p>A veteran of the Korean War era who was instrumental in the physical maintenance and early growth of the Branch.</p>
+            </div>
+
+            <div class="founder-profile">
+                <h3>George E. Kelley</h3>
+                <span class="rank">Navy Veteran | Director</span>
+                <p>A Yorktown resident and original board member who helped draft the bylaws protecting the club's non-profit status.</p>
+            </div>
+
+            <div class="founder-profile">
+                <h3>Gary C. Thompson</h3>
+                <span class="rank">Navy Veteran | Director</span>
+                <p>Provided vital organizational leadership during the transition and expansion of the Board of Directors in 1979.</p>
+            </div>
+
+            <div class="founder-profile">
+                <h3>Curtis E. Smith</h3>
+                <span class="rank">Navy Veteran | Director</span>
+                <p>Represented the core value of Loyalty, acting as a liaison between the Branch and local military commands.</p>
+            </div>
+        </div>
+
+        <h2>Corporate Milestones</h2>
         <div class="timeline-item">
-            <strong>1977: FRA Branch 172 Home, Inc.</strong><br>
-            Incorporated on September 23rd to provide a permanent sanctuary for Sea Service veterans.
+            <strong>September 23, 1977:</strong> Incorporated as <em>FRA Branch 172 Home, Inc.</em> by the original Charter Seven.
         </div>
-
         <div class="timeline-item">
-            <strong>1979: Name Refinement</strong><br>
-            Updated to <em>Fleet Reserve Association Branch 172 Home, Inc.</em> on September 10th to reflect our national affiliation.
+            <strong>September 10, 1979:</strong> Articles amended to <em>Fleet Reserve Association Branch 172 Home, Inc.</em> and the board expanded to nine members.
         </div>
-
-        <div class="timeline-item" style="border-left-color: var(--navy);">
-            <strong>2021: Military Services Club Duley</strong><br>
-            On September 27, 2021, the organization officially adopted its current name, honoring our first Chairman and ensuring the Duley legacy remains the heart of our fellowship.
+        <div class="timeline-item">
+            <strong>September 27, 2021:</strong> Formally renamed to <em>Military Services Club Duley</em> to permanently honor our first Chairman.
         </div>
-
-        <h2>The Founding Directors (The "Charter Seven")</h2>
-        <p>We honor the seven visionary individuals who signed the original 1977 articles of incorporation. These men were not just names on a document; they were the architects of our community sanctuary.</p>
-        
-        <div class="charter-box" style="border-left: 5px solid var(--gold); background: #fffcf5;">
-            <h3 style="color: var(--navy); margin-bottom: 10px;">The Original Executive Leadership</h3>
-            <p><strong>⚓ Gordon H. Webster (Vice President):</strong> Serving as the right hand to Mr. Duley, Gordon was a driving force behind the initial legal organization of the home. As the first Vice President, he ensured the Branch had a solid operational foundation during its most critical first years.</p>
-            
-            <p><strong>⚓ Blackledge "Blackie" Harper:</strong> A pillar of the Yorktown Sea Service community, Blackie was instrumental in the 1979 transition. His signature on the corporate amendments helped solidify the club's permanent identity and ensured that the assets of the Branch were protected for future generations of Shipmates.</p>
-        </div>
-
-        <div class="founders-list">
-            <div class="founder-name">Horace R. Duley<br><small>President</small></div>
-            <div class="founder-name">Gordon H. Webster<br><small>Vice President</small></div>
-            <div class="founder-name">Blackledge E. Harper<br><small>Director</small></div>
-            <div class="founder-name">Gary C. Thompson<br><small>Director</small></div>
-            <div class="founder-name">George E. Kelley<br><small>Director</small></div>
-            <div class="founder-name">Curtis E. Smith<br><small>Director</small></div>
-            <div class="founder-name">Harry C. Depue, Jr.<br><small>Director</small></div>
-        </div>
-
-        <div class="charter-box">
-            <strong>Historical Note:</strong> By 1979, these founders successfully expanded the board to <strong>nine directors</strong>, establishing the staggered three-year term system we still use to maintain steady leadership for the club.
-        </div>
-
-        <h2 style="margin-top:40px;">A Living Tradition</h2>
-        <p>Today, the Military Services Club Duley continues to honor the "Cardinal Principles" established by these founders. We remain a member-driven venue where fellowship, advocacy, and community engagement thrive for veterans and their families.</p>
     </div>
 </div>
 
 <footer>
-    © 2026 Military Services Club Duley | Honoring the Legacy of Our Founders
+    © 2026 Military Services Club Duley | Honoring Those Who Served
 </footer>
 
 </body>
