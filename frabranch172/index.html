@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FRA Branch 172 | Yorktown, VA</title>
+    <meta name="description" content="FRA Branch 172 - Yorktown, VA. Serving Enlisted Shipmates of the Navy, Marine Corps, and Coast Guard.">
+    
+    <link rel="icon" type="image/png" href="../fra-logo.png">
+
     <style>
         :root { 
             --navy-blue: #002147; 
@@ -14,7 +18,7 @@
         }
         
         body { 
-            font-family: 'Times New Roman', Times, serif; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Modernized for readability */
             margin: 0; 
             background: linear-gradient(rgba(0,33,71,0.7), rgba(0,22,48,0.8)), 
                         url('/frabranch172/background.jpg');
@@ -22,7 +26,7 @@
             background-position: center;
             background-attachment: fixed;
             color: #fff; 
-            background-color: #002147; 
+            scroll-behavior: smooth;
         }
 
         /* URGENT NEWS TICKER */
@@ -45,20 +49,26 @@
             100% { transform: translate(-100%, 0); }
         }
 
-        .service-bar { height: 10px; display: flex; position: sticky; top: 0; z-index: 1000; }
+        /* INTERACTIVE SERVICE BAR */
+        .service-bar { height: 12px; display: flex; position: sticky; top: 0; z-index: 1000; transition: 0.3s; }
         .bar-navy { flex: 1; background: var(--navy-blue); }
         .bar-marine { flex: 1; background: var(--marine-scarlet); }
         .bar-cg { flex: 1; background: var(--coast-guard-blue); }
+        .service-bar:hover { height: 18px; filter: brightness(1.2); }
 
         header { padding: 40px 20px; text-align: center; }
         .fra-logo { height: 110px; filter: drop-shadow(0 0 15px rgba(0,0,0,0.5)); }
+        
+        /* Heading Font kept as Serif for Tradition */
+        h1, h2, h3 { font-family: 'Times New Roman', Times, serif; }
+        
         header h1 { margin: 15px 0 5px 0; font-size: 3rem; letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
         header h1 a { color: #fff; text-decoration: none; transition: 0.3s; }
         header h1 a:hover { color: var(--fra-gold); }
 
         /* NAVIGATION & DROPDOWN */
         nav { background: rgba(0, 22, 48, 0.95); backdrop-filter: blur(10px); padding: 15px; text-align: center; border-bottom: 2px solid var(--fra-gold); }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; transition: 0.2s; }
         nav a:hover { color: var(--fra-gold); }
 
         .dropdown { display: inline-block; position: relative; }
@@ -101,6 +111,20 @@
 
         h2 { color: var(--navy-blue); text-transform: uppercase; border-bottom: 2px solid var(--fra-gold); padding-bottom: 10px; margin-top: 0; }
         
+        /* VIDEO FRAME */
+        .video-container {
+            margin-top: 30px;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+            border: 3px solid var(--fra-gold); /* Gold Frame Suggestion */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
         .hotline-box { 
             background: #000; 
             color: #ff3333; 
@@ -129,16 +153,37 @@
         .btn { 
             display: inline-block; background: var(--navy-blue); color: white; padding: 15px 25px; 
             text-decoration: none; font-weight: bold; border-radius: 50px; text-align: center; 
-            width: 100%; box-sizing: border-box; transition: 0.3s; border: none;
+            width: 100%; box-sizing: border-box; transition: 0.3s; border: none; cursor: pointer;
         }
         .btn:hover { background: var(--marine-scarlet); transform: scale(1.02); }
+
+        /* BACK TO TOP ANCHOR */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--fra-gold);
+            color: var(--navy-blue);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .back-to-top:hover { transform: translateY(-5px); background: #fff; }
 
         footer { text-align: center; padding: 60px; background: rgba(0,22,48,0.95); color: white; border-top: 5px solid var(--fra-gold); }
 
         @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
-<body>
+<body id="top">
 
 <div class="ticker-wrap">
     <div class="ticker">
@@ -160,7 +205,7 @@
 <nav>
     <a href="../index.html">Club Dashboard</a>
     <div class="dropdown">
-        <a href="about.html">About & History ▾</a>
+        <a href="#">About & History ▾</a>
         <div class="dropdown-content">
             <a href="about.html">FRA Branch 172</a>
             <a href="history-navy.html">U.S. Navy History</a>
@@ -179,20 +224,20 @@
             <h2>Branch Mission</h2>
             <p>Branch 172 serves the Yorktown community by providing a focused venue for advocacy and fellowship among enlisted shipmates of the Navy, Marine Corps, and Coast Guard.</p>
             
-            <div style="background: var(--navy-blue); color: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <strong>📅 Branch Meeting:</strong> Second Monday of every month @ 1800<br>
+            <div style="background: var(--navy-blue); color: white; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 5px solid var(--fra-gold);">
+                <strong>📅 Next Meeting:</strong> Monday, Feb 9th @ 1800<br>
+                <small>Held monthly on the second Monday.</small><br><br>
                 <strong>📍 Location:</strong> MSC Duley Lounge
             </div>
 
-            <div style="margin-top: 30px;">
-                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000;">
-                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.youtube.com/embed/Zqni8BhO8lM" allowfullscreen></iframe>
-                </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Zqni8BhO8lM" allowfullscreen></iframe>
             </div>
 
             <div class="eligibility" id="join">
                 <h3 style="margin-top: 0; color: var(--navy-blue);">Certification of Eligibility</h3>
-                <p>To join FRA Branch 172, you must certify that you are a current or prior member of the **USN, USMC, or USCG**, and can produce **proof of service** (DD-214 or ID Card).</p>
+                <p>To join FRA Branch 172, you must certify that you are a current or prior member of the **USN, USMC, or USCG**.</p>
+                <p style="font-size: 0.85rem; color: #666;">Need a copy of your DD-214? <a href="https://www.archives.gov/veterans/military-service-records" target="_blank">Request it here via National Archives.</a></p>
                 <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" target="_blank" class="btn">Apply Online Today</a>
             </div>
 
@@ -203,9 +248,7 @@
             
             <a href="https://www.dvs.virginia.gov/Home/Components/FacilityDirectory/FacilityDirectory/49/" target="_blank" class="resource-link">📋 DVS Hampton Office (Claims & Benefits)</a>
             <a href="https://www.yorkcounty.gov/511/Military-Exemptions" target="_blank" class="resource-link">🏠 York County Tax Exemptions (Real Estate & Vehicle)</a>
-            <a href="https://www.dvs.virginia.gov/benefits-services/education/virginia-military-survivors-dependents-education-program-vmsdep" target="_blank" class="resource-link">🎓 VMSDEP (Education Waiver for Families)</a>
             <a href="https://www.va.gov" target="_blank" class="resource-link">🏛️ U.S. Department of Veterans Affairs (VA.gov)</a>
-            <a href="https://www.fraeastcoast.org" target="_blank" class="resource-link">⚓ FRA East Coast Regional Website</a>
         </div>
 
         <div class="sidebar">
@@ -213,22 +256,25 @@
                 <h3>Quick Access</h3>
                 <a href="officers.html" class="btn" style="margin-bottom: 12px;">👮‍♂️ Ship's Officers</a>
                 <a href="gallery/gallery.html" class="btn" style="background: var(--marine-scarlet); margin-bottom: 12px;">📸 Photo Gallery</a>
-                <a href="donations.html" class="btn" style="background: var(--fra-gold); color: #000;">🎁 Support & Donations</a>
+                <a href="donations.html" class="btn" style="background: var(--fra-gold); color: #002147;">🎁 Support & Donations</a>
 
                 <div style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #ddd; text-align: center;">
                     <p style="font-size: 0.85rem; color: #444; font-weight: bold;">Member Voice</p>
-                    <a href="https://forms.gle/Rwv7vFRgL6213Qav7" target="_blank" class="btn" style="background: var(--marine-scarlet); font-size: 0.8rem; padding: 10px;">📩 Submit Suggestion</a>
+                    <a href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn" style="background: var(--marine-scarlet); font-size: 0.8rem; padding: 10px;">📩 Submit Suggestion</a>
+                    <p style="font-size: 0.7rem; color: #777; margin-top: 8px;">Board reviews suggestions monthly.</p>
                 </div>
             </div>
             
             <div class="side-card" style="border-top: 10px solid var(--coast-guard-blue);">
                 <h3>Legislative Advocacy</h3>
-                <p>We are the premier voice on Capitol Hill for sea service enlisted personnel.</p>
+                <p>The premier voice on Capitol Hill for sea service enlisted personnel.</p>
                 <a href="https://www.fra.org/fra/Web/Events/Legislative_Updates/Web/Content/Legislative_Updates.aspx" target="_blank" style="color: var(--navy-blue); font-weight: bold; text-decoration: none;">⚖️ View National Tracker</a>
             </div>
         </div>
     </div>
 </div>
+
+<a href="#top" class="back-to-top" title="Back to Top">⚓</a>
 
 <footer>
     <p>FRA Branch 172 | 400 Old York Hampton Hwy | Yorktown, VA 23692</p>
