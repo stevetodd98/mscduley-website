@@ -6,7 +6,7 @@
     <title>FRA Branch 172 | Yorktown, VA</title>
     <meta name="description" content="FRA Branch 172 - Yorktown, VA. Serving Enlisted Shipmates of the Navy, Marine Corps, and Coast Guard.">
     
-    <link rel="icon" type="image/png" href="../fra-logo.png">
+    <link rel="icon" type="image/png" href="fra-logo.png">
 
     <style>
         :root { 
@@ -18,10 +18,10 @@
         }
         
         body { 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Modernized for readability */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0; 
             background: linear-gradient(rgba(0,33,71,0.7), rgba(0,22,48,0.8)), 
-                        url('/frabranch172/background.jpg');
+                        url('background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -29,194 +29,54 @@
             scroll-behavior: smooth;
         }
         
-        /* SERVICE STRIP STYLING */
-        .service-strip { 
-        padding: 50px 0; 
-        text-align: center; 
-        border-top: 1px solid rgba(255,255,255,0.1);
-        margin-top: 40px;
-        }
+        .ticker-wrap { background: var(--marine-scarlet); color: white; padding: 8px 0; overflow: hidden; border-bottom: 2px solid var(--fra-gold); font-weight: bold; }
+        .ticker { display: inline-block; white-space: nowrap; padding-left: 100%; animation: ticker 30s linear infinite; }
+        @keyframes ticker { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
 
-        .service-strip img { 
-        height: 75px; 
-        margin: 15px; 
-        filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6)); 
-        transition: transform 0.3s ease;
-        }
-
-        .service-strip img:hover {
-        transform: scale(1.1);
-        }
-        
-        /* URGENT NEWS TICKER */
-        .ticker-wrap {
-            background: var(--marine-scarlet);
-            color: white;
-            padding: 8px 0;
-            overflow: hidden;
-            border-bottom: 2px solid var(--fra-gold);
-            font-weight: bold;
-        }
-        .ticker {
-            display: inline-block;
-            white-space: nowrap;
-            padding-left: 100%;
-            animation: ticker 30s linear infinite;
-        }
-        @keyframes ticker {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
-        }
-
-        /* INTERACTIVE SERVICE BAR */
-        .service-bar { height: 12px; display: flex; position: sticky; top: 0; z-index: 1000; transition: 0.3s; }
+        .service-bar { height: 12px; display: flex; position: sticky; top: 0; z-index: 1000; }
         .bar-navy { flex: 1; background: var(--navy-blue); }
         .bar-marine { flex: 1; background: var(--marine-scarlet); }
         .bar-cg { flex: 1; background: var(--coast-guard-blue); }
-        .service-bar:hover { height: 18px; filter: brightness(1.2); }
 
         header { padding: 40px 20px; text-align: center; }
         .fra-logo { height: 110px; filter: drop-shadow(0 0 15px rgba(0,0,0,0.5)); }
         
-        /* Heading Font kept as Serif for Tradition */
         h1, h2, h3 { font-family: 'Times New Roman', Times, serif; }
-        
-        header h1 { margin: 15px 0 5px 0; font-size: 3rem; letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
-        header h1 a { color: #fff; text-decoration: none; transition: 0.3s; }
-        header h1 a:hover { color: var(--fra-gold); }
+        header h1 { margin: 15px 0 5px 0; font-size: 3rem; letter-spacing: 2px; }
+        header h1 a { color: #fff; text-decoration: none; }
 
-        /* NAVIGATION & DROPDOWN */
         nav { background: rgba(0, 22, 48, 0.95); backdrop-filter: blur(10px); padding: 15px; text-align: center; border-bottom: 2px solid var(--fra-gold); }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; transition: 0.2s; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
         nav a:hover { color: var(--fra-gold); }
 
-       /* IMPROVED DROPDOWN NAVIGATION */
-        .dropdown { 
-        display: inline-block; 
-        position: relative; 
-        padding-bottom: 15px; /* Creates a hidden bridge so the menu stays open */
-        margin-bottom: -15px;
-        }
-
-        .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: rgba(0, 33, 71, 0.98);
-        min-width: 240px;
-        box-shadow: 0px 15px 30px rgba(0,0,0,0.6);
-        z-index: 3000;
-        text-align: left;
-        border: 2px solid var(--fra-gold); /* Thicker border for better visibility */
-        border-radius: 8px;
-        top: 100%; /* Positions it exactly at the bottom of the nav bar */
-        left: 50%;
-        transform: translateX(-50%); /* Centers the menu under the link */
-        }
-
-        .dropdown-content a {
-        color: white !important;
-        padding: 14px 20px;
-        text-decoration: none;
-        display: block;
-        text-transform: none;
-        margin: 0;
-        font-size: 0.95rem;
-        border-bottom: 1px solid rgba(197, 179, 88, 0.2);
-        }
-
-        .dropdown-content a:last-child { border-bottom: none; }
-
-        .dropdown-content a:hover { 
-        background-color: var(--marine-scarlet); 
-        color: white !important;
-        }
-
-/* THE FIX: Ensures the menu stays open while moving the mouse down */
-        .dropdown:hover .dropdown-content { 
-        display: block; 
-        }
+        .dropdown { display: inline-block; position: relative; }
+        .dropdown-content { display: none; position: absolute; background-color: rgba(0, 33, 71, 0.98); min-width: 240px; box-shadow: 0px 15px 30px rgba(0,0,0,0.6); z-index: 3000; text-align: left; border: 2px solid var(--fra-gold); border-radius: 8px; left: 50%; transform: translateX(-50%); }
+        .dropdown-content a { color: white !important; padding: 14px 20px; text-decoration: none; display: block; border-bottom: 1px solid rgba(197, 179, 88, 0.2); }
+        .dropdown:hover .dropdown-content { display: block; }
         
         .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
         .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
 
-        .main-card, .side-card { 
-            background: rgba(255, 255, 255, 0.98); 
-            color: #111;
-            padding: 40px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
-            border-radius: 12px;
-        }
+        .main-card, .side-card { background: rgba(255, 255, 255, 0.98); color: #111; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.5); border-radius: 12px; }
         .main-card { border-top: 10px solid var(--navy-blue); }
         .side-card { border-top: 10px solid var(--marine-scarlet); margin-bottom: 30px; padding: 25px; }
 
-        h2 { color: var(--navy-blue); text-transform: uppercase; border-bottom: 2px solid var(--fra-gold); padding-bottom: 10px; margin-top: 0; }
+        h2 { color: var(--navy-blue); text-transform: uppercase; border-bottom: 2px solid var(--fra-gold); padding-bottom: 10px; }
         
-        /* VIDEO FRAME */
-        .video-container {
-            margin-top: 30px;
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            background: #000;
-            border: 3px solid var(--fra-gold); /* Gold Frame Suggestion */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
+        .video-container { margin-top: 30px; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000; border: 3px solid var(--fra-gold); }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        .hotline-box { 
-            background: #000; 
-            color: #ff3333; 
-            padding: 15px; 
-            border-radius: 8px; 
-            text-align: center; 
-            margin-bottom: 30px; 
-            border: 2px solid #ff3333;
-        }
+        .hotline-box { background: #000; color: #ff3333; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 30px; border: 2px solid #ff3333; }
+        .resource-link { display: block; background: #f4f7f9; color: var(--navy-blue); padding: 12px; margin: 8px 0; border-radius: 6px; text-decoration: none; font-weight: bold; border-left: 5px solid var(--coast-guard-blue); }
 
-        .resource-link { 
-            display: block; background: #f4f7f9; color: var(--navy-blue); 
-            padding: 12px; margin: 8px 0; border-radius: 6px; text-decoration: none; 
-            font-weight: bold; border-left: 5px solid var(--coast-guard-blue); transition: 0.2s;
-        }
-        .resource-link:hover { background: #eef2f5; border-left-color: var(--fra-gold); }
-
-        .eligibility { 
-            border: 3px solid var(--coast-guard-blue); 
-            padding: 25px; 
-            background: #f0f7ff; 
-            border-radius: 10px; 
-            margin: 30px 0;
-        }
-
-        .btn { 
-            display: inline-block; background: var(--navy-blue); color: white; padding: 15px 25px; 
-            text-decoration: none; font-weight: bold; border-radius: 50px; text-align: center; 
-            width: 100%; box-sizing: border-box; transition: 0.3s; border: none; cursor: pointer;
-        }
+        .eligibility { border: 3px solid var(--coast-guard-blue); padding: 25px; background: #f0f7ff; border-radius: 10px; margin: 30px 0; }
+        .btn { display: inline-block; background: var(--navy-blue); color: white; padding: 15px 25px; text-decoration: none; font-weight: bold; border-radius: 50px; text-align: center; width: 100%; box-sizing: border-box; transition: 0.3s; border: none; }
         .btn:hover { background: var(--marine-scarlet); transform: scale(1.02); }
 
-        /* BACK TO TOP ANCHOR */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--fra-gold);
-            color: var(--navy-blue);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
-            transition: 0.3s;
-        }
-        .back-to-top:hover { transform: translateY(-5px); background: #fff; }
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--fra-gold); color: var(--navy-blue); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; }
+
+        .service-strip { padding: 50px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; }
+        .service-strip img { height: 75px; margin: 15px; filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6)); transition: transform 0.3s ease; }
 
         footer { text-align: center; padding: 60px; background: rgba(0,22,48,0.95); color: white; border-top: 5px solid var(--fra-gold); }
 
@@ -227,7 +87,7 @@
 
 <div class="ticker-wrap">
     <div class="ticker">
-        ⚓ LATEST: National FRA Convention 2026 scheduled | ⚖️ LEGISLATIVE ALERT: Protecting COLA and Pharmacy Benefits | 📅 NEXT MEETING: Feb 9th @ 1800 | 🎁 SUPPORT: New local donation partners added to Support page...
+        ⚓ LATEST: National FRA Convention 2026 scheduled | ⚖️ LEGISLATIVE ALERT: Protecting Enlisted Benefits | 📅 NEXT MEETING: <span id="ticker-meeting-date">Calculating...</span> | 🎁 SUPPORT: New donation partners added...
     </div>
 </div>
 
@@ -238,12 +98,12 @@
 </div>
 
 <header>
-    <img src="../fra-logo.png" alt="FRA Logo" class="fra-logo">
-    <h1><a href="../index.html">FRA Branch 172</a></h1>
+    <img src="fra-logo.png" alt="FRA Logo" class="fra-logo">
+    <h1><a href="index.html">FRA Branch 172</a></h1>
 </header>
 
 <nav>
-    <a href="../index.html">Club Dashboard</a>
+    <a href="https://mscduley.org">Club Dashboard</a>
     <div class="dropdown">
         <a href="#">About & History ▾</a>
         <div class="dropdown-content">
@@ -265,7 +125,7 @@
             <p>Branch 172 serves the Yorktown community by providing a focused venue for advocacy and fellowship among enlisted shipmates of the Navy, Marine Corps, and Coast Guard.</p>
             
             <div style="background: var(--navy-blue); color: white; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 5px solid var(--fra-gold);">
-                <strong>📅 Next Meeting:</strong> Monday, Feb 9th @ 1800<br>
+                <strong>📅 Next Meeting:</strong> <span id="next-meeting-date">Calculating...</span><br>
                 <small>Held monthly on the second Monday.</small><br><br>
                 <strong>📍 Location:</strong> MSC Duley Lounge
             </div>
@@ -276,8 +136,7 @@
 
             <div class="eligibility" id="join">
                 <h3 style="margin-top: 0; color: var(--navy-blue);">Certification of Eligibility</h3>
-                <p>To join FRA Branch 172, you must certify that you are a current or prior member of the **USN, USMC, or USCG**.</p>
-                <p style="font-size: 0.85rem; color: #666;">Need a copy of your DD-214? <a href="https://www.archives.gov/veterans/military-service-records" target="_blank">Request it here via National Archives.</a></p>
+                <p>To join FRA Branch 172, you must certify that you are a current or prior member of the USN, USMC, or USCG.</p>
                 <a href="https://www.fra.org/fra/Web/Membership/Join_FRA/Web/Content/Join_FRA.aspx" target="_blank" class="btn">Apply Online Today</a>
             </div>
 
@@ -287,8 +146,7 @@
             </div>
             
             <a href="https://www.dvs.virginia.gov/Home/Components/FacilityDirectory/FacilityDirectory/49/" target="_blank" class="resource-link">📋 DVS Hampton Office (Claims & Benefits)</a>
-            <a href="https://www.yorkcounty.gov/511/Military-Exemptions" target="_blank" class="resource-link">🏠 York County Tax Exemptions (Real Estate & Vehicle)</a>
-            <a href="https://www.va.gov" target="_blank" class="resource-link">🏛️ U.S. Department of Veterans Affairs (VA.gov)</a>
+            <a href="https://www.yorkcounty.gov/511/Military-Exemptions" target="_blank" class="resource-link">🏠 York County Tax Exemptions</a>
         </div>
 
         <div class="sidebar">
@@ -297,12 +155,6 @@
                 <a href="officers.html" class="btn" style="margin-bottom: 12px;">👮‍♂️ Ship's Officers</a>
                 <a href="gallery/gallery.html" class="btn" style="background: var(--marine-scarlet); margin-bottom: 12px;">📸 Photo Gallery</a>
                 <a href="donations.html" class="btn" style="background: var(--fra-gold); color: #002147;">🎁 Support & Donations</a>
-
-                <div style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #ddd; text-align: center;">
-                    <p style="font-size: 0.85rem; color: #444; font-weight: bold;">Member Voice</p>
-                    <a href="https://forms.gle/u622vEm6vNZWUoob9" target="_blank" class="btn" style="background: var(--marine-scarlet); font-size: 0.8rem; padding: 10px;">📩 Submit Suggestion</a>
-                    <p style="font-size: 0.7rem; color: #777; margin-top: 8px;">Board reviews suggestions monthly.</p>
-                </div>
             </div>
             
             <div class="side-card" style="border-top: 10px solid var(--coast-guard-blue);">
@@ -317,13 +169,47 @@
 <a href="#top" class="back-to-top" title="Back to Top">⚓</a>
 
 <div class="service-strip">
-            <img src="marines.png" alt="U.S. Marine Corps">
-            <img src="navy.png" alt="U.S. Navy">
-            <img src="coastguard.png" alt="U.S. Coast Guard">
-        </div>
+    <img src="marines.png" alt="U.S. Marine Corps">
+    <img src="navy.png" alt="U.S. Navy">
+    <img src="coastguard.png" alt="U.S. Coast Guard">
+</div>
 
-    </div> <footer>
-        <p>© 2026 Fleet Reserve Association Branch 172 | Yorktown, VA</p>
-    </footer>
+<footer>
+    <p>© 2026 Fleet Reserve Association Branch 172 | Yorktown, VA</p>
+</footer>
+
+<script>
+    function getSecondMonday(month, year) {
+        let d = new Date(year, month, 1);
+        let day = d.getDay();
+        // Calculate the first Monday
+        let firstMonday = (day <= 1) ? (1 - day + 1) : (8 - day + 1);
+        // Add 7 days to get the second Monday
+        return new Date(year, month, firstMonday + 7);
+    }
+
+    function updateMeetingDate() {
+        const now = new Date();
+        let meetingDate = getSecondMonday(now.getMonth(), now.getFullYear());
+
+        // Cutoff is set to 8 PM (20:00) of the meeting day
+        const cutoff = new Date(meetingDate);
+        cutoff.setHours(20, 0, 0);
+
+        if (now > cutoff) {
+            meetingDate = getSecondMonday(now.getMonth() + 1, now.getFullYear());
+        }
+
+        const options = { weekday: 'long', month: 'short', day: 'numeric' };
+        const dateString = meetingDate.toLocaleDateString('en-US', options);
+        
+        // Update both the main card and the ticker
+        document.getElementById('next-meeting-date').innerHTML = dateString + " @ 1800";
+        document.getElementById('ticker-meeting-date').innerHTML = dateString + " @ 1800";
+    }
+
+    updateMeetingDate();
+</script>
+
 </body>
 </html>
