@@ -125,8 +125,8 @@
 <body>
 
 <div class="ticker-wrap">
-    <div class="ticker">
-        🎸 VALENTINE'S DAY: Crossing James Band Live 1800-2100! | 🌮 FEB 17: Taco Tuesday @ 1730 | 🍲 SUNDAYS: Member Pot Luck | 🥏 TUESDAYS: Shuffleboard @ 1830 📢|🏁 SUNDAY: Daytona 500 Watch Party @ 1330 | ⚓ FRA MEETING: Mar 9 @ 1800
+    <div class="ticker" id="live-ticker">
+    Syncing latest club news...
     </div>
 </div>
 
@@ -280,12 +280,12 @@
         }
     }
 
-    // --- DYNAMIC CALENDAR SYNC SCRIPT ---
+// --- DYNAMIC CALENDAR SYNC SCRIPT ---
     async function syncCalendar() {
-        // !!! REPLACE THIS WITH YOUR ACTUAL ICS LINK !!!
         const icsUrl = 'https://steep-thunder-0851.mscduley-registrar.workers.dev/'; 
         const container = document.getElementById('event-cards-container');
         const header = document.getElementById('events-header');
+        const ticker = document.getElementById('live-ticker'); // Added for the ticker
 
         try {
             const response = await fetch(icsUrl);
@@ -306,16 +306,65 @@
                         location: event.location || 'MSC Duley Hall'
                     };
                 })
-                // 1. Must be a future event
-                // 2. EXCLUDE anything with "Bar:" in the title
                 .filter(e => e.start >= now && !e.title.includes('Bar:'))
                 .sort((a, b) => a.start - b.start)
                 .slice(0, 4);
 
+            // --- 1. UPDATE THE TICKER ---
+            if (ticker && upcoming.length > 0) {
+                const tickerContent = upcoming
+                    .map(e => {
+                        const d = e.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                        // Add some visual flair for the ticker
+                        let prefix = '📢 ';
+                        if (e.title.toLowerCase().includes('taco')) prefix = '🌮 ';
+                        if (e.title.toLowerCase().includes('band') || e.title.toLowerCase().includes('live')) prefix = '🎸 ';
+                        
+                        return `${prefix}${d.toUpperCase()}: ${e.title}`;
+                    })
+                    .join(' | ');
+
+                // We double the content to ensure there is no blank space during the loop
+                ticker.innerText = `${tickerContent} | *** MSC DULEY: HONORING SERVICE, BUILDING COMMUNITY *** | ${tickerContent}`;
+            }
+
+            // --- 2. UPDATE THE EVENT CARDS ---
             if (upcoming.length === 0) {
                 container.innerHTML = '<p style="opacity:0.6;">No upcoming events scheduled. Check back soon!</p>';
                 return;
             }
+
+            // Update Header to current month
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            header.innerText = `${monthNames[now.getMonth()]} Events`;
+
+            container.innerHTML = ''; 
+            upcoming.forEach(e => {
+                const dateOptions = { month: 'short', day: 'numeric' };
+                const timeOptions = { hour: '2-digit', minute: '2-digit' };
+                
+                let icon = '';
+                if (e.title.toLowerCase().includes('taco')) icon = '🌮 ';
+                if (e.title.toLowerCase().includes('band') || e.title.toLowerCase().includes('live')) icon = '🎸 ';
+                if (e.title.toLowerCase().includes('meeting') || e.title.toLowerCase().includes('fra')) icon = '⚓ ';
+
+                container.innerHTML += `
+                    <div class="dynamic-event-card">
+                        <span style="color:var(--gold); font-weight:bold; font-size:1.1rem;">
+                            ${e.start.toLocaleDateString('en-US', dateOptions)} | ${icon}${e.title}
+                        </span><br>
+                        <span style="font-size:0.9rem; opacity:0.8;">
+                            Starts at ${e.start.toLocaleTimeString('en-US', timeOptions)} • ${e.location}
+                        </span>
+                    </div>
+                `;
+            });
+
+        } catch (err) {
+            console.error("Calendar Error:", err);
+            container.innerHTML = '<p style="opacity:0.5;">Updating live feed... Visit our full calendar for details.</p>';
+        }
+    }
 
             // Update Header to show current month
             const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -361,5 +410,6 @@
 
 </body>
 </html>
+
 
 
