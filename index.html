@@ -254,87 +254,74 @@
 </footer>
 
 <script>
-    // --- LIVE STATUS SCRIPT ---
-    const weeklyStaff = { 0: "Valerie", 1: "Barbara", 2: "Barbara", 3: "Tiffani", 4: "Tiffani", 5: "Jen B.", 6: "Jan A." };
-    const febOverrides = { 2: "Kandi", 3: "Kandi", 6: "Kandi", 7: "Kandi" };
-    
-    function updateStatus() {
-        const now = new Date();
-        const hour = now.getHours();
-        const date = now.getDate();
-        const day = now.getDay();
-        const statusDiv = document.getElementById('live-status');
-
-        let staffName = febOverrides[date] || weeklyStaff[day];
-
-        if (hour >= 14 && hour < 22) {
-            statusDiv.className = "status-bar open-now";
-            statusDiv.innerText = `📢 We are OPEN! (2pm - 10pm) Bartender: ${staffName}`;
-        } else {
-            statusDiv.className = "status-bar closed-now";
-            if (hour < 14) {
-                statusDiv.innerText = `🔒 Opens at 2:00 PM - 10:00 PM (approx ${14 - hour} hours)`;
-            } else {
-                statusDiv.innerText = `🔒 Currently closed. See you tomorrow at 2 PM!`;
-            }
-        }
-    }
-
-// --- DYNAMIC CALENDAR SYNC SCRIPT ---
     async function syncCalendar() {
         const icsUrl = 'https://steep-thunder-0851.mscduley-registrar.workers.dev/'; 
         const container = document.getElementById('event-cards-container');
         const header = document.getElementById('events-header');
-        const ticker = document.getElementById('live-ticker'); // Added for the ticker
+        const ticker = document.getElementById('live-ticker');
+        const statusDiv = document.getElementById('live-status');
 
         try {
             const response = await fetch(icsUrl);
-            if (!response.ok) throw new Error('Network response was not ok');
             const data = await response.text();
-            
             const jcalData = ICAL.parse(data);
             const comp = new ICAL.Component(jcalData);
             const vevents = comp.getAllSubcomponents('vevent');
 
             const now = new Date();
-            const upcoming = vevents
-                .map(v => {
-                    const event = new ICAL.Event(v);
-                    return {
-                        title: event.summary,
-                        start: event.startDate.toJSDate(),
-                        location: event.location || 'MSC Duley Hall'
-                    };
-                })
+
+            const allEvents = vevents.map(v => {
+                const event = new ICAL.Event(v);
+                return {
+                    title: event.summary,
+                    start: event.startDate.toJSDate(),
+                    end: event.endDate.toJSDate(),
+                    location: event.location || 'MSC Duley Hall'
+                };
+            });
+
+            // --- 1. LIVE STATUS BAR LOGIC (FROM CALENDAR) ---
+            const activeShift = allEvents.find(e => 
+                e.title.includes('Bar:') && (now >= e.start && now <= e.end)
+            );
+
+            if (statusDiv) {
+                if (activeShift) {
+                    const bartenderName = activeShift.title.replace('Bar:', '').trim();
+                    statusDiv.className = "status-bar open-now";
+                    statusDiv.innerText = `📢 We are OPEN! Bartender on Duty: ${bartenderName}`;
+                } else {
+                    statusDiv.className = "status-bar closed-now";
+                    statusDiv.innerText = `🔒 Currently closed. See you at 2 PM!`;
+                }
+            }
+
+            // --- 2. PUBLIC EVENTS FILTER ---
+            const upcoming = allEvents
                 .filter(e => e.start >= now && !e.title.includes('Bar:'))
                 .sort((a, b) => a.start - b.start)
                 .slice(0, 4);
 
-            // --- 1. UPDATE THE TICKER ---
+            // --- 3. UPDATE TICKER ---
             if (ticker && upcoming.length > 0) {
                 const tickerContent = upcoming
                     .map(e => {
                         const d = e.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-                        // Add some visual flair for the ticker
                         let prefix = '📢 ';
                         if (e.title.toLowerCase().includes('taco')) prefix = '🌮 ';
                         if (e.title.toLowerCase().includes('band') || e.title.toLowerCase().includes('live')) prefix = '🎸 ';
-                        
                         return `${prefix}${d.toUpperCase()}: ${e.title}`;
                     })
                     .join(' | ');
-
-                // We double the content to ensure there is no blank space during the loop
                 ticker.innerText = `${tickerContent} | *** MSC DULEY: HONORING SERVICE, BUILDING COMMUNITY *** | ${tickerContent}`;
             }
 
-            // --- 2. UPDATE THE EVENT CARDS ---
+            // --- 4. UPDATE CARDS ---
             if (upcoming.length === 0) {
-                container.innerHTML = '<p style="opacity:0.6;">No upcoming events scheduled. Check back soon!</p>';
+                container.innerHTML = '<p style="opacity:0.6;">No upcoming events scheduled.</p>';
                 return;
             }
 
-            // Update Header to current month
             const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             header.innerText = `${monthNames[now.getMonth()]} Events`;
 
@@ -342,7 +329,6 @@
             upcoming.forEach(e => {
                 const dateOptions = { month: 'short', day: 'numeric' };
                 const timeOptions = { hour: '2-digit', minute: '2-digit' };
-                
                 let icon = '';
                 if (e.title.toLowerCase().includes('taco')) icon = '🌮 ';
                 if (e.title.toLowerCase().includes('band') || e.title.toLowerCase().includes('live')) icon = '🎸 ';
@@ -361,55 +347,17 @@
             });
 
         } catch (err) {
-            console.error("Calendar Error:", err);
-            container.innerHTML = '<p style="opacity:0.5;">Updating live feed... Visit our full calendar for details.</p>';
+            console.error("Sync Error:", err);
+            container.innerHTML = '<p style="opacity:0.5;">Updating live feed...</p>';
         }
     }
 
-            // Update Header to show current month
-            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            header.innerText = `${monthNames[now.getMonth()]} Events`;
-
-            container.innerHTML = ''; // Clear loading msg
-            upcoming.forEach(e => {
-                const dateOptions = { month: 'short', day: 'numeric' };
-                const timeOptions = { hour: '2-digit', minute: '2-digit' };
-                
-                // Add icon logic for specific keywords
-                let icon = '';
-                if (e.title.toLowerCase().includes('taco')) icon = '🌮 ';
-                if (e.title.toLowerCase().includes('band') || e.title.toLowerCase().includes('live')) icon = '🎸 ';
-                if (e.title.toLowerCase().includes('meeting') || e.title.toLowerCase().includes('fra')) icon = '⚓ ';
-
-                container.innerHTML += `
-                    <div class="dynamic-event-card">
-                        <span style="color:var(--gold); font-weight:bold; font-size:1.1rem;">
-                            ${e.start.toLocaleDateString('en-US', dateOptions)} | ${icon}${e.title}
-                        </span><br>
-                        <span style="font-size:0.9rem; opacity:0.8;">
-                            Starts at ${e.start.toLocaleTimeString('en-US', timeOptions)} • ${e.location}
-                        </span>
-                    </div>
-                `;
-            });
-
-        } catch (err) {
-            console.error("Calendar Error:", err);
-            // Fallback content if the fetch fails (CORS or Link issue)
-            container.innerHTML = '<p style="opacity:0.5;">Updating live feed... Visit our full calendar for details.</p>';
-        }
-    }
-
-    // Initialize both functions
     window.onload = function() { 
-        updateStatus(); 
         syncCalendar();
-        setInterval(updateStatus, 60000); 
+        // Refresh every minute to update the status bar automatically
+        setInterval(syncCalendar, 60000); 
     };
 </script>
 
 </body>
 </html>
-
-
-
