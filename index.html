@@ -306,7 +306,9 @@
                         location: event.location || 'MSC Duley Hall'
                     };
                 })
-                .filter(e => e.start >= now)
+                // 1. Must be a future event
+                // 2. EXCLUDE anything with "Bar:" in the title
+                .filter(e => e.start >= now && !e.title.includes('Bar:'))
                 .sort((a, b) => a.start - b.start)
                 .slice(0, 4);
 
@@ -359,4 +361,5 @@
 
 </body>
 </html>
+
 
