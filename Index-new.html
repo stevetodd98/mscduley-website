@@ -1,91 +1,364 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSC Duley | Home of FRA Branch 172</title>
+    <title>Military Services Club Duley | Home</title>
+    
+    <link rel="icon" type="image/png" href="msc-logo.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
+
     <style>
-        :root { --navy: #002147; --gold: #C5B358; --scarlet: #990000; }
+        :root { 
+            --navy: #002147; 
+            --gold: #C5B358; 
+            --white: #ffffff; 
+            --bright-gold: #ffd700; 
+            --fb-blue: #1877F2; 
+            --marine-scarlet: #990000;
+            --af-blue: #00308f;
+            --cg-blue: #005aa9;
+        }
         
         body { 
-            font-family: 'Times New Roman', Times, serif; 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
             margin: 0; 
-            background: linear-gradient(rgba(0,33,71,0.8), rgba(0,22,48,0.9)), url('background.jpg');
+            color: #fff; 
+            background: linear-gradient(rgba(0,33,71,0.6), rgba(0,22,48,0.8)), url('featured.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: #fff;
+            scroll-behavior: smooth;
         }
 
-        header { padding: 40px 20px; text-align: center; background: rgba(0,33,71,0.95); border-bottom: 5px solid var(--gold); }
+        /* LOGO STYLING */
+        .hero-logo { 
+            height: 120px; 
+            margin-bottom: 20px; 
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); 
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* TOP SCROLLING TICKER */
+        .ticker-wrap { background: var(--navy); color: var(--gold); padding: 12px 0; overflow: hidden; border-bottom: 2px solid var(--gold); position: relative; z-index: 2000; }
+        .ticker { white-space: nowrap; display: inline-block; animation: ticker 45s linear infinite; font-weight: bold; font-family: 'Courier New', monospace; font-size: 1.1rem; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* SMART STATUS BAR & STICKY NAV */
+        .status-bar { text-align: center; padding: 15px; font-weight: 900; font-size: 1.3rem; text-transform: uppercase; position: sticky; top: 0; z-index: 1000; transition: 0.5s; }
+        .open-now { background: var(--gold); color: var(--navy); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .closed-now { background: rgba(0, 0, 0, 0.9); color: #888; border-bottom: 1px solid var(--gold); }
+
+        /* HEADER */
+        .hero { padding: 60px 20px 40px 20px; text-align: center; }
+        .hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0; text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 5px 15px rgba(0,0,0,0.9); }
+        .hero p { font-size: 1.4rem; color: var(--gold); font-weight: bold; margin-top: 10px; }
+
+        /* MISSION SECTION */
+        .mission-box { display: block; width: 90%; max-width: 1100px; margin: 0 auto 40px auto; padding: 30px; background: rgba(255, 255, 255, 0.98); color: #111; border-radius: 25px; text-align: center; border-top: 10px solid var(--navy); box-shadow: 0 25px 50px rgba(0,0,0,0.5); position: relative; z-index: 10; }
+        .mission-box h2 { color: var(--navy); text-transform: uppercase; margin-top: 0; border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 5px; }
+
+        /* MAIN GLASS CONTENT */
+        .main-content { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.2); }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
         
-        /* NEW HEADER STYLE */
-        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
-        .header-link { color: var(--gold); text-decoration: none; transition: 0.3s; }
-        .header-link:hover { color: #fff; text-shadow: 0 0 10px var(--gold); }
+        .card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 60px; }
+        .feature-card { background: rgba(255, 255, 255, 0.98); color: #111; padding: 30px 20px; border-radius: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.3); transition: 0.4s ease; display: flex; flex-direction: column; align-items: center; justify-content: space-between; }
+        .feature-card:hover { transform: translateY(-12px) scale(1.02); }
+        .card-img { width: 100%; max-width: 150px; height: 100px; object-fit: contain; margin-bottom: 15px; }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .btn { display: inline-block; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 900; text-transform: uppercase; transition: 0.3s; width: 90%; margin-top: 10px; font-size: 0.85rem; border: none; cursor: pointer; }
+        .btn-navy { background: var(--navy); color: white; }
+        .btn-gold { background: var(--gold); color: var(--navy); }
+        .btn-fb { background: var(--fb-blue); color: white; }
+        .btn-scarlet { background: #990000; color: white; }
+        .btn:hover { filter: brightness(1.1); transform: scale(1.05); }
 
-        /* MISSION STATEMENT SECTION */
-        .mission-section {
-            background: rgba(255, 255, 255, 0.95);
-            color: #111;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 40px;
-            border-top: 8px solid var(--navy);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        section { background: rgba(0, 33, 71, 0.75); padding: 45px; border-radius: 25px; margin-bottom: 40px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h2 { color: var(--gold); font-size: 2rem; border-left: 12px solid var(--gold); padding-left: 20px; text-transform: uppercase; margin-top: 0; }
+
+        /* LEADERSHIP STYLES */
+        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+        .staff-box { padding: 15px; border-radius: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .staff-name { display: block; font-weight: bold; margin-bottom: 3px; }
+        .staff-box small { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
+
+        /* SERVICE THEMES */
+        .staff-navy { background: rgba(0, 33, 71, 0.9); border-bottom: 4px solid var(--gold); }
+        .staff-navy .staff-name { color: var(--gold); }
+        
+        .staff-marine { background: rgba(153, 0, 0, 0.9); border-bottom: 4px solid var(--bright-gold); }
+        .staff-marine .staff-name { color: var(--bright-gold); }
+
+        .staff-airforce { background: rgba(0, 48, 143, 0.9); border-bottom: 4px solid #C0C0C0; }
+        .staff-airforce .staff-name { color: #C0C0C0; }
+
+        .staff-coastguard { background: rgba(0, 90, 169, 0.9); border-bottom: 4px solid #ef3340; }
+        .staff-coastguard .staff-name { color: #fff; }
+
+        .staff-civilian { background: rgba(255, 255, 255, 0.1); border: 1px dashed rgba(255,255,255,0.3); }
+        .staff-civilian .staff-name { color: var(--white); }
+
+        .email-btn-small { color: var(--gold); font-size: 0.75rem; text-decoration: underline; margin-top: 5px; display: inline-block; }
+
+        .service-strip { padding: 50px 0; text-align: center; }
+        .service-strip img { height: 75px; margin: 15px; filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6)); }
+
+        footer { text-align: center; padding: 60px 20px; background: rgba(0,0,0,0.5); }
+        footer a { color: var(--gold); text-decoration: none; }
+
+        /* DYNAMIC EVENT CARD STYLING */
+        .dynamic-event-card {
+            padding: 20px; 
+            background: rgba(255,255,255,0.05); 
+            border-radius: 15px; 
+            border-left: 6px solid var(--gold); 
+            margin-bottom: 15px;
+            transition: 0.3s;
         }
-        .mission-section h2 { color: var(--navy); text-transform: uppercase; margin-top: 0; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px; }
-        .mission-section p { font-size: 1.15rem; line-height: 1.6; font-style: italic; }
-
-        /* CARD ROW */
-        .card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: rgba(0,33,71,0.9); padding: 30px; border-radius: 10px; border: 1px solid var(--gold); text-align: center; transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); background: var(--navy); }
-        .btn { display: inline-block; padding: 12px 24px; background: var(--gold); color: #000; text-decoration: none; font-weight: bold; border-radius: 5px; margin-top: 15px; }
-
-        footer { text-align: center; padding: 40px; background: rgba(0,33,71,0.95); border-top: 5px solid var(--gold); }
+        .dynamic-event-card:hover { background: rgba(255,255,255,0.1); }
     </style>
 </head>
 <body>
 
-<header>
-    <h1><a href="frabranch172/index.html" class="header-link">MSC Duley Home of the FRA Branch 172</a></h1>
-</header>
-
-<div class="container">
-    
-    <div class="mission-section">
-        <h2>Our Mission</h2>
-        <p>The mission of the Military Services Club Duley, as the home of FRA Branch 172, is to foster camaraderie and support by providing a member-driven club where fellowship, advocacy, and community engagement thrive for veterans, active-duty service members, and their families.</p>
+<div class="ticker-wrap">
+    <div class="ticker" id="live-ticker">
+    Syncing latest club news...
     </div>
+</div>
 
-    <div class="card-row">
-        <div class="card">
-            <h3>FRA Branch 172</h3>
-            <p>Advocating for the enlisted shipmates of the Navy, Marine Corps, and Coast Guard.</p>
-            <a href="frabranch172/index.html" class="btn">Branch Dashboard</a>
+<div id="live-status" class="status-bar">Syncing...</div>
+
+<header class="hero">
+    <img src="msc-logo.png" alt="MSC Duley Logo" class="hero-logo">
+    
+    <h1><a href="frabranch172/index.html" style="color: #C5B358; text-decoration: none;">MSC Duley Home of the FRA Branch 172</a></h1>
+    <p>Honoring Service | Building Community</p>
+</header>
+    
+<div class="mission-box">
+    <h2>Our Mission</h2>
+    <p style="font-size: 1.15rem; line-height: 1.6; font-style: italic; margin-top: 20px;">
+        The mission of the Military Services Club Duley, as the home of FRA Branch 172, is to foster camaraderie and support by providing a member-driven club where fellowship, advocacy, and community engagement thrive for veterans, active-duty service members, and their families.
+    </p>
+    <div style="margin-top: 15px; border-top: 1px solid #ddd; padding-top: 10px;">
+        <a href="club-history.html" style="color: var(--navy); font-weight: bold; text-decoration: underline; font-size: 1rem;">
+            📜 From 1977 Charter to 2021: The History of MSC Duley
+        </a>
+    </div>
+</div>
+    
+<div class="main-content">
+    <div class="container">
+        <div class="card-row">
+            <div class="feature-card">
+                <img src="msc-logo.png" alt="MSC Duley" class="card-img">
+                <h3>Join Us</h3>
+                <p>Camaraderie for Veterans and Military Families.</p>
+                <a href="join.html" class="btn btn-gold">How to Join</a>
+            </div>
+
+            <div class="feature-card">
+                <img src="msc-logo.png" alt="MSC Duley" class="card-img">
+                <h3>Schedule</h3>
+                <p>Check the latest events and bartender rotation.</p>
+                <a href="calendar.html" class="btn btn-navy">View Calendar</a>
+            </div>
+
+            <div class="feature-card">
+    <div style="font-size: 3rem; margin-bottom:10px;">📸</div>
+    <h3>Club Gallery</h3>
+    <p>View photos from our latest events and socials.</p>
+    <a href="https://mscduleyhome172.sharepoint.com/:f:/s/MSCDuleyLounge/IgC9etDTAe-7T7n7Mm7m5BHwAdMB5bYYonEtVvtejQh_tWs?e=nEVbex" target="_blank" class="btn btn-gold">View Photos</a>
+</div>
+
+            <div class="feature-card" style="border: 2px dashed var(--gold); background: #fdfdfd;">
+                <div style="font-size: 3rem; margin-bottom:10px;">📩</div>
+                <h3>Member Voice</h3>
+                <p>Have an idea or feedback for the club? Let us know.</p>
+                <a href="https://forms.gle/bcKQNRGk8f6SkYwP7" target="_blank" class="btn btn-scarlet">Submit Suggestion</a>
+            </div>
+
+            <div class="feature-card">
+                <div style="font-size: 3rem; margin-bottom:10px;">📍</div>
+                <h3>Visit Us</h3>
+                <p>400 Old York Hampton Hwy<br>Yorktown, VA 23692</p>
+                <a href="https://www.google.com/maps" target="_blank" class="btn btn-gold">Map & Directions</a>
+            </div>
+
+            <div class="feature-card">
+                <div style="font-size: 3rem; margin-bottom:10px;">💬</div>
+                <h3>Connect</h3>
+                <p>Follow us on Facebook for daily specials and news.</p>
+                <a href="https://www.facebook.com/profile.php?id=100085637943027" target="_blank" class="btn btn-fb">Facebook</a>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Club Amenities</h3>
-            <p>Explore the lounge, event spaces, and member facilities at the Duley.</p>
-            <a href="amenities.html" class="btn">Explore Facilities</a>
-        </div>
+        <section id="events-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px;">
+                <h2 id="events-header">Upcoming Events</h2>
+                <a href="calendar.html" style="color:var(--gold); text-decoration:underline; font-weight:bold;">FULL CALENDAR →</a>
+            </div>
 
-        <div class="card">
-            <h3>Membership</h3>
-            <p>Join the ranks. Review eligibility and apply for MSC Duley membership.</p>
-            <a href="membership.html" class="btn">Join the Club</a>
+            <div id="event-cards-container">
+                <p style="text-align:center; opacity:0.6;">Loading club schedule...</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Member Spotlight</h2>
+            <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+                <img src="spotlight.jpg" alt="Mickey" style="width: 200px; height: 200px; border-radius: 50%; border: 8px solid var(--gold); object-fit: cover; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: var(--gold); margin: 0; font-size: 2rem;">Imants 'Mickey' Baltgalvis</h3>
+                    <p><em>US Navy Submarines | Retired Senior Chief</em></p>
+                    <p>Highlighting Mickey for his dedication to the club. <strong>Valentine's Tip:</strong> Mickey loves white chocolate candies—bring him some on the 14th!</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Leadership</h2>
+            <div class="staff-grid">
+                <div class="staff-box staff-civilian">
+                    <span class="staff-name">Tiffani Bowman</span><small>Club Manager</small>
+                    <br><a href="mailto:tiffani.bowman@mscduley.org" class="email-btn-small">Email Manager</a>
+                </div>
+                
+                <div class="staff-box staff-navy"><span class="staff-name">Todd Dellostritto</span><small>Chairman</small></div>
+                <div class="staff-box staff-navy"><span class="staff-name">Jon Hardy</span><small>Vice Chairman</small></div>
+                <div class="staff-box staff-navy"><span class="staff-name">Ira Millen</span><small>Treasurer</small></div>
+                <div class="staff-box staff-coastguard"><span class="staff-name">Kendall Ryan</span><small>Secretary</small></div>
+                <div class="staff-box staff-airforce"><span class="staff-name">Larry Armstrong</span><small>Director</small></div>
+                <div class="staff-box staff-airforce"><span class="staff-name">Greg (Snoopy) Shultz</span><small>Director</small></div>
+                <div class="staff-box staff-marine"><span class="staff-name">Ted Imbasciani</span><small>Director</small></div>
+                <div class="staff-box staff-marine"><span class="staff-name">Juan Falcon</span><small>Director</small></div>
+                <div class="staff-box staff-navy"><span class="staff-name">Steve Todd</span><small>Director</small></div>
+            </div>
+        </section>
+
+        <div class="service-strip">
+            <img src="army.png" alt="Army"><img src="marines.png" alt="Marines"><img src="navy.png" alt="Navy">
+            <img src="airforce.png" alt="Air Force"><img src="coastguard.png" alt="Coast Guard"><img src="spaceforce.png" alt="Space Force">
         </div>
     </div>
 </div>
 
 <footer>
-    <p>MSC Duley | 400 Old York Hampton Hwy | Yorktown, VA 23692</p>
+    <p>400 Old York Hampton Hwy | Yorktown, VA 23692 | <a href="tel:7578988070">(757) 898-8070</a></p>
+    <p>Questions? <a href="mailto:Tiffani.Bowman@mscduley.org">tiffani.bowman@mscduley.org</a></p>
+    <p>© 2026 Military Services Club Duley | FRA Branch 172</p>
 </footer>
+
+<script>
+    async function syncCalendar() {
+        const icsUrl = 'https://steep-thunder-0851.mscduley-registrar.workers.dev/'; 
+        const container = document.getElementById('event-cards-container');
+        const header = document.getElementById('events-header');
+        const ticker = document.getElementById('live-ticker');
+        const statusDiv = document.getElementById('live-status');
+
+        try {
+            const response = await fetch(icsUrl);
+            const data = await response.text();
+            const jcalData = ICAL.parse(data);
+            const comp = new ICAL.Component(jcalData);
+            const vevents = comp.getAllSubcomponents('vevent');
+
+            const now = new Date();
+
+            const allEvents = vevents.map(v => {
+                const event = new ICAL.Event(v);
+                return {
+                    title: event.summary,
+                    start: event.startDate.toJSDate(),
+                    end: event.endDate.toJSDate(),
+                    location: event.location || 'MSC Duley Hall'
+                };
+            });
+
+            // --- 1. LIVE STATUS BAR LOGIC (FROM CALENDAR) ---
+            const activeShift = allEvents.find(e => 
+                e.title.includes('Bar:') && (now >= e.start && now <= e.end)
+            );
+
+            if (statusDiv) {
+                if (activeShift) {
+                    const bartenderName = activeShift.title.replace('Bar:', '').trim();
+                    statusDiv.className = "status-bar open-now";
+                    statusDiv.innerText = `📢 We are OPEN! Bartender on Duty: ${bartenderName}`;
+                } else {
+                    statusDiv.className = "status-bar closed-now";
+                    statusDiv.innerText = `🔒 Currently closed. See you at 2 PM!`;
+                }
+            }
+
+            // --- 2. PUBLIC EVENTS FILTER ---
+            const upcoming = allEvents
+                .filter(e => e.start >= now && !e.title.includes('Bar:'))
+                .sort((a, b) => a.start - b.start)
+                .slice(0, 4);
+
+            // --- 3. UPDATE TICKER ---
+            if (ticker && upcoming.length > 0) {
+                const tickerContent = upcoming
+                    .map(e => {
+                        const d = e.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                        let prefix = '📢 ';
+                        if (e.title.toLowerCase().includes('taco')) prefix = '🌮 ';
+                        if (e.title.toLowerCase().includes('band') || e.title.toLowerCase().includes('live')) prefix = '🎸 ';
+                        return `${prefix}${d.toUpperCase()}: ${e.title}`;
+                    })
+                    .join(' | ');
+                ticker.innerText = `${tickerContent} | *** MSC DULEY: HONORING SERVICE, BUILDING COMMUNITY *** | ${tickerContent}`;
+            }
+
+            // --- 4. UPDATE CARDS ---
+            if (upcoming.length === 0) {
+                container.innerHTML = '<p style="opacity:0.6;">No upcoming events scheduled.</p>';
+                return;
+            }
+
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            header.innerText = `${monthNames[now.getMonth()]} Events`;
+
+            container.innerHTML = ''; 
+            upcoming.forEach(e => {
+                const dateOptions = { month: 'short', day: 'numeric' };
+                const timeOptions = { hour: '2-digit', minute: '2-digit' };
+                let icon = '';
+                if (e.title.toLowerCase().includes('taco')) icon = '🌮 ';
+                if (e.title.toLowerCase().includes('band') || e.title.toLowerCase().includes('live')) icon = '🎸 ';
+                if (e.title.toLowerCase().includes('meeting') || e.title.toLowerCase().includes('fra')) icon = '⚓ ';
+
+                container.innerHTML += `
+                    <div class="dynamic-event-card">
+                        <span style="color:var(--gold); font-weight:bold; font-size:1.1rem;">
+                            ${e.start.toLocaleDateString('en-US', dateOptions)} | ${icon}${e.title}
+                        </span><br>
+                        <span style="font-size:0.9rem; opacity:0.8;">
+                            Starts at ${e.start.toLocaleTimeString('en-US', timeOptions)} • ${e.location}
+                        </span>
+                    </div>
+                `;
+            });
+
+        } catch (err) {
+            console.error("Sync Error:", err);
+            container.innerHTML = '<p style="opacity:0.5;">Updating live feed...</p>';
+        }
+    }
+
+    window.onload = function() { 
+        syncCalendar();
+        // Refresh every minute to update the status bar automatically
+        setInterval(syncCalendar, 60000); 
+    };
+</script>
 
 </body>
 </html>
