@@ -7,6 +7,8 @@
     
     <link rel="icon" type="image/png" href="msc-logo.png">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
+
     <style>
         :root { 
             --navy: #002147; 
@@ -107,6 +109,17 @@
 
         footer { text-align: center; padding: 60px 20px; background: rgba(0,0,0,0.5); }
         footer a { color: var(--gold); text-decoration: none; }
+
+        /* DYNAMIC EVENT CARD STYLING */
+        .dynamic-event-card {
+            padding: 20px; 
+            background: rgba(255,255,255,0.05); 
+            border-radius: 15px; 
+            border-left: 6px solid var(--gold); 
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+        .dynamic-event-card:hover { background: rgba(255,255,255,0.1); }
     </style>
 </head>
 <body>
@@ -184,36 +197,16 @@
             </div>
         </div>
 
-        <section>
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px;">
-        <h2>February Events</h2>
-        <a href="calendar.html" style="color:var(--gold); text-decoration:underline; font-weight:bold;">FULL CALENDAR →</a>
-    </div>
+        <section id="events-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px;">
+                <h2 id="events-header">Upcoming Events</h2>
+                <a href="calendar.html" style="color:var(--gold); text-decoration:underline; font-weight:bold;">FULL CALENDAR →</a>
+            </div>
 
-    <div style="padding: 20px; background: rgba(255,255,255,0.05); border-radius: 15px; border-left: 6px solid var(--gold); margin-bottom: 10px;">
-        <span style="color:var(--gold); font-weight:bold;">Feb 11 | Firefighters Lunch</span><br>1100-1400. Board Mtg 1700.
-    </div>
-
-    <div style="padding: 20px; background: rgba(255,255,255,0.05); border-radius: 15px; border-left: 6px solid #e91e63; display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-        <div>
-            <span style="color:#e91e63; font-weight:bold;">Feb 14 | Valentine's Day Special</span><br><br>
-            Crossing James Band @ 1800. Come enjoy live music!
-        </div>
-        <a href="valentine.jpg" target="_blank" style="background: #e91e63; color: white; padding: 5px 12px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 0.7rem; text-transform: uppercase; white-space: nowrap; border: 1px solid #e91e63; transition: 0.3s;">View Flyer</a>
-    </div>
-
-    <div style="padding: 20px; background: rgba(255,255,255,0.05); border-radius: 15px; border-left: 6px solid #ffcc00; display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-    <div>
-        <span style="color:#ffcc00; font-weight:bold;">Feb 15 | Daytona 500 Watch Party</span><br><br>
-        Green flag drops at 1413! Join us at the Club to catch the "Great American Race." Club is opening @ 1300! Race is moved up for broadcast starting at 1330.
-    </div>
-    <span style="font-size: 1.5rem;">🏁</span>
-</div>
-            
-    <div style="padding: 20px; background: rgba(255,255,255,0.05); border-radius: 15px; border-left: 6px solid var(--gold); margin-bottom: 10px;">
-        <span style="color:var(--gold); font-weight:bold;">Feb 17 | Taco Tuesday</span><br>5:30-7:00 PM. Shuffleboard @ 1830.
-    </div>
-</section>
+            <div id="event-cards-container">
+                <p style="text-align:center; opacity:0.6;">Loading club schedule...</p>
+            </div>
+        </section>
 
         <section>
             <h2>Member Spotlight</h2>
@@ -256,11 +249,12 @@
 
 <footer>
     <p>400 Old York Hampton Hwy | Yorktown, VA 23692 | <a href="tel:7578988070">(757) 898-8070</a></p>
-    <p>Questions? <a href="mailto:tiffani.mscduley@gmail.com">tiffani.mscduley@gmail.com</a></p>
+    <p>Questions? <a href="mailto:Tiffani.Bowman@mscduley.org">tiffani.bowman@mscduley.org</a></p>
     <p>© 2026 Military Services Club Duley | FRA Branch 172</p>
 </footer>
 
 <script>
+    // --- LIVE STATUS SCRIPT ---
     const weeklyStaff = { 0: "Valerie", 1: "Barbara", 2: "Barbara", 3: "Tiffani", 4: "Tiffani", 5: "Jen B.", 6: "Jan A." };
     const febOverrides = { 2: "Kandi", 3: "Kandi", 6: "Kandi", 7: "Kandi" };
     
@@ -285,16 +279,83 @@
             }
         }
     }
-    window.onload = function() { updateStatus(); setInterval(updateStatus, 60000); };
+
+    // --- DYNAMIC CALENDAR SYNC SCRIPT ---
+    async function syncCalendar() {
+        // !!! REPLACE THIS WITH YOUR ACTUAL ICS LINK !!!
+        const icsUrl = 'https://outlook.office365.com/owa/calendar/69615e9052614d46bf788811714640c0@mscduley.org/4edd2d1011334091b2869521675531737312910269638447435/calendar.ics'; 
+        const container = document.getElementById('event-cards-container');
+        const header = document.getElementById('events-header');
+
+        try {
+            const response = await fetch(icsUrl);
+            if (!response.ok) throw new Error('Network response was not ok');
+            const data = await response.text();
+            
+            const jcalData = ICAL.parse(data);
+            const comp = new ICAL.Component(jcalData);
+            const vevents = comp.getAllSubcomponents('vevent');
+
+            const now = new Date();
+            const upcoming = vevents
+                .map(v => {
+                    const event = new ICAL.Event(v);
+                    return {
+                        title: event.summary,
+                        start: event.startDate.toJSDate(),
+                        location: event.location || 'MSC Duley Hall'
+                    };
+                })
+                .filter(e => e.start >= now)
+                .sort((a, b) => a.start - b.start)
+                .slice(0, 4);
+
+            if (upcoming.length === 0) {
+                container.innerHTML = '<p style="opacity:0.6;">No upcoming events scheduled. Check back soon!</p>';
+                return;
+            }
+
+            // Update Header to show current month
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            header.innerText = `${monthNames[now.getMonth()]} Events`;
+
+            container.innerHTML = ''; // Clear loading msg
+            upcoming.forEach(e => {
+                const dateOptions = { month: 'short', day: 'numeric' };
+                const timeOptions = { hour: '2-digit', minute: '2-digit' };
+                
+                // Add icon logic for specific keywords
+                let icon = '';
+                if (e.title.toLowerCase().includes('taco')) icon = '🌮 ';
+                if (e.title.toLowerCase().includes('band') || e.title.toLowerCase().includes('live')) icon = '🎸 ';
+                if (e.title.toLowerCase().includes('meeting') || e.title.toLowerCase().includes('fra')) icon = '⚓ ';
+
+                container.innerHTML += `
+                    <div class="dynamic-event-card">
+                        <span style="color:var(--gold); font-weight:bold; font-size:1.1rem;">
+                            ${e.start.toLocaleDateString('en-US', dateOptions)} | ${icon}${e.title}
+                        </span><br>
+                        <span style="font-size:0.9rem; opacity:0.8;">
+                            Starts at ${e.start.toLocaleTimeString('en-US', timeOptions)} • ${e.location}
+                        </span>
+                    </div>
+                `;
+            });
+
+        } catch (err) {
+            console.error("Calendar Error:", err);
+            // Fallback content if the fetch fails (CORS or Link issue)
+            container.innerHTML = '<p style="opacity:0.5;">Updating live feed... Visit our full calendar for details.</p>';
+        }
+    }
+
+    // Initialize both functions
+    window.onload = function() { 
+        updateStatus(); 
+        syncCalendar();
+        setInterval(updateStatus, 60000); 
+    };
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
