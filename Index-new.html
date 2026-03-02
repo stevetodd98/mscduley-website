@@ -3,389 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Military Services Club Duley | Home</title>
-    
-    <link rel="icon" type="image/png" href="msc-logo.png">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
-
+    <title>MSC Duley | Staging - Our Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --navy: #002147; 
-            --gold: #C5B358; 
-            --white: #ffffff; 
-            --bright-gold: #ffd700; 
-            --fb-blue: #1877F2; 
-            --marine-scarlet: #990000;
-            --af-blue: #00308f;
-            --cg-blue: #005aa9;
-        }
-        
-        body { 
-            font-family: 'Segoe UI', Roboto, sans-serif; 
-            margin: 0; 
-            color: #fff; 
-            background: linear-gradient(rgba(0,33,71,0.6), rgba(0,22,48,0.8)), url('featured.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            scroll-behavior: smooth;
+        :root {
+            --navy: #002147;
+            --gold: #C5A059;
+            --scarlet: #990000;
+            --light-gray: #f9f9f9;
+            --text-dark: #333;
         }
 
-        /* LOGO STYLING */
-        .hero-logo { 
-            height: 120px; 
-            margin-bottom: 20px; 
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); 
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
         }
 
-        /* TOP SCROLLING TICKER */
-        .ticker-wrap { background: var(--navy); color: var(--gold); padding: 12px 0; overflow: hidden; border-bottom: 2px solid var(--gold); position: relative; z-index: 2000; }
-        .ticker { white-space: nowrap; display: inline-block; animation: ticker 45s linear infinite; font-weight: bold; font-family: 'Courier New', monospace; font-size: 1.1rem; }
-        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
 
-        /* SMART STATUS BAR & STICKY NAV */
-        .status-bar { text-align: center; padding: 15px; font-weight: 900; font-size: 1.3rem; text-transform: uppercase; position: sticky; top: 0; z-index: 1000; transition: 0.5s; }
-        .open-now { background: var(--gold); color: var(--navy); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .closed-now { background: rgba(0, 0, 0, 0.9); color: #888; border-bottom: 1px solid var(--gold); }
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,33,71,0.6), rgba(0,33,71,0.6)), url('images/hero-bg.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
 
-        /* HEADER */
-        .hero { padding: 60px 20px 40px 20px; text-align: center; }
-        .hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0; text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 5px 15px rgba(0,0,0,0.9); }
-        .hero p { font-size: 1.4rem; color: var(--gold); font-weight: bold; margin-top: 10px; }
+        .hero-content h1 { font-size: 3rem; margin: 0; letter-spacing: 2px; }
+        .hero-content p { font-size: 1.2rem; max-width: 600px; margin: 20px auto; }
 
-        /* MISSION SECTION */
-        .mission-box { display: block; width: 90%; max-width: 1100px; margin: 0 auto 40px auto; padding: 30px; background: rgba(255, 255, 255, 0.98); color: #111; border-radius: 25px; text-align: center; border-top: 10px solid var(--navy); box-shadow: 0 25px 50px rgba(0,0,0,0.5); position: relative; z-index: 10; }
-        .mission-box h2 { color: var(--navy); text-transform: uppercase; margin-top: 0; border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 5px; }
+        .story-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 10%;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
 
-        /* MAIN GLASS CONTENT */
-        .main-content { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.2); }
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
-        
-        .card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 60px; }
-        .feature-card { background: rgba(255, 255, 255, 0.98); color: #111; padding: 30px 20px; border-radius: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.3); transition: 0.4s ease; display: flex; flex-direction: column; align-items: center; justify-content: space-between; }
-        .feature-card:hover { transform: translateY(-12px) scale(1.02); }
-        .card-img { width: 100%; max-width: 150px; height: 100px; object-fit: contain; margin-bottom: 15px; }
+        .story-section:nth-child(even) { flex-direction: row-reverse; background-color: var(--light-gray); }
 
-        .btn { display: inline-block; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 900; text-transform: uppercase; transition: 0.3s; width: 90%; margin-top: 10px; font-size: 0.85rem; border: none; cursor: pointer; }
-        .btn-navy { background: var(--navy); color: white; }
-        .btn-gold { background: var(--gold); color: var(--navy); }
-        .btn-fb { background: var(--fb-blue); color: white; }
-        .btn-scarlet { background: #990000; color: white; }
-        .btn:hover { filter: brightness(1.1); transform: scale(1.05); }
+        .story-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+            background-color: #eee; /* Fallback if image fails */
+        }
 
-        section { background: rgba(0, 33, 71, 0.75); padding: 45px; border-radius: 25px; margin-bottom: 40px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        h2 { color: var(--gold); font-size: 2rem; border-left: 12px solid var(--gold); padding-left: 20px; text-transform: uppercase; margin-top: 0; }
+        .story-image img { width: 100%; display: block; height: auto; }
 
-        /* LEADERSHIP STYLES */
-        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
-        .staff-box { padding: 15px; border-radius: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
-        .staff-name { display: block; font-weight: bold; margin-bottom: 3px; }
-        .staff-box small { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
+        .story-text { flex: 1; min-width: 300px; }
+        .story-text h2 { color: var(--navy); border-left: 5px solid var(--gold); padding-left: 15px; }
 
-        /* SERVICE THEMES */
-        .staff-navy { background: rgba(0, 33, 71, 0.9); border-bottom: 4px solid var(--gold); }
-        .staff-navy .staff-name { color: var(--gold); }
-        
-        .staff-marine { background: rgba(153, 0, 0, 0.9); border-bottom: 4px solid var(--bright-gold); }
-        .staff-marine .staff-name { color: var(--bright-gold); }
+        .cta-bar {
+            background: var(--navy);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
 
-        .staff-airforce { background: rgba(0, 48, 143, 0.9); border-bottom: 4px solid #C0C0C0; }
-        .staff-airforce .staff-name { color: #C0C0C0; }
-
-        .staff-coastguard { background: rgba(0, 90, 169, 0.9); border-bottom: 4px solid #ef3340; }
-        .staff-coastguard .staff-name { color: #fff; }
-
-        .staff-civilian { background: rgba(255, 255, 255, 0.1); border: 1px dashed rgba(255,255,255,0.3); }
-        .staff-civilian .staff-name { color: var(--white); }
-
-        .email-btn-small { color: var(--gold); font-size: 0.75rem; text-decoration: underline; margin-top: 5px; display: inline-block; }
-
-        .service-strip { padding: 50px 0; text-align: center; }
-        .service-strip img { height: 75px; margin: 15px; filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6)); }
-
-        footer { text-align: center; padding: 60px 20px; background: rgba(0,0,0,0.5); }
-        footer a { color: var(--gold); text-decoration: none; }
-
-        /* DYNAMIC EVENT CARD STYLING */
-        .dynamic-event-card {
-            padding: 20px; 
-            background: rgba(255,255,255,0.05); 
-            border-radius: 15px; 
-            border-left: 6px solid var(--gold); 
-            margin-bottom: 15px;
+        .btn-gold {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 2px;
             transition: 0.3s;
         }
-        .dynamic-event-card:hover { background: rgba(255,255,255,0.1); }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .story-section { padding: 40px 5%; }
+        }
     </style>
 </head>
 <body>
 
-<div class="ticker-wrap">
-    <div class="ticker" id="live-ticker">
-    Syncing latest club news...
-    </div>
-</div>
-
-<div id="live-status" class="status-bar">Syncing...</div>
-
-<header class="hero">
-    <img src="msc-logo.png" alt="MSC Duley Logo" class="hero-logo">
-    
-    <h1><a href="frabranch172/index.html" style="color: #C5B358; text-decoration: none;">MSC Duley Home of the FRA Branch 172</a></h1>
-    <p>Honoring Service | Building Community</p>
-</header>
-    
-<div class="mission-box">
-    <h2>Our Mission</h2>
-    <p style="font-size: 1.15rem; line-height: 1.6; font-style: italic; margin-top: 20px;">
-        The mission of the Military Services Club Duley, as the home of FRA Branch 172, is to foster camaraderie and support by providing a member-driven club where fellowship, advocacy, and community engagement thrive for veterans, active-duty service members, and their families.
-    </p>
-    <div style="margin-top: 15px; border-top: 1px solid #ddd; padding-top: 10px;">
-        <a href="club-history.html" style="color: var(--navy); font-weight: bold; text-decoration: underline; font-size: 1rem;">
-            📜 From 1977 Charter to 2021: The History of MSC Duley
-        </a>
-    </div>
-</div>
-    
-<div class="main-content">
-    <div class="container">
-        <div class="card-row">
-            <div class="feature-card">
-                <img src="msc-logo.png" alt="MSC Duley" class="card-img">
-                <h3>Join Us</h3>
-                <p>Camaraderie for Veterans and Military Families.</p>
-                <a href="join.html" class="btn btn-gold">How to Join</a>
-            </div>
-
-            <div class="feature-card">
-                <img src="msc-logo.png" alt="MSC Duley" class="card-img">
-                <h3>Schedule</h3>
-                <p>Check the latest events and bartender rotation.</p>
-                <a href="calendar.html" class="btn btn-navy">View Calendar</a>
-            </div>
-
-            <div class="feature-card">
-    <div style="font-size: 3rem; margin-bottom:10px;">📸</div>
-    <h3>Club Gallery</h3>
-    <p>View photos from our events or share your own shots with the club!</p>
-    
-    <a href="https://mscduleyhome172.sharepoint.com/:f:/s/MSCDuleyLounge/IgC9etDTAe-7T7n7Mm7m5BHwAdMB5bYYonEtVvtejQh_tWs?e=vwYslA" target="_blank" class="btn btn-navy">View Photos</a>
-    
-    <a href="https://mscduleyhome172.sharepoint.com/:f:/s/MSCDuleyLounge/IgB5kDfHPiVKTZMfQ_FZse-rAYpdD36J5DIAofbGTfhp42k?e=dP3xbj" target="_blank" class="btn btn-gold">Upload Photos</a>
-</div>
-
-            <div class="feature-card" style="border: 2px dashed var(--gold); background: #fdfdfd;">
-                <div style="font-size: 3rem; margin-bottom:10px;">📩</div>
-                <h3>Member Voice</h3>
-                <p>Have an idea or feedback for the club? Let us know.</p>
-                <a href="https://forms.gle/bcKQNRGk8f6SkYwP7" target="_blank" class="btn btn-scarlet">Submit Suggestion</a>
-            </div>
-
-            <div class="feature-card">
-                <div style="font-size: 3rem; margin-bottom:10px;">📍</div>
-                <h3>Visit Us</h3>
-                <p>400 Old York Hampton Hwy<br>Yorktown, VA 23692</p>
-                <a href="https://www.google.com/maps" target="_blank" class="btn btn-gold">Map & Directions</a>
-            </div>
-
-            <div class="feature-card">
-                <div style="font-size: 3rem; margin-bottom:10px;">💬</div>
-                <h3>Connect</h3>
-                <p>Follow us on Facebook for daily specials and news.</p>
-                <a href="https://www.facebook.com/profile.php?id=100085637943027" target="_blank" class="btn btn-fb">Facebook</a>
-            </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Legacy. Our Community.</h1>
+            <p>Serving the Veterans of the Virginia Peninsula since 1984.</p>
         </div>
+    </section>
 
-        <section id="events-section">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px;">
-                <h2 id="events-header">Upcoming Events</h2>
-                <a href="calendar.html" style="color:var(--gold); text-decoration:underline; font-weight:bold;">FULL CALENDAR →</a>
-            </div>
-
-            <div id="event-cards-container">
-                <p style="text-align:center; opacity:0.6;">Loading club schedule...</p>
-            </div>
-        </section>
-
-       <section class="story-section" style="background-color: #fff;">
+    <section class="story-section">
         <div class="story-image">
-    <img src="images/vietnam_service_medal.png" alt="Vietnam Service Medal - Welcome Home March 29th">
-</div>
+            <img src="images/club-front.jpg" alt="MSC Duley Building">
+        </div>
+        <div class="story-text">
+            <h2>Our Story</h2>
+            <p>The Military Services Club Duley (MSC Duley) was founded on the principles of camaraderie and service. Like the communities of Yorktown and Newport News, we are rooted in history and dedicated to the future of our local veterans.</p>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="story-image">
+            <img src="images/vietnam-service-medal.jpg" alt="Vietnam Service Medal">
+        </div>
         <div class="story-text">
             <h2 style="color: var(--scarlet); border-left: 5px solid var(--gold);">Welcome Home: March 29th</h2>
-            <p><strong>National Vietnam War Veterans Day</strong> is a time for us to offer the "Welcome Home" that many of our brothers and sisters never received. At MSC Duley, we take this month to honor the courage and sacrifice of those who served during the Vietnam War.</p>
-            <p>To our Vietnam Veterans here in Newport News and Yorktown: We thank you for your service, your resilience, and your continued dedication to this club. Join us on March 29th as we recognize our local heroes.</p>
+            <p><strong>National Vietnam War Veterans Day</strong> is a time for us to offer the "Welcome Home" that many of our brothers and sisters never received. At MSC Duley, we honor the courage and sacrifice of those who served during the Vietnam War.</p>
+            <p>To our Vietnam Veterans here in Newport News, Hampton, and Yorktown: We thank you for your service and resilience. Join us on March 29th as we recognize our local heroes.</p>
             <a href="#events" style="color: var(--navy); font-weight: bold; text-decoration: none;">View Recognition Events &rarr;</a>
         </div>
     </section>
 
-        <section id="community-impact" style="text-align: center;">
-    <h2>Giving Back to the Peninsula</h2>
-    <p style="font-style: italic; opacity: 0.9;">
-        A portion of every Pull Tab, Queen of Hearts, and Electronic Gaming play goes directly back to 
-        Veterans and Community programs in Yorktown, Newport News, Hampton, and Williamsburg.
-    </p>
-
-    <div style="display: flex; justify-content: center; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
-        <div style="background: rgba(0,33,71,0.8); border: 2px solid var(--gold); padding: 25px; border-radius: 20px; min-width: 250px;">
-            <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Pull Tabs & QoH (10%)</span>
-            <h3 style="font-size: 2.5rem; color: var(--gold); margin: 10px 0;">$4,000</h3>
-            <p style="font-size: 0.85rem; opacity: 0.7;">2026 Community Contribution</p>
+    <section class="story-section">
+        <div class="story-image">
+            <img src="images/lounge-interior.jpg" alt="Member Lounge">
         </div>
-
-        <div style="background: rgba(153,0,0,0.8); border: 2px solid var(--bright-gold); padding: 25px; border-radius: 20px; min-width: 250px;">
-            <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Electronic Gaming (20%)</span>
-            <h3 style="font-size: 2.5rem; color: var(--bright-gold); margin: 10px 0;">$16,000</h3>
-            <p style="font-size: 0.85rem; opacity: 0.7;">2026 Community Contribution</p>
+        <div class="story-text">
+            <h2>The Member Experience</h2>
+            <p>Our facility is more than a building; it's a sanctuary for those who served. From our interactive Member Hub where we share our collective history through photos, to our weekly events, we provide a place for veterans to connect.</p>
         </div>
-    </div>
+    </section>
 
-    <div style="background: var(--gold); color: var(--navy); padding: 15px; border-radius: 50px; display: inline-block; font-weight: 900; font-size: 1.2rem; margin-bottom: 20px;">
-        TOTAL LOCAL IMPACT: $20,000
-    </div>
-</section>
-        <section>
-            <h2>Leadership</h2>
-            <div class="staff-grid">
-                <div class="staff-box staff-civilian">
-                    <span class="staff-name">Tiffani Bowman</span><small>Club Manager</small>
-                    <br><a href="mailto:tiffani.bowman@mscduley.org" class="email-btn-small">Email Manager</a>
-                </div>
-                
-                <div class="staff-box staff-navy"><span class="staff-name">Todd Dellostritto</span><small>Chairman</small></div>
-                <div class="staff-box staff-navy"><span class="staff-name">Jon Hardy</span><small>Vice Chairman</small></div>
-                <div class="staff-box staff-navy"><span class="staff-name">Ira Millen</span><small>Treasurer</small></div>
-                <div class="staff-box staff-coastguard"><span class="staff-name">Kendall Ryan</span><small>Secretary</small></div>
-                <div class="staff-box staff-airforce"><span class="staff-name">Larry Armstrong</span><small>Director</small></div>
-                <div class="staff-box staff-airforce"><span class="staff-name">Greg (Snoopy) Shultz</span><small>Director</small></div>
-                <div class="staff-box staff-marine"><span class="staff-name">Ted Imbasciani</span><small>Director</small></div>
-                <div class="staff-box staff-marine"><span class="staff-name">Juan Falcon</span><small>Director</small></div>
-                <div class="staff-box staff-navy"><span class="staff-name">Steve Todd</span><small>Director</small></div>
-            </div>
-        </section>
-
-        <div class="service-strip">
-            <img src="army.png" alt="Army"><img src="marines.png" alt="Marines"><img src="navy.png" alt="Navy">
-            <img src="airforce.png" alt="Air Force"><img src="coastguard.png" alt="Coast Guard"><img src="spaceforce.png" alt="Space Force">
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>400 Old York Hampton Hwy | Yorktown, VA 23692 | <a href="tel:7578988070">(757) 898-8070</a></p>
-    <p>Questions? <a href="mailto:Tiffani.Bowman@mscduley.org">tiffani.bowman@mscduley.org</a></p>
-    <p>© 2026 Military Services Club Duley | FRA Branch 172</p>
-</footer>
-
-<script>
-    async function syncCalendar() {
-        const icsUrl = 'https://steep-thunder-0851.mscduley-registrar.workers.dev/'; 
-        const container = document.getElementById('event-cards-container');
-        const header = document.getElementById('events-header');
-        const ticker = document.getElementById('live-ticker');
-        const statusDiv = document.getElementById('live-status');
-
-        try {
-            const response = await fetch(icsUrl);
-            const data = await response.text();
-            const jcalData = ICAL.parse(data);
-            const comp = new ICAL.Component(jcalData);
-            const vevents = comp.getAllSubcomponents('vevent');
-
-            const now = new Date();
-
-            const allEvents = vevents.map(v => {
-                const event = new ICAL.Event(v);
-                return {
-                    title: event.summary,
-                    start: event.startDate.toJSDate(),
-                    end: event.endDate.toJSDate(),
-                    location: event.location || 'MSC Duley Hall'
-                };
-            });
-
-            // --- 1. LIVE STATUS BAR LOGIC (FROM CALENDAR) ---
-            const activeShift = allEvents.find(e => 
-                e.title.includes('Bar:') && (now >= e.start && now <= e.end)
-            );
-
-            if (statusDiv) {
-                if (activeShift) {
-                    const bartenderName = activeShift.title.replace('Bar:', '').trim();
-                    statusDiv.className = "status-bar open-now";
-                    statusDiv.innerText = `📢 We are OPEN! Bartender on Duty: ${bartenderName}`;
-                } else {
-                    statusDiv.className = "status-bar closed-now";
-                    statusDiv.innerText = `🔒 Currently closed. See you at 2 PM!`;
-                }
-            }
-
-            // --- 2. PUBLIC EVENTS FILTER ---
-            const upcoming = allEvents
-                .filter(e => e.start >= now && !e.title.includes('Bar:'))
-                .sort((a, b) => a.start - b.start)
-                .slice(0, 4);
-
-            // --- 3. UPDATE TICKER ---
-            if (ticker && upcoming.length > 0) {
-                const tickerContent = upcoming
-                    .map(e => {
-                        const d = e.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-                        let prefix = '📢 ';
-                        if (e.title.toLowerCase().includes('taco')) prefix = '🌮 ';
-                        if (e.title.toLowerCase().includes('band') || e.title.toLowerCase().includes('live')) prefix = '🎸 ';
-                        return `${prefix}${d.toUpperCase()}: ${e.title}`;
-                    })
-                    .join(' | ');
-                ticker.innerText = `${tickerContent} | *** MSC DULEY: HONORING SERVICE, BUILDING COMMUNITY *** | ${tickerContent}`;
-            }
-
-            // --- 4. UPDATE CARDS ---
-            if (upcoming.length === 0) {
-                container.innerHTML = '<p style="opacity:0.6;">No upcoming events scheduled.</p>';
-                return;
-            }
-
-            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            header.innerText = `${monthNames[now.getMonth()]} Events`;
-
-            container.innerHTML = ''; 
-            upcoming.forEach(e => {
-                const dateOptions = { month: 'short', day: 'numeric' };
-                const timeOptions = { hour: '2-digit', minute: '2-digit' };
-                let icon = '';
-                if (e.title.toLowerCase().includes('taco')) icon = '🌮 ';
-                if (e.title.toLowerCase().includes('band') || e.title.toLowerCase().includes('live')) icon = '🎸 ';
-                if (e.title.toLowerCase().includes('meeting') || e.title.toLowerCase().includes('fra')) icon = '⚓ ';
-
-                container.innerHTML += `
-                    <div class="dynamic-event-card">
-                        <span style="color:var(--gold); font-weight:bold; font-size:1.1rem;">
-                            ${e.start.toLocaleDateString('en-US', dateOptions)} | ${icon}${e.title}
-                        </span><br>
-                        <span style="font-size:0.9rem; opacity:0.8;">
-                            Starts at ${e.start.toLocaleTimeString('en-US', timeOptions)} • ${e.location}
-                        </span>
-                    </div>
-                `;
-            });
-
-        } catch (err) {
-            console.error("Sync Error:", err);
-            container.innerHTML = '<p style="opacity:0.5;">Updating live feed...</p>';
-        }
-    }
-
-    window.onload = function() { 
-        syncCalendar();
-        // Refresh every minute to update the status bar automatically
-        setInterval(syncCalendar, 60000); 
-    };
-</script>
+    <section class="cta-bar">
+        <h3>Ready to see the Hub?</h3>
+        <p>Access the member-only photo gallery and document portal.</p>
+        <a href="YOUR_SHAREPOINT_LINK" class="btn-gold">Enter Member Lounge</a>
+    </section>
 
 </body>
 </html>
