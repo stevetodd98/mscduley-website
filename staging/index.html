@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSC Duley | Staging - Our Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #002147;
+            --gold: #C5A059;
+            --scarlet: #990000;
+            --light-gray: #f9f9f9;
+            --text-dark: #333;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,33,71,0.6), rgba(0,33,71,0.6)), url('your-hero-image.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 { font-size: 3rem; margin: 0; letter-spacing: 2px; }
+        .hero-content p { font-size: 1.2rem; max-width: 600px; margin: 20px auto; }
+
+        /* --- STORY SECTIONS (PCI-NSN Style) --- */
+        .story-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 10%;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .story-section:nth-child(even) { flex-direction: row-reverse; background-color: var(--light-gray); }
+
+        .story-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 4px; /* PCI uses sharper corners for a formal look */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .story-image img { width: 100%; display: block; }
+
+        .story-text { flex: 1; min-width: 300px; }
+        .story-text h2 { color: var(--navy); border-left: 5px solid var(--gold); padding-left: 15px; }
+
+        /* --- CALL TO ACTION --- */
+        .cta-bar {
+            background: var(--navy);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .btn-gold:hover { background: #b08e4a; }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .story-section { padding: 40px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Legacy. Our Community.</h1>
+            <p>Serving the Veterans of the Virginia Peninsula since [Year].</p>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="story-image">
+            <img src="club-front.jpg" alt="MSC Duley Building">
+        </div>
+        <div class="story-text">
+            <h2>Our Story</h2>
+            <p>The Military Services Club Duley (MSC Duley) was founded on the principles of camaraderie and service. Like the communities of Yorktown and Newport News, we are rooted in history and dedicated to the future of our local veterans.</p>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="story-image">
+            <img src="lounge-interior.jpg" alt="Member Lounge">
+        </div>
+        <div class="story-text">
+            <h2>The Member Experience</h2>
+            <p>Our facility is more than a building; it's a sanctuary for those who served. From our interactive Member Hub where we share our collective history through photos, to our weekly events, we provide a place for veterans to connect.</p>
+        </div>
+    </section>
+
+    <section class="cta-bar">
+        <h3>Ready to see the Hub?</h3>
+        <p>Access the member-only photo gallery and document portal.</p>
+        <a href="YOUR_SHAREPOINT_LINK" class="btn-gold">Enter Member Lounge</a>
+    </section>
+
+</body>
+</html>
