@@ -270,18 +270,43 @@
             const comp = new ICAL.Component(jcalData);
             const vevents = comp.getAllSubcomponents('vevent');
             const now = new Date();
+            const twoWeeksOut = new Date();
+            twoWeeksOut.setDate(now.getDate() + 14);
 
-            const allEvents = vevents.map(v => {
+            let expandedEvents = [];
+
+            vevents.forEach(v => {
                 const event = new ICAL.Event(v);
-                return {
-                    title: event.summary,
-                    start: event.startDate.toJSDate(),
-                    end: event.endDate.toJSDate(),
-                    location: event.location || 'MSC Duley Hall'
-                };
+                
+                // If it's a recurring event, find occurrences in our window
+                if (v.hasProperty('rrule')) {
+                    const iter = event.iterator();
+                    let next;
+                    while ((next = iter.next()) && next.toJSDate() <= twoWeeksOut) {
+                        const occurrence = next.toJSDate();
+                        // Only add if the occurrence ends in the future
+                        if (occurrence >= new Date(now.setHours(0,0,0,0))) {
+                            expandedEvents.push({
+                                title: event.summary,
+                                start: occurrence,
+                                end: new Date(occurrence.getTime() + event.duration.toSeconds() * 1000),
+                                location: event.location || 'MSC Duley Hall'
+                            });
+                        }
+                    }
+                } else {
+                    // Standard single event
+                    expandedEvents.push({
+                        title: event.summary,
+                        start: event.startDate.toJSDate(),
+                        end: event.endDate.toJSDate(),
+                        location: event.location || 'MSC Duley Hall'
+                    });
+                }
             });
 
-            const activeShift = allEvents.find(e => e.title.includes('Bar:') && (now >= e.start && now <= e.end));
+            // 1. Handle the Live Status Bar (Open/Closed)
+            const activeShift = expandedEvents.find(e => e.title.includes('Bar:') && (now >= e.start && now <= e.end));
             if (statusDiv) {
                 if (activeShift) {
                     const bartenderName = activeShift.title.replace('Bar:', '').trim();
@@ -294,16 +319,19 @@
                 }
             }
 
-            const upcoming = allEvents
+            // 2. Filter and Sort Upcoming Events (excluding Bar shifts)
+            const upcoming = expandedEvents
                 .filter(e => e.start >= now && !e.title.includes('Bar:'))
                 .sort((a, b) => a.start - b.start)
                 .slice(0, 4);
 
+            // 3. Update Scrolling Ticker
             if (ticker && upcoming.length > 0) {
                 const tickerContent = upcoming.map(e => `${e.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase()}: ${e.title}`).join(' | ');
                 ticker.innerText = `📢 ${tickerContent} | *** MSC DULEY: HONORING SERVICE *** | ${tickerContent}`;
             }
 
+            // 4. Update Event Cards
             if (upcoming.length === 0) {
                 container.innerHTML = '<p style="opacity:0.6;">No upcoming events scheduled.</p>';
             } else {
@@ -312,8 +340,11 @@
                 container.innerHTML = ''; 
                 upcoming.forEach(e => {
                     let icon = '';
-                    if (e.title.toLowerCase().includes('taco')) icon = '🌮 ';
-                    if (e.title.toLowerCase().includes('band') || e.title.toLowerCase().includes('live')) icon = '🎸 ';
+                    const titleLower = e.title.toLowerCase();
+                    if (titleLower.includes('taco')) icon = '🌮 ';
+                    if (titleLower.includes('band') || titleLower.includes('live')) icon = '🎸 ';
+                    if (titleLower.includes('barstooler')) icon = '🪑 ';
+                    
                     container.innerHTML += `
                         <div class="dynamic-event-card">
                             <span style="color:var(--gold); font-weight:bold; font-size:1.1rem;">${e.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} | ${icon}${e.title}</span><br>
