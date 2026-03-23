@@ -278,13 +278,13 @@
             vevents.forEach(v => {
                 const event = new ICAL.Event(v);
                 
-                // If it's a recurring event, find occurrences in our window
+                // RECURRING EVENTS FIX
                 if (v.hasProperty('rrule')) {
                     const iter = event.iterator();
                     let next;
                     while ((next = iter.next()) && next.toJSDate() <= twoWeeksOut) {
                         const occurrence = next.toJSDate();
-                        // Only add if the occurrence ends in the future
+                        // Normalizing for local time comparison
                         if (occurrence >= new Date(now.setHours(0,0,0,0))) {
                             expandedEvents.push({
                                 title: event.summary,
@@ -305,38 +305,45 @@
                 }
             });
 
-            // 1. Handle the Live Status Bar (Open/Closed)
-            const activeShift = expandedEvents.find(e => e.title.includes('Bar:') && (now >= e.start && now <= e.end));
+            // Re-set 'now' to current time for precise shift checking
+            const currentTime = new Date();
+
+            // 1. IMPROVED SHIFT CHECK (Case-insensitive and Timezone aware)
+            const activeShift = expandedEvents.find(e => {
+                const isBarShift = e.title.toLowerCase().includes('bar:');
+                const isHappeningNow = (currentTime >= e.start && currentTime <= e.end);
+                return isBarShift && isHappeningNow;
+            });
+
             if (statusDiv) {
                 if (activeShift) {
-                    const bartenderName = activeShift.title.replace('Bar:', '').trim();
+                    // Regex to strip 'Bar:' or 'BAR:' regardless of case
+                    const bartenderName = activeShift.title.replace(/bar:?/i, '').trim();
                     statusDiv.className = "status-bar open-now";
                     statusDiv.innerText = `📢 We are OPEN! Bartender on Duty: ${bartenderName}`;
                 } else {
                     statusDiv.className = "status-bar closed-now";
                     statusDiv.innerText = `🔒 Currently closed. See you at 2 PM!`;
-                    //statusDiv.innerText = `❄️ Closed for Inclement Weather. Stay Safe!`;
                 }
             }
 
-            // 2. Filter and Sort Upcoming Events (excluding Bar shifts)
+            // 2. Filter and Sort Upcoming Events
             const upcoming = expandedEvents
-                .filter(e => e.start >= now && !e.title.includes('Bar:'))
+                .filter(e => e.start >= currentTime && !e.title.toLowerCase().includes('bar:'))
                 .sort((a, b) => a.start - b.start)
                 .slice(0, 4);
 
-            // 3. Update Scrolling Ticker
+            // ... Keep the Ticker and Event Card logic the same ...
             if (ticker && upcoming.length > 0) {
                 const tickerContent = upcoming.map(e => `${e.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase()}: ${e.title}`).join(' | ');
                 ticker.innerText = `📢 ${tickerContent} | *** MSC DULEY: HONORING SERVICE *** | ${tickerContent}`;
             }
 
-            // 4. Update Event Cards
             if (upcoming.length === 0) {
                 container.innerHTML = '<p style="opacity:0.6;">No upcoming events scheduled.</p>';
             } else {
                 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                header.innerText = `${monthNames[now.getMonth()]} Events`;
+                header.innerText = `${monthNames[currentTime.getMonth()]} Events`;
                 container.innerHTML = ''; 
                 upcoming.forEach(e => {
                     let icon = '';
