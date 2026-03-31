@@ -87,7 +87,7 @@
 
 <div class="ticker-wrap">
     <div class="ticker">
-        ⚓ LATEST: National FRA Convention 2026 scheduled | ⚖️ LEGISLATIVE ALERT: Protecting Enlisted Benefits | 📅 NEXT MEETING: <span id="ticker-meeting-date">Calculating...</span> | 🎁 SUPPORT: New donation partners added...
+        ⚓ TOMORROW: Happy 133rd Birthday to the U.S. Navy Chief Petty Officer! | ⚖️ LEGISLATIVE ALERT: Protecting Enlisted Benefits | 📅 NEXT MEETING: <span id="ticker-meeting-date">Calculating...</span> | 🎁 SUPPORT: New donation partners added...
     </div>
 </div>
 
@@ -156,7 +156,16 @@
                 <a href="gallery/gallery.html" class="btn" style="background: var(--marine-scarlet); margin-bottom: 12px;">📸 Photo Gallery</a>
                 <a href="donations.html" class="btn" style="background: var(--fra-gold); color: #002147;">🎁 Support & Donations</a>
             </div>
-            
+
+            <div class="side-card" style="border-top: 10px solid var(--fra-gold); background: #fffaf0;">
+                <h3 id="history-month-title" style="color: var(--navy-blue); margin-top: 0;">April Navy History</h3>
+                <div id="history-content" style="font-size: 0.95rem; line-height: 1.5; color: #333;">
+                    Loading Naval milestones...
+                </div>
+                <hr style="border: 0; border-top: 1px solid #ddd; margin: 15px 0;">
+                <a href="history-navy.html" style="color: var(--navy-blue); font-weight: bold; text-decoration: none; font-size: 0.85rem;">⚓ View Full Naval Timeline</a>
+            </div>
+
             <div class="side-card" style="border-top: 10px solid var(--coast-guard-blue);">
                 <h3>Legislative Advocacy</h3>
                 <p>The premier voice on Capitol Hill for sea service enlisted personnel.</p>
@@ -182,17 +191,13 @@
     function getSecondMonday(month, year) {
         let d = new Date(year, month, 1);
         let day = d.getDay();
-        // Calculate the first Monday
         let firstMonday = (day <= 1) ? (1 - day + 1) : (8 - day + 1);
-        // Add 7 days to get the second Monday
         return new Date(year, month, firstMonday + 7);
     }
 
     function updateMeetingDate() {
         const now = new Date();
         let meetingDate = getSecondMonday(now.getMonth(), now.getFullYear());
-
-        // Cutoff is set to 8 PM (20:00) of the meeting day
         const cutoff = new Date(meetingDate);
         cutoff.setHours(20, 0, 0);
 
@@ -203,12 +208,45 @@
         const options = { weekday: 'long', month: 'short', day: 'numeric' };
         const dateString = meetingDate.toLocaleDateString('en-US', options);
         
-        // Update both the main card and the ticker
         document.getElementById('next-meeting-date').innerHTML = dateString + " @ 1800";
         document.getElementById('ticker-meeting-date').innerHTML = dateString + " @ 1800";
     }
 
+    // NAVAL HISTORY DATABASE
+    const navalHistory = {
+        3: { // April (JS Index 3)
+            title: "April Naval History",
+            highlights: `
+                <p><strong>Apr 1:</strong> 133rd Birthday of the <strong>Navy Chief Petty Officer</strong> (Est. 1893).</p>
+                <p><strong>Apr 10:</strong> 63rd Anniversary of the loss of <strong>USS Thresher (SSN-593)</strong>. We honor the 129 souls lost.</p>
+                <p><strong>Apr 11:</strong> 126th Birthday of the <strong>U.S. Submarine Force</strong> (The Silent Service).</p>
+                <p><strong>Apr 18:</strong> Anniversary of the <strong>Doolittle Raid</strong> (1942), launched from the USS Hornet.</p>
+            `
+        },
+        4: { // May (JS Index 4)
+            title: "May Naval History",
+            highlights: `
+                <p><strong>May 8:</strong> V-E Day (1945) - Victory in Europe.</p>
+                <p><strong>May 13:</strong> Birthday of the <strong>Navy Nurse Corps</strong> (Est. 1908).</p>
+                <p><strong>May 22:</strong> National Maritime Day.</p>
+            `
+        }
+    };
+
+    function updateNavalHistory() {
+        const now = new Date();
+        const currentMonth = now.getMonth();
+        const history = navalHistory[currentMonth];
+
+        if (history) {
+            document.getElementById('history-month-title').innerHTML = history.title;
+            document.getElementById('history-content').innerHTML = history.highlights;
+        }
+    }
+
+    // Initialize all functions
     updateMeetingDate();
+    updateNavalHistory();
 </script>
 
 </body>
