@@ -214,7 +214,15 @@
 
     // NAVAL HISTORY DATABASE
     const navalHistory = {
-        3: { // April (JS Index 3)
+        2: { // MARCH
+            title: "March Naval History",
+            highlights: `
+                <p><strong>Mar 5:</strong> Seabees Birthday (Est. 1942). "We Build, We Fight."</p>
+                <p><strong>Mar 13:</strong> Birthday of USMC Women's Reserve (1943).</p>
+                <p><strong>Mar 27:</strong> Birthday of the U.S. Navy (Act of 1794).</p>
+            `
+        },
+        3: { // APRIL
             title: "April Naval History",
             highlights: `
                 <p><strong>Apr 1:</strong> 133rd Birthday of the <strong>Navy Chief Petty Officer</strong> (Est. 1893).</p>
@@ -223,10 +231,9 @@
                 <p><strong>Apr 18:</strong> Anniversary of the <strong>Doolittle Raid</strong> (1942), launched from the USS Hornet.</p>
             `
         },
-        4: { // May (JS Index 4)
+        4: { // MAY
             title: "May Naval History",
             highlights: `
-                <p><strong>May 8:</strong> V-E Day (1945) - Victory in Europe.</p>
                 <p><strong>May 13:</strong> Birthday of the <strong>Navy Nurse Corps</strong> (Est. 1908).</p>
                 <p><strong>May 22:</strong> National Maritime Day.</p>
             `
@@ -238,9 +245,14 @@
         const currentMonth = now.getMonth();
         const history = navalHistory[currentMonth];
 
+        // SME Fix: If the month exists in our list, show it. 
+        // Otherwise, show a general Navy pride message.
         if (history) {
             document.getElementById('history-month-title').innerHTML = history.title;
             document.getElementById('history-content').innerHTML = history.highlights;
+        } else {
+            document.getElementById('history-month-title').innerHTML = "Naval Heritage";
+            document.getElementById('history-content').innerHTML = "<p>Honoring the service and sacrifice of our Navy, Marine Corps, and Coast Guard shipmates every day.</p>";
         }
     }
 
