@@ -203,41 +203,41 @@
             </div>
         </section>
 
-        <section id="navy-spotlight">
-            <h2 style="border-left: 12px solid var(--gold); padding-left: 20px;">April Navy Honors</h2>
+        <section id="may-honors-spotlight">
+            <h2 style="border-left: 12px solid var(--gold); padding-left: 20px;">May Military Honors</h2>
             <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap; margin-top: 20px;">
-                <img src="images/navy_anchor.jpeg" alt="Navy CPO Anchors" style="width: 250px; border-radius: 10px; border: 4px solid var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <img src="memorial-day.jpg" alt="Memorial Honors" style="width: 250px; border-radius: 10px; border: 4px solid var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
                 
                 <div style="flex: 1; min-width: 300px;">
-                    <h3 style="color: var(--gold); margin: 0; font-size: 2rem;">"Ask The Chief"</h3>
+                    <h3 style="color: var(--gold); margin: 0; font-size: 2rem;">"Remember and Honor"</h3>
                     <p style="margin-top: 15px; line-height: 1.6;">
-                        <strong>April 1st</strong>, marks the 133rd Birthday of the <strong>U.S. Navy Chief Petty Officer</strong>. Since 1893, the Chiefs Mess has been the backbone of our Navy. To our club's "Goats"—thank you for your leadership and for keeping the deckplates running.
+                        <strong>May 25th</strong> marks <strong>Memorial Day</strong>. Originally known as Decoration Day, it is a day of solemn remembrance for those who died while serving in the U.S. Armed Forces. At MSC Duley, we honor their ultimate sacrifice and the families they left behind.
                     </p>
-                    <p>We also look ahead to <strong>April 11th</strong>, celebrating 126 years of the <strong>U.S. Submarine Force</strong>—the Silent Service that has patrolled the depths since the USS Holland (SS-1) joined the fleet in 1900.</p>
+                    <p>May is also <strong>National Military Appreciation Month</strong>, a time to recognize the contributions of all who have served and continue to serve in our nation's uniform.</p>
                     
                     <div style="background-color: rgba(0, 33, 71, 0.8); padding: 20px; border-left: 5px solid #C5B358; margin-top: 25px; border-radius: 0 8px 8px 0;">
-                        <h4 style="color: #C5B358; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">April Naval Remembrance</h4>
+                        <h4 style="color: #C5B358; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">May Military Remembrance</h4>
                         <p style="color: white; font-size: 0.95rem; line-height: 1.6; margin: 0;">
-                            <strong style="color: #C5B358;">Apr 1:</strong> Navy Chief Petty Officer Birthday <br>
-                            <strong style="color: #C5B358;">Apr 10:</strong> 63rd Anniversary of the loss of <strong>USS Thresher (SSN-593)</strong>. We honor the 129 souls lost and the SUBSAFE legacy they left behind. <br>
-                            <strong style="color: #C5B358;">Apr 11:</strong> U.S. Navy Submarine Birthday
+                            <strong style="color: #C5B358;">May 8:</strong> V-E Day (Victory in Europe), marking the end of WWII in Europe in 1945. <br>
+                            <strong style="color: #C5B358;">May 16:</strong> Armed Forces Day – honoring those currently serving in all branches. <br>
+                            <strong style="color: #C5B358;">May 25:</strong> Memorial Day (Observed)
                         </p>
                     </div>
                     <div style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--gold); margin-top: 20px;">
-                <h4 style="color: var(--gold); margin-top: 0; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">April Joint Force History</h4>
-                <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0;">
-                    <li>🛡️ **Apr 4, 1949:** NATO is formally established to preserve European peace.</li>
-                    <li>🕊️ **Apr 6, 1991:** Iraq officially accepts the ceasefire ending the Persian Gulf War.</li>
-                    <li>🚀 **Apr 14, 1948:** The Air Force Reserve is officially established.</li>
-                    <li>🎖️ **Apr 23, 1908:** The Army Reserve is founded (118th Birthday).</li>
-                </ul>
-                <a href="history.html" style="color: var(--gold); font-weight: bold; text-decoration: underline; font-size: 0.85rem; display: inline-block; margin-top: 15px;">View Full April History Timeline →</a>
-            </div>
+                        <h4 style="color: var(--gold); margin-top: 0; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">May Joint Force History</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0;">
+                            <li>🎖️ **May 11, 1945:** The aircraft carrier USS Bunker Hill is hit by two Kamikazes off Okinawa.</li>
+                            <li>🛡️ **May 15, 1942:** The Women's Army Auxiliary Corps (WAAC) is established.</li>
+                            <li>⚓ **May 22:** National Maritime Day – recognizing the U.S. Merchant Marine's service.</li>
+                            <li>🎗️ **May 24, 1918:** General Pershing arrives in France during WWI.</li>
+                        </ul>
+                        <a href="history.html" style="color: var(--gold); font-weight: bold; text-decoration: underline; font-size: 0.85rem; display: inline-block; margin-top: 15px;">View Full History Timeline →</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section id="leadership">
             <h2>Leadership</h2>
             <div class="staff-grid">
                 <div class="staff-box staff-civilian">
@@ -296,7 +296,6 @@
                     let next;
                     while ((next = iter.next()) && next.toJSDate() <= twoWeeksOut) {
                         const occurrence = next.toJSDate();
-                        // Normalizing for local time comparison (start of today)
                         const startOfToday = new Date(now);
                         startOfToday.setHours(0,0,0,0);
 
@@ -321,7 +320,6 @@
 
             const currentTime = new Date();
 
-            // 1. Bar Shift Check
             const activeShift = expandedEvents.find(e => {
                 const titleLower = e.title.toLowerCase();
                 const isBarShift = titleLower.includes('bar') && !titleLower.includes('stooler');
@@ -339,24 +337,20 @@
                 }
             }
 
-            // 2. FIXED FILTER: Show events if they end in the future (today's events stay visible)
             const upcoming = expandedEvents
                 .filter(e => {
                     const isNotBarShift = !e.title.toLowerCase().includes('bar:');
-                    // This ensures "All Day" events show up all day long
                     const hasNotEnded = e.end >= currentTime || e.start >= currentTime;
                     return isNotBarShift && hasNotEnded;
                 })
                 .sort((a, b) => a.start - b.start)
-                .slice(0, 6); // Increased to 6 so multiple events don't hide each other
+                .slice(0, 6);
 
-            // 3. Ticker Update
             if (ticker && upcoming.length > 0) {
                 const tickerContent = upcoming.map(e => `${e.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase()}: ${e.title}`).join(' | ');
                 ticker.innerText = `📢 ${tickerContent} | *** MSC DULEY: HONORING SERVICE *** | ${tickerContent}`;
             }
 
-            // 4. Event Card Display
             if (upcoming.length === 0) {
                 container.innerHTML = '<p style="opacity:0.6;">No upcoming events scheduled.</p>';
             } else {
@@ -370,6 +364,7 @@
                     if (titleLower.includes('band') || titleLower.includes('live')) icon = '🎸 ';
                     if (titleLower.includes('barstooler')) icon = '🪑 ';
                     if (titleLower.includes('chief') || titleLower.includes('birthday')) icon = '⚓ ';
+                    if (titleLower.includes('memorial')) icon = '🎖️ ';
                     
                     container.innerHTML += `
                         <div class="dynamic-event-card">
