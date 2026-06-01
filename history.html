@@ -6,72 +6,153 @@
     <title>Military History | MSC Duley</title>
     <link rel="stylesheet" href="style.css"> 
     <style>
-        body { 
-            background: #002147; 
-            color: white; 
-            font-family: 'Segoe UI', sans-serif; 
-            padding: 40px; 
-        }
-        .history-container { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            background: rgba(255,255,255,0.1); 
-            padding: 40px; 
-            border-radius: 25px; 
-            border: 1px solid #C5B358; 
-        }
-        h1 { 
-            color: #C5B358; 
-            text-transform: uppercase; 
-            border-bottom: 3px solid #C5B358; 
-            padding-bottom: 10px; 
-        }
-        .event-date { 
-            color: #ffd700; 
-            font-weight: bold; 
-            font-size: 1.2rem; 
-            display: block; 
-            margin-top: 25px; 
-        }
-        p { 
-            line-height: 1.7; 
-            opacity: 0.9; 
-        }
-        .back-btn { 
-            display: inline-block; 
-            margin-bottom: 20px; 
-            color: #C5B358; 
-            text-decoration: none; 
-            font-weight: bold; 
-        }
+        body { background: #002147; color: white; font-family: 'Segoe UI', sans-serif; padding: 40px; }
+        .history-container { max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 40px; border-radius: 25px; border: 1px solid #C5B358; }
+        h1 { color: #C5B358; text-transform: uppercase; border-bottom: 3px solid #C5B358; padding-bottom: 10px; }
+        .event-date { color: #ffd700; font-weight: bold; font-size: 1.2rem; display: block; margin-top: 25px; }
+        p { line-height: 1.7; opacity: 0.9; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: #C5B358; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="history-container">
         <a href="index.html" class="back-btn">← Back to Home</a>
-        <h1>June in Military History</h1>
-        <p>Honoring the defining moments, turning points, and branch birthdays celebrated across our Joint Forces this month.</p>
-
-        <span class="event-date">June 3-7, 1942: The Battle of Midway</span>
-        <p>Widely regarded as the turning point of the war in the Pacific. Thanks to brilliant codebreaking and the unmatched courage of Navy aviators, American carrier forces dealt a decisive blow to the Imperial Japanese Navy, sinking four of their frontline aircraft carriers and altering the course of World War II.</p>
-
-        <span class="event-date">June 6, 1944: D-Day (Operation Overlord)</span>
-        <p>Marking its 82nd Anniversary, the largest amphibious invasion in world history commenced as Allied forces stormed the fortified beaches of Normandy, France. Securing a bloody but crucial foothold, the bravery of these soldiers, sailors, and airmen began the liberation of Western Europe from Nazi control.</p>
-
-        <span class="event-date">June 14, 1775: U.S. Army Birthday & Flag Day</span>
-        <p>The U.S. Army celebrates 251 years of dedicated service to the nation. Established by the Continental Congress in 1775 under General George Washington, the Army stands as America's oldest military branch. Coinciding with Flag Day, it highlights the enduring defense of our national colors.</p>
-
-        <span class="event-date">June 17, 1898: Navy Hospital Corps Founded</span>
-        <p>President William McKinley signed the bill establishing the U.S. Navy Hospital Corps. From World War battlefields to modern operations, Corpsmen have served alongside sailors and Marines, earning more citations for gallantry than any other corps in the Navy.</p>
-
-        <span class="event-date">June 22, 1944: The G.I. Bill is Signed</span>
-        <p>President Franklin D. Roosevelt signed the historic Servicemen's Readjustment Act. This landmark legislation completely transformed American society, providing returning World War II veterans with critical access to higher education, home loans, and unemployment insurance.</p>
-
-        <span class="event-date">June 23, 1939: U.S. Coast Guard Auxiliary Birthday</span>
-        <p>Originally created as the Coast Guard Reserve and later redesignated as the Auxiliary, this vital volunteer force supports recreational boating safety and maritime security, augmenting active-duty missions across our coastal waterways.</p>
-
-        <span class="event-date">June 25, 1950: The Korean War Begins</span>
-        <p>North Korean forces launched a massive surprise attack across the 38th Parallel, invading South Korea. This aggression prompted immediate United Nations intervention, drawing American forces into a bitter, three-year conflict to stop the spread of communism.</p>
+        <h1 id="month-title">Military History</h1>
+        <p>A monthly look at the battles, breakthroughs, and branch honors that shaped our Armed Forces.</p>
+        
+        <div id="history-content">
+            <!-- Dynamic data will load here automatically based on the current calendar month -->
+        </div>
     </div>
+
+<script>
+    // FULL AUTO-ROTATING MILITARY HISTORY DATABASE
+    const militaryHistory = {
+        0: { // January
+            title: "January in Military History",
+            events: [
+                { date: "Jan 17, 1781", desc: "Battle of Cowpens (Revolutionary War victory)." },
+                { date: "Jan 30, 1968", desc: "The Tet Offensive begins in Vietnam." }
+            ]
+        },
+        1: { // February
+            title: "February in Military History",
+            events: [
+                { date: "Feb 19, 1945", desc: "U.S. Marines land on Iwo Jima." },
+                { date: "Feb 23, 1991", desc: "Desert Storm ground war phase begins." }
+            ]
+        },
+        2: { // March
+            title: "March in Military History",
+            events: [
+                { date: "Mar 5, 1942", desc: "U.S. Navy Seabees Birthday — 'We Build, We Fight.'" },
+                { date: "Mar 25", desc: "National Medal of Honor Day." },
+                { date: "Mar 27, 1794", desc: "The Naval Act of 1794 authorizes construction of the first six U.S. frigates, founding the modern Navy." }
+            ]
+        },
+        3: { // April
+            title: "April in Military History",
+            events: [
+                { date: "Apr 1, 1893", desc: "U.S. Navy Chief Petty Officer rank is officially established." },
+                { date: "Apr 4, 1949", desc: "NATO is formally established to secure collective defense." },
+                { date: "Apr 10, 1963", desc: "Loss of the submarine USS Thresher (SSN-593) and all 129 souls aboard, launching the SUBSAFE safety program." },
+                { date: "Apr 11, 1900", desc: "The U.S. Navy Submarine Force is officially established." },
+                { date: "Apr 18, 1942", desc: "The Doolittle Raid strikes Tokyo using Army B-25 bombers launched from the deck of the USS Hornet." },
+                { date: "Apr 23, 1908", desc: "The U.S. Army Reserve is officially founded." }
+            ]
+        },
+        4: { // May
+            title: "May in Military History",
+            events: [
+                { date: "May 8, 1945", desc: "V-E Day (Victory in Europe) marks the formal end of World War II combat operations in Europe." },
+                { date: "May 11, 1945", desc: "The aircraft carrier USS Bunker Hill is hit by two Kamikazes off Okinawa; crew damage control efforts save the ship." },
+                { date: "May 15, 1942", desc: "The Women's Army Auxiliary Corps (WAAC) is officially created." },
+                { date: "May 16", desc: "Armed Forces Day — honoring those currently serving across all branches." },
+                { date: "May 22", desc: "National Maritime Day — honoring the vital wartime service of the U.S. Merchant Marine." },
+                { date: "May 25", desc: "Memorial Day (Observed) — a solemn time of remembrance for all fallen service members." }
+            ]
+        },
+        5: { // June
+            title: "June in Military History",
+            events: [
+                { date: "June 3-7, 1942", desc: "The Battle of Midway — Navy aviators sink four Japanese aircraft carriers, securing the decisive turning point of the Pacific War." },
+                { date: "June 6, 1944", desc: "D-Day (Operation Overlord) — Allied forces launch the largest amphibious assault in history onto the beaches of Normandy, France." },
+                { date: "June 7, 2006", desc: "U.S. Air Force F-16s eliminate Abu Musab al-Zarqawi, the leader of Al-Qaeda in Iraq, near Baqubah." },
+                { date: "June 14, 1775", desc: "U.S. Army Birthday & Flag Day — Celebrating 251 years since the Continental Congress founded the Army." },
+                { date: "June 17, 1898", desc: "The U.S. Navy Hospital Corps is officially established by President William McKinley." },
+                { date: "June 22, 1944", desc: "President Roosevelt signs the Servicemen's Readjustment Act, creating the historic G.I. Bill." },
+                { date: "June 23, 1939", desc: "The U.S. Coast Guard Auxiliary is founded to manage recreational safety and coastal security missions." },
+                { date: "June 25, 1950", desc: "The Korean War begins as North Korean forces launch a massive surprise attack across the 38th Parallel." },
+                { date: "June 28, 2005", desc: "Operation Red Wings in Afghanistan — We honor the ultimate sacrifice of the 19 brave SEALs and Army Night Stalkers lost that day." }
+            ]
+        },
+        6: { // July
+            title: "July in Military History",
+            events: [
+                { date: "July 4, 1776", desc: "Declaration of Independence." },
+                { date: "July 27, 1953", desc: "The Korean War armistice is signed, establishing the DMZ." }
+            ]
+        },
+        7: { // August
+            title: "August in Military History",
+            events: [
+                { date: "Aug 4, 1790", desc: "U.S. Coast Guard Birthday (originally founded as the Revenue Marine)." },
+                { date: "Aug 14, 1945", desc: "V-J Day (Victory over Japan) brings an end to WWII fighting." }
+            ]
+        },
+        8: { // September
+            title: "September in Military History",
+            events: [
+                { date: "Sep 2, 1945", desc: "WWII formal surrender documents are signed aboard the battleship USS Missouri." },
+                { date: "Sep 18, 1947", desc: "U.S. Air Force Birthday — officially separated into an independent branch." }
+            ]
+        },
+        9: { // October
+            title: "October in Military History",
+            events: [
+                { date: "Oct 13, 1775", desc: "U.S. Navy Birthday — established by the Continental Congress." },
+                { date: "Oct 23, 1983", desc: "Beirut Barracks Bombing — 241 American service members, primarily Marines, are lost." }
+            ]
+        },
+        10: { // November
+            title: "November in Military History",
+            events: [
+                { date: "Nov 10, 1775", desc: "U.S. Marine Corps Birthday — founded at Tun Tavern in Philadelphia." },
+                { date: "Nov 11", desc: "Veterans Day — celebrating all who have worn the uniform of the United States." }
+            ]
+        },
+        11: { // December
+            title: "December in Military History",
+            events: [
+                { date: "Dec 7, 1941", desc: "Pearl Harbor Remembrance Day — 'A date which will live in infamy.'" },
+                { date: "Dec 13, 1636", desc: "National Guard Birthday — established via the earliest colonial militia regiments." },
+                { date: "Dec 20, 2019", desc: "U.S. Space Force Birthday — established as our newest branch of service." }
+            ]
+        }
+    };
+
+    function loadMonthlyHistory() {
+        const now = new Date();
+        const currentMonth = now.getMonth(); // 0 = Jan, 5 = June, etc.
+        const historyData = militaryHistory[currentMonth];
+        
+        const container = document.getElementById('history-content');
+        const titleHeader = document.getElementById('month-title');
+
+        if (historyData) {
+            titleHeader.innerText = historyData.title;
+            container.innerHTML = historyData.events.map(e => `
+                <span class="event-date">${e.date}</span>
+                <p>${e.desc}</p>
+            `).join('');
+        } else {
+            titleHeader.innerText = "Military History Archive";
+            container.innerHTML = "<p>History for this month is currently being curated. Check back soon!</p>";
+        }
+    }
+
+    // Run the loader when the window finishes mounting
+    window.onload = loadMonthlyHistory;
+</script>
 </body>
 </html>
