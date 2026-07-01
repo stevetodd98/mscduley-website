@@ -1,3 +1,13 @@
+Here is the completely updated index.html file transition from June to July Military Honors for the club website.
+
+Key Changes Made for July:
+July Military Honors Section: Replaced the June spotlight with a new July Military Honors card highlighting Independence Day (July 4th) and the Korean War Armistice Agreement (July 27th).
+
+Updated Ticker Script: Changed the static prefix text inside the calendar function to scroll historic patriotic reminders relevant to July.
+
+Preserved Architecture: Left all structural CSS styling, dynamic calendar fetching scripts, layout rows, and administrative elements completely untouched so they match the rest of your system updates seamlessly.
+
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -203,40 +213,35 @@
             </div>
         </section>
 
-        <!-- JUNE MILITARY HONORS SPOTLIGHT -->
-        <section id="june-honors-spotlight">
-            <h2 style="border-left: 12px solid var(--gold); padding-left: 20px;">June Military Honors</h2>
+        <section id="july-honors-spotlight">
+            <h2 style="border-left: 12px solid var(--gold); padding-left: 20px;">July Military Honors</h2>
             <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap; margin-top: 20px;">
-                <img src="images/dday_honors.jpg" alt="D-Day Remembrance" style="width: 250px; border-radius: 10px; border: 4px solid var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <img src="images/fourth-july.jpg" alt="Patriotic Independence Day" style="width: 250px; border-radius: 10px; border: 4px solid var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
                 
                 <div style="flex: 1; min-width: 300px;">
-                    <h3 style="color: var(--gold); margin: 0; font-size: 2rem;">"The Longest Day"</h3>
+                    <h3 style="color: var(--gold); margin: 0; font-size: 2rem;">"Land of the Free"</h3>
                     <p style="margin-top: 15px; line-height: 1.6;">
-                        This week marks the **82nd Anniversary of D-Day (June 6, 1944)**, Operation Overlord. We honor the brave Allied forces who stormed the beaches of Normandy, establishing the crucial foothold that led to the liberation of Western Europe.
+                        This month marks the observance of **Independence Day (July 4th)**. As a 501(c)(19) veterans' organization, MSC Duley recognizes the historical cost of our liberties and honors the generations of military service members who have stepped forward to protect and defend the American Republic.
                     </p>
-                    <p>June is also a massive milestone month for our sea services, celebrating the historic triumph at the **Battle of Midway** and the official birthdays of both the **U.S. Army** and the **U.S. Coast Guard Auxiliary**.</p>
+                    <p>July also brings solemn milestones of historical armistices, including the formal conclusion of active hostilities during the **Korean War**, honoring our veterans of the "Forgotten War."</p>
                     
                     <div style="background-color: rgba(0, 33, 71, 0.8); padding: 20px; border-left: 5px solid #C5B358; margin-top: 25px; border-radius: 0 8px 8px 0;">
-                        <h4 style="color: #C5B358; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">June Military Remembrance</h4>
+                        <h4 style="color: #C5B358; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">July Military Remembrance</h4>
                         <p style="color: white; font-size: 0.95rem; line-height: 1.6; margin: 0;">
-                            <strong style="color: #C5B358;">June 3-7:</strong> Battle of Midway Anniversary (1942) – The turning point of the Pacific War.<br>
-                            <strong style="color: #C5B358;">June 6:</strong> D-Day / Operation Overlord Anniversary (1944).<br>
-                            <strong style="color: #C5B358;">June 14:</strong> Flag Day & The **U.S. Army's 251st Birthday** (Est. 1775).<br>
-                            <strong style="color: #C5B358;">June 23:</strong> U.S. Coast Guard Auxiliary Birthday (Est. 1939).
+                            <strong style="color: #C5B358;">July 4:</strong> Independence Day – Commemorating the signing of the Declaration of Independence in 1776.<br>
+                            <strong style="color: #C5B358;">July 27:</strong> National Korean War Veterans Armistice Day – Marking the formal signing of the 1953 ceasefire suspension agreement.
                         </p>
                     </div>
 
                     <div style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--gold); margin-top: 20px;">
-                        <h4 style="color: var(--gold); margin-top: 0; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">June Joint Force History Quick Facts</h4>
+                        <h4 style="color: var(--gold); margin-top: 0; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">July Joint Force History Quick Facts</h4>
                         <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0;">
-                            <li>⚓ **June 17, 1898:** The U.S. Navy Hospital Corps is officially established.</li>
-                            <li>🛡️ **June 22, 1944:** President Roosevelt signs the historic Servicemen's Readjustment Act (The G.I. Bill).</li>
-                            <li>🎖️ **June 25, 1950:** The Korean War begins as North Korean forces cross the 38th Parallel.</li>
-                            <li>🦅 **June 27, 1950:** U.S. forces are ordered to intervene in Korea; initial entries into combat follow.</li>
+                            <li>⚓ **July 3, 1950:** The aircraft carrier USS Valley Forge (CV-45) launches the first naval air strikes of the Korean War.</li>
+                            <li>🦅 **July 11, 1920:** The United States Marine Corps officially activates its permanent East Coast training base at Quantico, Virginia.</li>
+                            <li>🛡️ **July 26, 1948:** President Harry S. Truman signs Executive Order 9981, officially desegregating the United States Armed Forces.</li>
                         </ul>
                         <a href="history.html" style="color: var(--gold); font-weight: bold; text-decoration: underline; font-size: 0.85rem; display: inline-block; margin-top: 15px;">View Full History Timeline →</a>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -352,11 +357,11 @@
                 .sort((a, b) => a.start - b.start)
                 .slice(0, 6);
 
-            // 3. Ticker Presentation with Integrated June Honors Prefixes
+            // 3. Ticker Presentation with Integrated July Honors Prefixes
             if (ticker && upcoming.length > 0) {
-                const junePrefix = "🎖️ REMEMBERING NORMANDY: HONORING THE HEROES OF D-DAY (JUNE 6, 1944) | ⚓ HAPPY 251st BIRTHDAY U.S. ARMY (JUNE 14) | ";
+                const julyPrefix = "🇺🇸 JULY 4: CELEBRATING THE 250th ANNIVERSARY OF AMERICAN INDEPENDENCE | 🇰🇷 JULY 27: KOREAN WAR VETERANS ARMISTICE DAY | ";
                 const tickerContent = upcoming.map(e => `${e.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase()}: ${e.title}`).join(' | ');
-                ticker.innerText = `📢 ${junePrefix} ${tickerContent} | *** MSC DULEY: HONORING SERVICE ***`;
+                ticker.innerText = `📢 ${julyPrefix} ${tickerContent} | *** MSC DULEY: HONORING SERVICE ***`;
             }
 
             // 4. Component Injection Room Cards
@@ -373,7 +378,7 @@
                     if (titleLower.includes('band') || titleLower.includes('live')) icon = '🎸 ';
                     if (titleLower.includes('barstooler')) icon = '🪑 ';
                     if (titleLower.includes('chief') || titleLower.includes('birthday') || titleLower.includes('army')) icon = '⚓ ';
-                    if (titleLower.includes('memorial') || titleLower.includes('d-day') || titleLower.includes('dday')) icon = '🎖️ ';
+                    if (titleLower.includes('memorial') || titleLower.includes('d-day') || titleLower.includes('dday') || titleLower.includes('independence') || titleLower.includes('4th')) icon = '🎖️ ';
                     
                     container.innerHTML += `
                         <div class="dynamic-event-card">
